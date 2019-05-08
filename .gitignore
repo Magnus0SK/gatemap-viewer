@@ -1,0 +1,7 @@
+$ cat gitignore
+
+# ignore gate images
+gates/*.png
+
+# ignore compiled python code
+*.pyc

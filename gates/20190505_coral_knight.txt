@@ -1,0 +1,23 @@
+r,dd x,tunnel fiend poison
+l,dd freeze,tunnel fiend x,tunnel fiend freeze
+r,dd x,arena fiend fire,dd fire,tunnel fiend fire
+x,decon shock
+r,den shock,tunnel beast shock
+?,tv,tunnel gremlin shock,tunnel construct shock,graveyard
+l,dd fire,tunnel fiend fire
+r,tunnel fiend fire,dd fire
+l,tunnel slime fire,lichen fire
+?,tv,compound fiend fire,tunnel fiend fire,graveyard
+?,tv,csk freeze,tunnel undead freeze,graveyard
+r,den freeze,compound fiend freeze
+l,lichen freeze,tunnel slime freeze
+r,tunnel beast freeze,compound construct freeze,den freeze
+r,darkcity,darkcity,darkcity
+l,darkcity,darkcity
+x,darkcity_boss
+?,tv,tunnel fiend poison,graveyard
+x,fsc
+x,fsc
+x,fsc
+x,fsc
+x,vana

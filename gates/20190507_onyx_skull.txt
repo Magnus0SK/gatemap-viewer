@@ -1,0 +1,23 @@
+l,aurora,aurora,aurora,aurora
+r,den fire,den x
+x,tunnel beast x
+l,lichen fire,tunnel slime fire
+r,tunnel construct fire,decon fire
+l,tunnel construct fire,decon fire
+x,tunnel construct poison
+?,tv,compound gremlin poison,tunnel gremlin poison,graveyard
+r,den poison,tunnel beast poison,compound gremlin poison
+l,concrete,concrete
+r,compound construct shock,tunnel slime shock,compound gremlin x
+x,rjp
+x,rjp
+x,jk
+l,tunnel slime fire,arena slime fire
+r,starlight,starlight
+l,starlight,starlight
+x,starlight_boss
+l,csk x,tunnel undead shock
+r,arena undead x,tunnel undead poison,csk poison,compound gremlin x
+l,concrete,concrete
+?,tv,csk freeze,graveyard
+r,tunnel undead x,csk shock,csk x

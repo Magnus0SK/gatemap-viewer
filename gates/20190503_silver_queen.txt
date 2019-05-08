@@ -1,0 +1,23 @@
+r,den poison,tunnel beast poison
+l,tunnel construct poison,decon poison
+r,den poison,arena beast poison
+x,gww
+x,gww
+x,snarb
+l,tunnel slime shock,tunnel slime x
+r,starlight,starlight
+?,tv,compound fiend x,graveyard
+l,lichen shock,compound gremlin x
+?,tv,dd freeze,dd x,graveyard
+r,dd x,tunnel fiend x,tunnel fiend poison,dd poison
+l,darkcity,darkcity
+x,darkcity
+l,tunnel construct freeze,decon freeze
+x,lichen freeze
+?,tv,tunnel gremlin freeze,graveyard
+l,tunnel beast freeze,compound gremlin freeze
+l,lichen fire,tunnel slime fire
+?,tv,compound gremlin fire,graveyard
+r,tunnel slime fire,compound construct fire
+l,lichen fire,tunnel slime fire
+r,compound gremlin fire,tunnel gremlin fire
