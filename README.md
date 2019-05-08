@@ -1,8 +1,13 @@
 # gatemap-creator
 This software is provided as-is, without warranty of any kind.
 
+Requires Python 2 and PIL.
+
 ## Usage
-``` python gate_generator.py [path to file]```
+```
+python gate_generator.py [path to file]
+```
+
 See provided examples in `gates/`.
 
 ## Acknowledgements
