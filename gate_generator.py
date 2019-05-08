@@ -1,8 +1,8 @@
-import sys
 import os
-import numpy as np
+import sys
+
 import recolor_configs as rc
-from PIL import Image, ImageChops, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 
 def linear_burn(col, val):
@@ -10,7 +10,7 @@ def linear_burn(col, val):
 
 
 def colorize(fn, fg_color, bg_color):
-    im = Image.open(fn)
+    im = Image.open(os.path.join(*fn))
     palette = zip(*[iter(im.getpalette())]*3)
 
     fg_index = palette.index((255, 0, 255))
@@ -92,7 +92,7 @@ gate = open(input_fn, 'r')
 gate_name = ' '.join(os.path.splitext(os.path.basename(input_fn))[0].split('_')[-2:])
 
 title_image = gate_name.split(' ') + ['gate']
-title_image = [Image.open('text//' + a + '.png').convert(mode='RGBA') for a in title_image]
+title_image = [Image.open(os.path.join('text', a) + '.png').convert(mode='RGBA') for a in title_image]
 hwidth = [a.size[0] for a in title_image]
 text_width = 10 + sum(hwidth)
 xpos, ypos = 170 + 16 - text_width/2, 30
