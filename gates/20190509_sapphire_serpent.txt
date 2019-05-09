@@ -1,0 +1,23 @@
+l,tunnel fiend fire,dd fire
+?,tv,decon fire,graveyard
+r,decon fire,tunnel gremlin fire
+l,tunnel undead shock,csk shock
+?,tv,dd shock,tunnel fiend shock,graveyard
+r,tunnel construct shock,decon shock
+r,aurora,aurora,aurora,aurora
+?,tv,tunnel beast freeze,den x,graveyard
+l,compound gremlin x,tunnel beast x,den poison,compound gremlin poison,tunnel beast poison
+r,den shock,tunnel beast shock
+r,compound construct fire,compound construct freeze
+x,imf
+x,imf
+x,rt
+l,tunnel gremlin x,tunnel gremlin fire
+r,decon x,decon fire
+l,jigsaw,jigsaw
+r,jigsaw,jigsaw
+r,tunnel undead fire,csk fire
+?,tv,tunnel slime fire,lichen fire,graveyard
+l,csk fire,compound construct fire
+r,tunnel gremlin fire,decon fire
+l,csk fire,tunnel undead fire
