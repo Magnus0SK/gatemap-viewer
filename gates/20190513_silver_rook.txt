@@ -1,0 +1,23 @@
+l,arena gremlin fire,decon fire
+?,tv,tunnel gremlin fire,graveyard
+r,tunnel slime fire,lichen fire
+r,tunnel fiend x,tunnel fiend shock
+?,tv,dd x,graveyard
+l,dd poison,tunnel fiend poison
+l,aurora,aurora,aurora,aurora
+?,tv,den freeze,graveyard
+r,compound gremlin freeze,compound fiend freeze
+l,compound fiend poison,den poison
+l,tunnel beast freeze,den freeze,compound gremlin freeze
+r,tunnel construct freeze,compound construct freeze
+?,tv,arena undead freeze,graveyard
+l,decon freeze,compound construct freeze
+l,csk freeze,tunnel undead freeze,compound construct freeze
+r,compound construct freeze,tunnel construct freeze
+l,compound fiend freeze,dd freeze
+r,lichen freeze,compound construct freeze,tunnel slime freeze
+x,fsc
+x,fsc
+x,fsc
+x,fsc
+x,vana
