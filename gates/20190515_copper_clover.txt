@@ -1,0 +1,23 @@
+l,tunnel slime fire,lichen fire
+r,tunnel construct fire,decon fire
+l,dd fire,tunnel fiend fire
+r,tunnel slime poison,tunnel slime x,lichen x
+?,tv,tunnel slime fire,graveyard
+l,scarlet,scarlet,scarlet,scarlet
+r,aurora,aurora,aurora,aurora
+?,tv,tunnel beast fire,graveyard
+l,den freeze,tunnel beast freeze
+r,tunnel beast x,den x
+r,compound fiend poison,lichen x
+x,rjp
+x,rjp
+x,jk
+r,jigsaw,jigsaw
+l,jigsaw,jigsaw
+r,decon x,decon shock
+l,compound gremlin x,compound gremlin freeze,compound gremlin x,compound gremlin x,tunnel gremlin x
+l,starlight,starlight
+r,tunnel slime freeze,tunnel slime x,lichen freeze,lichen x
+?,tv,lichen shock,graveyard
+l,compound construct x,compound fiend x
+r,lichen poison,compound fiend poison
