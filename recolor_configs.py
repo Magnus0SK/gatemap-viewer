@@ -85,7 +85,7 @@ gate_color = {'coral': ((131, 83, 166), (255, 166, 219)),
               'sapphire': ((64, 159, 255), (0, 0, 89)),
               'amber': (None, None),
               'iron': ((92, 120, 128), (32, 49, 64)),
-              'copper': (None, None),
+              'copper': ((38, 82, 153), (128, 42, 0)),
               'silver': ((45, 89, 128), (124, 151, 191)),
               'golden': (None, None),
               'dark': (None, None)}
