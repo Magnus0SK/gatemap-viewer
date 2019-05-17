@@ -50,10 +50,6 @@ def get_icon(s):
               rc.family['slime'] if params[0] == 'lichen' else
               rc.family['fiend'])
         bg = rc.status[params[1]]
-    elif params[0] in ['graveyard']:
-        fn = rc.get_name['graveyard']
-        fg = rc.family['undead']
-        bg = rc.status['x']
     elif params[0] in ['csk']:
         fn = rc.get_name[params[0]]
         fg = rc.family['undead']
