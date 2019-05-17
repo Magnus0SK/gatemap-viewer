@@ -9,7 +9,7 @@ def linear_burn(col, val):
     return (max(c + val - 255, 0) for c in col)
 
 
-def colorize(fn, fg_color, bg_color):
+def colorize(fn, fg_color, bg_color, no_resize):
     im = Image.open(os.path.join(*fn))
     palette = zip(*[iter(im.getpalette())]*3)
 
@@ -22,10 +22,13 @@ def colorize(fn, fg_color, bg_color):
     palette = [b for a in palette for b in a]
 
     im.putpalette(palette)
-    return im.convert(mode='RGBA').resize((32, 32), resample=Image.BICUBIC)
+    if no_resize:
+        return im.convert(mode='RGBA')
+    else:
+        return im.convert(mode='RGBA').resize((32, 32), resample=Image.BICUBIC)
 
 
-def get_icon(s):
+def get_icon(s, no_resize=False):
     params = s.split(' ')
     if params[0] in ['tunnel', 'arena', 'compound']:
         fn = rc.get_name[params[0]]
@@ -69,7 +72,7 @@ def get_icon(s):
     else:
         raise ValueError('bad string: {}'.format(s))
     
-    return colorize(fn, fg, bg)
+    return colorize(fn, fg, bg, no_resize)
 
 
 if __name__ == '__main__':
