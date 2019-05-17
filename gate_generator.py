@@ -76,80 +76,79 @@ def get_icon(s):
     return colorize(fn, fg, bg)
 
 
-input_fn = sys.argv[1]
+if __name__ == '__main__':
+    input_fn = sys.argv[1]
 
-base = Image.open('background.png').convert(mode='RGBA')
-border = Image.open('border.png').convert(mode='RGBA')
-ticks = Image.open('hashmarks.png').convert(mode='RGBA')
-arrow = {'l': Image.open('spacer_left.png').convert(mode='RGBA'),
-         '?': Image.open('spacer_random.png').convert(mode='RGBA'),
-         'r': Image.open('spacer_right.png').convert(mode='RGBA')}
+    base = Image.open('background.png').convert(mode='RGBA')
+    border = Image.open('border.png').convert(mode='RGBA')
+    ticks = Image.open('hashmarks.png').convert(mode='RGBA')
+    arrow = {'l': Image.open('spacer_left.png').convert(mode='RGBA'),
+             '?': Image.open('spacer_random.png').convert(mode='RGBA'),
+             'r': Image.open('spacer_right.png').convert(mode='RGBA')}
 
-font = ImageFont.truetype('Ubuntu-M.ttf', 12)
-draw = ImageDraw.Draw(base, mode='RGBA')
+    font = ImageFont.truetype('Ubuntu-M.ttf', 12)
+    draw = ImageDraw.Draw(base, mode='RGBA')
 
-gate = open(input_fn, 'r')
-gate_name = ' '.join(os.path.splitext(os.path.basename(input_fn))[0].split('_')[-2:])
+    with open(input_fn, 'r') as gate:
+        gate_name = ' '.join(os.path.splitext(os.path.basename(input_fn))[0].split('_')[-2:])
 
-title_image = gate_name.split(' ') + ['gate']
-title_image = [Image.open(os.path.join('text', a) + '.png').convert(mode='RGBA') for a in title_image]
-hwidth = [a.size[0] for a in title_image]
-text_width = 10 + sum(hwidth)
-xpos, ypos = 170 + 16 - text_width/2, 30
-for text in title_image:
-    base.paste(text, (xpos, ypos), mask=text)
-    xpos += text.size[0] + 5
-xpos, ypos = 170, 100
+        title_image = gate_name.split(' ') + ['gate']
+        title_image = [Image.open(os.path.join('text', a) + '.png').convert(mode='RGBA') for a in title_image]
+        hwidth = [a.size[0] for a in title_image]
+        text_width = 10 + sum(hwidth)
+        xpos, ypos = 170 + 16 - text_width/2, 30
+        for text in title_image:
+            base.paste(text, (xpos, ypos), mask=text)
+            xpos += text.size[0] + 5
+        xpos, ypos = 170, 100
 
-depth = -1
-for depth in xrange(-1, 30):
-    if depth not in [-1, 0, 4, 8, 13, 18, 23, 29]:
-        line = gate.readline()
-        
-        entries = line.strip().split(',')
-        direction = entries[0]
-        levels = entries[1:]
-        
-        xpos -= 30 * (len(levels) - 1)
-        for level in levels:
-            icon = get_icon(level)
-            if len(levels) != 1:
-                base.paste(arrow[direction], (xpos-23, ypos-3), mask=arrow[direction])
-            base.paste(icon, (xpos, ypos), mask=icon)
-            base.paste(border, (xpos-5, ypos-6), mask=border)
-            xpos += 59
-        if len(levels) != 1:
-            base.paste(arrow[direction], (xpos-22, ypos-3), mask=arrow[direction])
-    else:
-        if depth == -1:
-            icon = get_icon(gate_name)
-        elif depth == 0:
-            icon = get_icon('lobby')
-        elif depth == 8:
-            icon = get_icon('moorcroft')
-        elif depth == 18:
-            icon = get_icon('emberlight')
-        elif depth in [4, 13, 23, 29]:
-            icon = get_icon('terminal')
-        base.paste(icon, (xpos, ypos), mask=icon)
-        base.paste(border, (xpos-5, ypos-6), mask=border)
-    xpos = 170
-    ypos += 88
+        depth = -1
+        for depth in xrange(-1, 30):
+            if depth not in [-1, 0, 4, 8, 13, 18, 23, 29]:
+                line = gate.readline()
+                
+                entries = [a.strip() for a in line.strip().split(',')]
+                direction = entries[0]
+                levels = entries[1:]
+                
+                xpos -= 30 * (len(levels) - 1)
+                for level in levels:
+                    icon = get_icon(level)
+                    if len(levels) != 1:
+                        base.paste(arrow[direction], (xpos-23, ypos-3), mask=arrow[direction])
+                    base.paste(icon, (xpos, ypos), mask=icon)
+                    base.paste(border, (xpos-5, ypos-6), mask=border)
+                    xpos += 59
+                if len(levels) != 1:
+                    base.paste(arrow[direction], (xpos-22, ypos-3), mask=arrow[direction])
+            else:
+                if depth == -1:
+                    icon = get_icon(gate_name)
+                elif depth == 0:
+                    icon = get_icon('lobby')
+                elif depth == 8:
+                    icon = get_icon('moorcroft')
+                elif depth == 18:
+                    icon = get_icon('emberlight')
+                elif depth in [4, 13, 23, 29]:
+                    icon = get_icon('terminal')
+                base.paste(icon, (xpos, ypos), mask=icon)
+                base.paste(border, (xpos-5, ypos-6), mask=border)
+            xpos = 170
+            ypos += 88
 
-xpos, ypos = 343, 1
-for depth in xrange(-2, 31):
-    base.paste(ticks, (xpos, ypos), mask=ticks)
-    if depth % 5 == 0:
-        draw.text((xpos+4, ypos+6), str(depth), fill=(255, 255, 255), font=font)
-    ypos += 88
+        xpos, ypos = 343, 1
+        for depth in xrange(-2, 31):
+            base.paste(ticks, (xpos, ypos), mask=ticks)
+            if depth % 5 == 0:
+                draw.text((xpos+4, ypos+6), str(depth), fill=(255, 255, 255), font=font)
+            ypos += 88
 
-tier1 = base.crop((0, 0, 372, 863))
-tier2 = base.crop((0, 864, 372, 1743))
-tier3 = base.crop((0, 1744, 372, 2867))
+        tier1 = base.crop((0, 0, 372, 863))
+        tier2 = base.crop((0, 864, 372, 1743))
+        tier3 = base.crop((0, 1744, 372, 2867))
 
-base.save('.'.join(input_fn.split('.')[:-1] + ['png']))
-tier1.save('.'.join(input_fn.split('.')[:-1] + ['t1', 'png']))
-tier2.save('.'.join(input_fn.split('.')[:-1] + ['t2', 'png']))
-tier3.save('.'.join(input_fn.split('.')[:-1] + ['t3', 'png']))
-
-gate.close()
+        base.save('.'.join(input_fn.split('.')[:-1] + ['png']))
+        tier1.save('.'.join(input_fn.split('.')[:-1] + ['t1', 'png']))
+        tier2.save('.'.join(input_fn.split('.')[:-1] + ['t2', 'png']))
+        tier3.save('.'.join(input_fn.split('.')[:-1] + ['t3', 'png']))
