@@ -1,0 +1,23 @@
+r,decon shock,arena construct x,tunnel construct shock,decon x
+l,tunnel construct fire,decon fire
+r,jigsaw ax,jigsaw ax2
+x,tunnel gremlin fire
+l,tunnel beast fire,den fire
+?,tv,arena beast fire,tunnel beast fire,graveyard
+l,arena beast shock,compound gremlin shock beast,den shock
+r,tunnel beast fire,den x
+?,tv,compound fiend x beast,graveyard
+l,aurora sto,aurora jly,aurora jly2,aurora low
+x,tunnel construct shock
+x,imf
+x,imf
+x,rt
+l,csk freeze,csk x,arena undead freeze,tunnel undead freeze,tunnel undead x
+r,compound fiend shock undead,compound fiend x undead,tunnel undead shock
+l,csk x,tunnel undead x,csk freeze,tunnel undead freeze
+r,concrete tt,concrete tt2
+?,tv,compound construct shock beast,graveyard
+l,tunnel gremlin shock,decon shock,compound gremlin shock slime
+r,tunnel undead shock,csk shock,compound gremlin shock undead
+l,compound fiend shock slime,tunnel slime shock,lichen shock,arena slime shock
+r,tunnel undead shock,csk shock
