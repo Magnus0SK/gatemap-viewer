@@ -337,7 +337,7 @@ function populate(text) {
 			if (secs < 10) time_str += '0';
 			time_str += secs;
 			
-			document.getElementById('prevname') = time_str;
+			document.getElementById('prevname').innerHTML = time_str;
 			
 			if (dist <= 0) {
 				clearInterval(timer);
