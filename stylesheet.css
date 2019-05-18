@@ -2,14 +2,12 @@
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 0.832vw;
 	font-family: 'Ubuntu', sans-serif;
 	vertical-align: baseline;
 }
 body {
 	text-align: center;
-	min-width: 820px;
-	min-height: 500px;
 	background-color: #222;
 }
 div {
@@ -27,6 +25,9 @@ div {
 .interactable div {
 	display: block;
 }
+.interactable img {
+	width: calc(33vw * 80 / 372);
+}
 .sidebar {
 	width: 32vw;
 	height: 100vh;
@@ -39,8 +40,8 @@ div {
 }
 .sidecontainer {
 	width: 60%;
-	height: 50vh;
-	margin: 25vh auto;
+	height: 20vw;
+	margin: calc(50vh - 10vw) auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center; 
@@ -81,8 +82,9 @@ div {
 	top: 0;
 	left: 50vw;
 	width: 20vw;
+	height: 2.5vw;
 	z-index: 10;
-	margin-left: -10vw;
+	margin-left: calc(-10vw - 33vw * 7.5 / 372);
 	padding: calc(33vw * 6 / 372) 0;
 	background-color: rgb(14, 46, 58);
 	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
@@ -91,6 +93,26 @@ div {
 	border-radius: 0 0 calc(33vw * 15 / 372) calc(33vw * 15 / 372);
 	font-size: calc(33vw * 18 / 372);
 	color: rgb(105, 174, 182);
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: space-around;
+}
+.gate-name img {
+	width: 2.5vw;
+	margin: 0 1vw;
+}
+.gate-name p {
+	width: 14.5vw;
+	margin-right: 1vw;
+}
+#gate-name {
+	font-size: 1.2vw;
+}
+#gate-date {
+	font-size: 0.8vw;
 }
 .depth-entry {
 	width: 100%;
@@ -109,12 +131,12 @@ div {
 	display: none;
 	position: absolute;
 	background-color: rgba(14, 46, 58, 0.95);
-	width: 250px;  /* wonder if its okay to have px? */
-	min-height: 100px;
+	width: 13vw;  /* wonder if its okay to have px? */
+	min-height: 5.2vw;
 	right: calc(33vw * 29 / 372);
 	bottom: calc(33vw * 29 / 372);
-	padding-top: 12px;
-	border-radius: 10px;
+	padding-top: 0.624vw;
+	border-radius: 0.52vw;
 }
 .icon-wrapper:hover > .hover-wrapper {
 	display: flex;
@@ -129,12 +151,12 @@ div {
 	line-height: 0.95em;
 }
 .title {
-	margin: 3px 0 2px 10px;
+	margin: 0.156vw 0 0.104vw 0.52vw;
 }
 .blurb {
 	flex-grow: 2;
-	padding: 12px 15px 25px;
-	font-size: 80%;
+	padding: 0.624vw 0.78vw 1.3vw;
+	font-size: 0.6656vw;
 	letter-spacing: 0.02em;
 	line-height: 1.4em;
 	color: rgb(105, 174, 182);
@@ -142,8 +164,8 @@ div {
 }
 .hover-footer {
 	background-color: rgb(208, 220, 242);
-	height: 20px;
-	border-radius: 0 0 0 10px;
+	height: 1.04vw;
+	border-radius: 0 0 0 0.52vw;
 }
 .text-title {
 	font-weight: bold;
@@ -153,6 +175,7 @@ div {
 }
 .sidebar-head {
 	font-style: normal;
+	font-size: 2.496vw;
 }
 .no-bold {
 	font-weight: normal;

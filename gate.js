@@ -239,8 +239,9 @@ function populate(text) {
 	var gatename = to_gatename(current_gate[1]);
 	var parent = document.getElementById('depth-container');
 	parent.innerHTML = '';
-	var name = document.getElementById('gate-name');
-	name.innerHTML = gatename + ' Gate';
+	document.getElementById('gate-img').setAttribute('src', 'page-icons/' + current_gate[1] + '.png');
+	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
+	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
 	var gate_data = text.split('\n');
 	var i = 0;
 	var img_name = '';
