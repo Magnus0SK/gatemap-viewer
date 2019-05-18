@@ -243,11 +243,22 @@ function wrap_icon(fn, ident) {
 	return div;
 }
 
+function to_gatename(s) {
+	return s.split('_').map(e => e[0].toUpperCase() + e.slice(1));
+}
+
+function format_date(s) {
+	return s.slice(0, 4) + '-' + s.slice(4, 6) + '-' + s.slice(6);
+}
+
 function populate() {
+	var fn = current_gate.join('_');
+	var text = fetch('gates/' + fn + '.txt').then(response => response.text());
+	var gatename = to_gatename(current_gate[1]);
 	var parent = document.getElementById('depth-container');
 	var name = document.createElement('div');
 	name.setAttribute('class', 'gate-name text-title');
-	name.innerHTML = 'Jade Falcon Gate';  // to set later
+	name.innerHTML = gatename + ' Gate';
 	parent.appendChild(name);
 	var gate_data = text.split('\n');
 	var i = 0;
@@ -304,10 +315,49 @@ function populate() {
 		};
 		parent.appendChild(container);
 	};
+	if (current_gate_num > 0) {
+		document.getElementById('prevgate').setAttribute('src', 'page-icons/' + gates[current_gate_num-1][1] + '.png')
+		document.getElementById('prevname').innerHTML = to_gatename(gates[current_gate_num-1][1]);
+		document.getElementById('prevdate').innerHTML = format_date(gates[current_gate_num-1][0]);
+		document.getElementById('prev').addEventListener('click', event_prev);
+	} else {
+		document.getElementById('prevgate').setAttribute('src', 'page-icons/unknown.png')
+		document.getElementById('prevname').innerHTML = '---';
+		document.getElementById('prevdate').innerHTML = '-';
+		document.getElementById('prev').removeEventListener('click', event_prev);
+	};
+	if (current_gate_num < gates.length - 1) {
+		document.getElementById('nextgate').setAttribute('src', 'page-icons/' + gates[current_gate_num+1][1] + '.png')
+		document.getElementById('nextname').innerHTML = to_gatename(gates[current_gate_num+1][1]);
+		document.getElementById('nextdate').innerHTML = format_date(gates[current_gate_num+1][0]);
+		document.getElementById('next').addEventListener('click', event_next);
+	} else {
+		document.getElementById('nextgate').setAttribute('src', 'page-icons/unknown.png')
+		document.getElementById('nextname').innerHTML = '---';
+		document.getElementById('nextdate').innerHTML = '-';
+		document.getElementById('next').removeEventListener('click', event_next);
+	};
 };
 
+function event_prev() {
+	current_gate_num -= 1;
+	current_gate = gates[current_gate_num];
+	populate();
+}
+
+function event_next() {
+	current_gate_num += 1;
+	current_gate = gates[current_gate_num];
+	populate();
+}
+
 function init() {
-	fetch('gates/20190517_jade_falcon.txt')
-		.then(response => response.text())
-		.then(text => console.log(text))
+	var divs = document.getElementsByTagName('div');
+	for (var i=0; i < divs.length; i++) {
+		divs[i].style.visibility = 'visible';
+	}
+	var text = fetch('gates/gate_list.txt').then(response => response.text());
+	gates = text.split('\n').map(e => e.split(','));
+	current_gate = gates[gates.length - 1];
+	current_gate_num = gates.length - 1;
 };

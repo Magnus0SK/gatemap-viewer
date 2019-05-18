@@ -15,6 +15,7 @@ body {
 div {
 	display: inline-block;
 	vertical-align: top;
+	visibility: hidden;
 }
 .interactable {
 	transition: opacity 0s;
