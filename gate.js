@@ -332,9 +332,9 @@ function populate(text) {
 			if (days > 0) time_str += days + ':';
 			if (days > 0 && hrs < 10) time_str += '0';
 			time_str += hrs + ':';
-			if (mins < 10) time_str += 0;
+			if (mins < 10) time_str += '0';
 			time_str += mins + ':';
-			if (secs < 10) time_str += 0;
+			if (secs < 10) time_str += '0';
 			time_str += secs;
 			
 			document.getElementById('prevname') = time_str;
