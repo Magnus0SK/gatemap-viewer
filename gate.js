@@ -334,6 +334,7 @@ function populate(text) {
 			time_str += hrs + ':';
 			if (mins < 10) time_str += 0;
 			time_str += mins + ':';
+			if (secs < 10) time_str += 0;
 			time_str += secs;
 			
 			document.getElementById('prevname') = time_str;
@@ -373,4 +374,3 @@ function init() {
 		.then(response => response.text())
 		.then(text => prepare(text));
 }
-			if (secs < 10) time_str += 0;
