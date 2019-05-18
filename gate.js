@@ -1,26 +1,3 @@
-text = 'r,decon shock,arena construct x,tunnel construct shock,decon x\n' +
-	   'l,tunnel construct fire,decon fire\n' +
-	   'r,jigsaw ax,jigsaw ax2\n' +
-	   'x,tunnel gremlin fire\n' +
-	   'l,tunnel beast fire,den fire\n' +
-	   '?,tv,arena beast fire,tunnel beast fire,graveyard\n' +
-	   'l,arena beast shock,compound gremlin shock beast,den shock\n' +
-	   'r,tunnel beast fire,den x\n' +
-	   '?,tv,compound fiend x beast,graveyard\n' +
-	   'l,aurora sto,aurora jly,aurora jly2,aurora low\n' +
-	   'x,tunnel construct shock\n' +
-	   'x,imf d1\n' +
-	   'x,imf d2\n' +
-	   'x,rt\n' +
-	   'l,csk freeze,csk x,arena undead freeze,tunnel undead freeze,tunnel undead x\n' +
-	   'r,compound fiend shock undead,compound fiend x undead,tunnel undead shock\n' +
-	   'l,csk x,tunnel undead x,csk freeze,tunnel undead freeze\n' +
-	   'r,concrete tt,concrete tt2\n' +
-	   '?,tv,compound construct shock beast,graveyard\n' +
-	   'l,tunnel gremlin shock,decon shock,compound gremlin shock slime\n' +
-	   'r,tunnel undead shock,csk shock,compound gremlin shock undead\n' +
-	   'l,compound fiend shock slime,tunnel slime shock,lichen shock,arena slime shock\n' +
-	   'r,tunnel undead shock,csk shock';
 specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'compound', 'gww', 'rjp', 'imf', 'fsc'];
 
 function wrap_icon(fn, ident) {
@@ -254,7 +231,8 @@ function format_date(s) {
 function fetch_gate_data() {
 	var fn = current_gate.join('_');
 	fetch('gates/' + fn + '.txt')
-		.then(response => populate(response.text()));
+		.then(response => response.text());
+		.then(text => populate(text));
 }
 
 function populate(text) {
@@ -371,4 +349,4 @@ function init() {
 	fetch('gates/gate_list.txt')
 		.then(response => response.text())
 		.then(text => prepare(text));
-};
+}
