@@ -239,8 +239,7 @@ function populate(text) {
 	var gatename = to_gatename(current_gate[1]);
 	var parent = document.getElementById('depth-container');
 	parent.innerHTML = '';
-	var name = document.createElement('div');
-	name.setAttribute('class', 'gate-name text-title');
+	var name = document.getElementById('gate-name');
 	name.innerHTML = gatename + ' Gate';
 	parent.appendChild(name);
 	var gate_data = text.split('\n');
@@ -376,4 +375,11 @@ function init() {
 	fetch('gates/gate_list.txt')
 		.then(response => response.text())
 		.then(text => prepare(text));
+	var tick_container = document.getElementById('tick-container');
+	for (var i=0; i<32; i++) {
+		var tick = document.createElement('img');
+		tick.setAttribute('draggable', false);
+		tick.setAttribute('src', 'hashmarks.png');
+		tick_container.appendChild(tick);
+	}
 }

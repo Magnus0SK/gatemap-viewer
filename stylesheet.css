@@ -77,9 +77,20 @@ div {
 	padding-top: calc(33vw * 34 / 372);
 }
 .gate-name {
-	width: 100%;
-	height: calc(33vw * 65 / 372);
-	font-size: calc(33vw * 24 / 372);
+	position: fixed;
+	top: 0;
+	left: 50vw;
+	width: 20vw;
+	z-index: 10;
+	margin-left: -10vw;
+	padding: calc(33vw * 6 / 372) 0;
+	background-color: rgb(14, 46, 58);
+	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
+	border-right: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
+	border-bottom: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
+	border-radius: 0 0 calc(33vw * 15 / 372) calc(33vw * 15 / 372);
+	font-size: calc(33vw * 18 / 372);
+	color: rgb(105, 174, 182);
 }
 .depth-entry {
 	width: 100%;
@@ -145,4 +156,25 @@ div {
 }
 .no-bold {
 	font-weight: normal;
+}
+.tick-container {
+	position: absolute;
+	right: 33.2vw;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	text-align: right;
+	user-select: none;
+}
+.tick-container img {
+	width: calc(33vw * 28 / 372);
+}
+.tick-container p {
+	text-align: left;
+	margin-right: calc(33vw * 12 / 372);
+	height: calc(33vw * 88 * 5 / 372);
+	color: rgb(208, 220, 242);
+}
+p:first-child {
+	margin-top: calc(33vw * 184 / 372);
 }
