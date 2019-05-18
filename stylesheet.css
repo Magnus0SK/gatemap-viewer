@@ -1,0 +1,145 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: 'Ubuntu', sans-serif;
+	vertical-align: baseline;
+}
+body {
+	text-align: center;
+	min-width: 820px;
+	min-height: 500px;
+	background-color: #222;
+}
+div {
+	display: inline-block;
+	vertical-align: top;
+}
+.interactable {
+	transition: opacity 0s;
+	opacity: 0.65;
+}
+.interactable:hover {
+	transition: opacity 0.5s;
+	opacity: 1;
+}
+.interactable div {
+	display: block;
+}
+.sidebar {
+	width: 32vw;
+	height: 100vh;
+	position: sticky;
+	top: 0;
+}
+.middle {
+	width: 33vw;
+	position: relative;
+}
+.sidecontainer {
+	width: 60%;
+	height: 50vh;
+	margin: 25vh auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	justify-content: space-evenly;
+	font-size: calc(33vw * 32 / 372);
+	color: rgb(105, 174, 182);
+	background-color: rgb(14, 46, 58);
+	box-sizing: border-box;
+	border: calc(33vw * 5 / 372) solid rgb(208, 220, 242);
+	border-radius: calc(33vw * 15 / 372);
+}
+.sidecontainer > img {
+	width: calc(33vw * 64 / 372);
+}
+.sidecontainer > * {
+	margin: calc(33vh * 15 / 372) 0;
+}
+.gatename {
+	font-size: calc(33vw * 16 / 372);
+}
+.bgcontainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+.bgcontainer > img {
+	width: 100%;
+}
+.depth-container {
+	display: flex;
+	flex-direction: column;
+	padding-top: calc(33vw * 34 / 372);
+}
+.gate-name {
+	width: 100%;
+	height: calc(33vw * 65 / 372);
+	font-size: calc(33vw * 24 / 372);
+}
+.depth-entry {
+	width: 100%;
+	height: calc(33vw * 88 / 372);
+}
+.depth-entry img {
+	position: relative;
+	height: calc(33vw * 36 / 372);
+	margin: 0 0.2vw;
+}
+.icon-wrapper {
+	position: relative;
+	text-align: left;
+}
+.hover-wrapper {
+	display: none;
+	position: absolute;
+	background-color: rgba(14, 46, 58, 0.95);
+	width: 250px;  /* wonder if its okay to have px? */
+	min-height: 100px;
+	right: calc(33vw * 29 / 372);
+	bottom: calc(33vw * 29 / 372);
+	padding-top: 12px;
+	border-radius: 10px;
+}
+.icon-wrapper:hover > .hover-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+.icon-wrapper:hover > img {
+	z-index: 2;
+}
+.title-wrapper {
+	width: 100%;
+	background-color: rgb(235, 201, 77);
+	line-height: 0.95em;
+}
+.title {
+	margin: 3px 0 2px 10px;
+}
+.blurb {
+	flex-grow: 2;
+	padding: 12px 15px 25px;
+	font-size: 80%;
+	letter-spacing: 0.02em;
+	line-height: 1.4em;
+	color: rgb(105, 174, 182);
+	user-select: none;
+}
+.hover-footer {
+	background-color: rgb(208, 220, 242);
+	height: 20px;
+	border-radius: 0 0 0 10px;
+}
+.text-title {
+	font-weight: bold;
+	font-style: oblique;
+	font-family: Lato, sans-serif;
+	user-select: none;
+}
+.sidebar-head {
+	font-style: normal;
+}

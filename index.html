@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- please don't view this page on small windows -->
+<!--       made by silverhawke (@fluffderg)       -->
+<html>
+	<head>
+		<title>Gate Map Viewer</title>
+		<link rel="stylesheet" href="stylesheet.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu" rel="stylesheet">
+		<script type="text/javascript" src="gate.js"></script>
+	</head>
+	<body onload="init();">
+		<div class="sidebar text-title"><div class="sidecontainer">
+			<div class="sidebar-head">Previous</div>
+			<div class="interactable" id="prev">
+				<img draggable=false src="page-icons/copper_clover.png" id="prevgate">
+				<div class="gatename" id="prevname">Copper Clover Gate</div>
+				<div class="gatename" id="prevdate">2019-05-15</div>
+			</div>
+		</div></div>
+		<div class="middle">
+			<div class="bgcontainer">
+				<img draggable=false src="background.png">
+			</div>
+			<div class="depth-container" id="depth-container">
+			</div>
+		</div>
+		<div class="sidebar text-title"><div class="sidecontainer">
+			<div class="sidebar-head">Next</div>
+			<div class="interactable" id="next">
+				<img draggable=false src="page-icons/unknown.png" id="nextgate">
+				<div class="gatename" id="nextname">in 1:07:56:32</div>
+				<div class="gatename" id="nextdate">-</div>
+			</div>
+		</div></div>
+	</body>
+</html>
