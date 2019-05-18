@@ -319,32 +319,35 @@ function populate(text) {
 		document.getElementById('nextname').innerHTML = '---';
 		document.getElementById('nextdate').innerHTML = '-';
 		document.getElementById('next').removeEventListener('click', event_next);
-		timer = setInterval(function() {
-			var now = new Date().getTime();
-			var dist = next_gate_time.getTime() - now;
-			
-			var days = Math.floor(dist / (24 * 60 * 60 * 1000));
-			var hrs = Math.floor(dist / (60 * 60 * 1000)) % 24;
-			var mins = Math.floor(dist / (60 * 1000)) % 60;
-			var secs = Math.floor(dist / 1000) % 60;
-			
-			time_str = 'in ';
-			if (days > 0) time_str += days + ':';
-			if (days > 0 && hrs < 10) time_str += '0';
-			time_str += hrs + ':';
-			if (mins < 10) time_str += '0';
-			time_str += mins + ':';
-			if (secs < 10) time_str += '0';
-			time_str += secs;
-			
-			document.getElementById('nextname').innerHTML = time_str;
-			
-			if (dist <= 0) {
-				clearInterval(timer);
-			}
-		}, 1000);
+		timer_func();
+		timer = setInterval(timer_func, 1000);
 	};
 };
+
+function timer_func() {
+	var now = new Date().getTime();
+	var dist = next_gate_time.getTime() - now;
+	
+	var days = Math.floor(dist / (24 * 60 * 60 * 1000));
+	var hrs = Math.floor(dist / (60 * 60 * 1000)) % 24;
+	var mins = Math.floor(dist / (60 * 1000)) % 60;
+	var secs = Math.floor(dist / 1000) % 60;
+	
+	time_str = 'in ';
+	if (days > 0) time_str += days + ':';
+	if (days > 0 && hrs < 10) time_str += '0';
+	time_str += hrs + ':';
+	if (mins < 10) time_str += '0';
+	time_str += mins + ':';
+	if (secs < 10) time_str += '0';
+	time_str += secs;
+	
+	document.getElementById('nextname').innerHTML = time_str;
+	
+	if (dist <= 0) {
+		clearInterval(timer);
+	}
+}
 
 function event_prev() {
 	current_gate_num -= 1;
