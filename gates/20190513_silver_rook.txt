@@ -4,20 +4,20 @@ r,tunnel slime fire,lichen fire
 r,tunnel fiend x,tunnel fiend shock
 ?,tv,dd x,graveyard
 l,dd poison,tunnel fiend poison
-l,aurora,aurora,aurora,aurora
+l,aurora low,aurora sto,aurora jly,aurora jly2
 ?,tv,den freeze,graveyard
-r,compound gremlin freeze,compound fiend freeze
-l,compound fiend poison,den poison
-l,tunnel beast freeze,den freeze,compound gremlin freeze
-r,tunnel construct freeze,compound construct freeze
+r,compound gremlin freeze beast,compound fiend freeze beast
+l,compound fiend poison beast,den poison
+l,tunnel beast freeze,den freeze,compound gremlin freeze beast
+r,tunnel construct freeze,compound construct freeze slime
 ?,tv,arena undead freeze,graveyard
-l,decon freeze,compound construct freeze
-l,csk freeze,tunnel undead freeze,compound construct freeze
-r,compound construct freeze,tunnel construct freeze
-l,compound fiend freeze,dd freeze
-r,lichen freeze,compound construct freeze,tunnel slime freeze
-x,fsc
-x,fsc
-x,fsc
-x,fsc
+l,decon freeze,compound construct freeze beast
+l,csk freeze,tunnel undead freeze,compound construct freeze undead
+r,compound construct freeze beast,tunnel construct freeze
+l,compound fiend freeze beast,dd freeze
+r,lichen freeze,compound construct freeze slime,tunnel slime freeze
+x,fsc d1
+x,fsc d2
+x,fsc d3
+x,fsc d4
 x,vana

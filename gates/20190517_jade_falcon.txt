@@ -9,8 +9,8 @@ r,tunnel beast fire,den x
 ?,tv,compound fiend x beast,graveyard
 l,aurora sto,aurora jly,aurora jly2,aurora low
 x,tunnel construct shock
-x,imf
-x,imf
+x,imf d1
+x,imf d2
 x,rt
 l,csk freeze,csk x,arena undead freeze,tunnel undead freeze,tunnel undead x
 r,compound fiend shock undead,compound fiend x undead,tunnel undead shock
