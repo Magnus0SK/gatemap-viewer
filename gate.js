@@ -253,7 +253,8 @@ function format_date(s) {
 
 function populate() {
 	var fn = current_gate.join('_');
-	var text = fetch('gates/' + fn + '.txt').then(response => response.text());
+	var text = '';
+	fetch('gates/' + fn + '.txt').then(response => text = response.text());
 	var gatename = to_gatename(current_gate[1]);
 	var parent = document.getElementById('depth-container');
 	var name = document.createElement('div');
