@@ -15,7 +15,6 @@ body {
 div {
 	display: inline-block;
 	vertical-align: top;
-	visibility: hidden;
 }
 .interactable {
 	transition: opacity 0s;
@@ -143,4 +142,7 @@ div {
 }
 .sidebar-head {
 	font-style: normal;
+}
+.no-bold {
+	font-weight: normal;
 }

@@ -300,7 +300,7 @@ function populate(text) {
 	};
 	if (current_gate_num > 0) {
 		document.getElementById('prevgate').setAttribute('src', 'page-icons/' + gates[current_gate_num-1][1] + '.png')
-		document.getElementById('prevname').innerHTML = to_gatename(gates[current_gate_num-1][1]);
+		document.getElementById('prevname').innerHTML = to_gatename(gates[current_gate_num-1][1]) + ' Gate';
 		document.getElementById('prevdate').innerHTML = format_date(gates[current_gate_num-1][0]);
 		document.getElementById('prev').addEventListener('click', event_prev);
 	} else {
@@ -311,19 +311,38 @@ function populate(text) {
 	};
 	if (current_gate_num < gates.length - 1) {
 		document.getElementById('nextgate').setAttribute('src', 'page-icons/' + gates[current_gate_num+1][1] + '.png')
-		document.getElementById('nextname').innerHTML = to_gatename(gates[current_gate_num+1][1]);
+		document.getElementById('nextname').innerHTML = to_gatename(gates[current_gate_num+1][1]) + ' Gate';
 		document.getElementById('nextdate').innerHTML = format_date(gates[current_gate_num+1][0]);
-		document.getElementById('next').addEventListener('click', event_next);
+		document.getElementById('next').addEventListener('click', event_next);clearInterval(timer);
 	} else {
 		document.getElementById('nextgate').setAttribute('src', 'page-icons/unknown.png')
 		document.getElementById('nextname').innerHTML = '---';
 		document.getElementById('nextdate').innerHTML = '-';
 		document.getElementById('next').removeEventListener('click', event_next);
+		timer = setInterval(function() {
+			var now = new Date().getTime();
+			var dist = next_gate_time.getTime() - now;
+			
+			var days = dist / (24 * 60 * 60 * 1000);
+			var hrs = (dist % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000);
+			var mins = (dist % (60 * 60 * 1000)) / (60 * 1000);
+			var secs = (dist % (60 * 1000)) / 1000;
+			
+			time_str = 'in ';
+			if (days > 0) time_str += days + ':';
+			if (days > 0 && hrs < 10) time_str += '0';
+			time_str += hrs + ':';
+			if (mins < 10) time_str += 0;
+			time_str += mins + ':';
+			time_str += secs;
+			
+			document.getElementById('prevname') = time_str;
+			
+			if (dist <= 0) {
+				clearInterval(timer);
+			}
+		}, 1000);
 	};
-	var divs = document.getElementsByTagName('div');
-	for (var i=0; i < divs.length; i++) {
-		divs[i].style.visibility = 'visible';
-	}
 };
 
 function event_prev() {
@@ -342,6 +361,10 @@ function prepare(text) {
 	gates = text.split('\n').map(e => e.split(','));
 	current_gate = gates[gates.length - 1];
 	current_gate_num = gates.length - 1;
+	next_gate_time = new Date(format_date(current_gate[0]));
+	next_gate_time.setDate(next_gate_time.getDate() + 2);
+	next_gate_time.setHours(next_gate_time.getHours() + 4);
+	/* next time DST flips i'll have to figure this out better */
 	fetch_gate_data();
 }
 
@@ -350,3 +373,4 @@ function init() {
 		.then(response => response.text())
 		.then(text => prepare(text));
 }
+			if (secs < 10) time_str += 0;
