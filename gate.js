@@ -323,10 +323,10 @@ function populate(text) {
 			var now = new Date().getTime();
 			var dist = next_gate_time.getTime() - now;
 			
-			var days = dist / (24 * 60 * 60 * 1000);
-			var hrs = (dist % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000);
-			var mins = (dist % (60 * 60 * 1000)) / (60 * 1000);
-			var secs = (dist % (60 * 1000)) / 1000;
+			var days = Math.floor(dist / (24 * 60 * 60 * 1000));
+			var hrs = Math.floor(dist / (60 * 60 * 1000)) % 24;
+			var mins = Math.floor(dist / (60 * 1000)) % 60;
+			var secs = Math.floor(dist / 1000) % 60;
 			
 			time_str = 'in ';
 			if (days > 0) time_str += days + ':';
@@ -337,7 +337,7 @@ function populate(text) {
 			if (secs < 10) time_str += '0';
 			time_str += secs;
 			
-			document.getElementById('prevname').innerHTML = time_str;
+			document.getElementById('nextname').innerHTML = time_str;
 			
 			if (dist <= 0) {
 				clearInterval(timer);
