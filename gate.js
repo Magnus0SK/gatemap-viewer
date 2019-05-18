@@ -319,6 +319,10 @@ function populate(text) {
 		document.getElementById('nextdate').innerHTML = '-';
 		document.getElementById('next').removeEventListener('click', event_next);
 	};
+	var divs = document.getElementsByTagName('div');
+	for (var i=0; i < divs.length; i++) {
+		divs[i].style.visibility = 'visible';
+	}
 };
 
 function event_prev() {
@@ -338,10 +342,6 @@ function prepare(text) {
 	current_gate = gates[gates.length - 1];
 	current_gate_num = gates.length - 1;
 	fetch_gate_data();
-	var divs = document.getElementsByTagName('div');
-	for (var i=0; i < divs.length; i++) {
-		divs[i].style.visibility = 'visible';
-	}
 }
 
 function init() {
