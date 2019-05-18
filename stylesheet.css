@@ -71,6 +71,7 @@ div {
 	left: 0;
 	width: 100%;
 	z-index: -1;
+	background-color: white;
 }
 .bgcontainer > img {
 	width: 100%;
@@ -80,9 +81,8 @@ div {
 	flex-direction: column;
 	padding-top: calc(33vw * 99 / 372);
 }
-.gate-name {
+.overlay {
 	position: fixed;
-	top: 0;
 	left: 50vw;
 	width: 20vw;
 	height: 2.5vw;
@@ -91,12 +91,15 @@ div {
 	margin-left: calc(-10vw - 33vw * 7.5 / 372);
 	padding: calc(33vw * 6 / 372) 0;
 	background-color: rgb(14, 46, 58);
+	font-size: calc(33vw * 18 / 372);
+	color: rgb(105, 174, 182);
+}
+.top {
+	top: 0;
 	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
 	border-right: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
 	border-bottom: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
 	border-radius: 0 0 calc(33vw * 15 / 372) calc(33vw * 15 / 372);
-	font-size: calc(33vw * 18 / 372);
-	color: rgb(105, 174, 182);
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -104,13 +107,46 @@ div {
 	align-items: center;
 	align-content: space-around;
 }
-.gate-name img {
-	width: 2.5vw;
-	margin: 0 1vw;
+.bottom {
+	bottom: 0;
+	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
+	border-right: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
+	border-top: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
+	border-radius: calc(33vw * 15 / 372) calc(33vw * 15 / 372) 0 0;
+	overflow: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
 }
-.gate-name p {
+.bottom::-webkit-scrollbar {
+    height: 10px;
+}
+.bottom::-webkit-scrollbar-thumb {
+    background-color: rgb(208, 220, 242);
+	border-radius: 5px;
+}
+.overlay img {
+	width: 2vw;
+	margin: 0 0.25vw;
+	transition: opacity 0s;
+	opacity: 0.65;
+}
+.overlay img:hover {
+	transition: opacity 0.5s;
+	opacity: 1;
+}
+.overlay img:first-child {
+	margin-left: 1vw;
+}
+.overlay img:last-child {
+	margin-right: 1vw;
+}
+.overlay p {
 	width: 14.5vw;
 	margin-right: 1vw;
+}
+#gate-img {
+	width: 2.5vw;
+	margin: 0 1vw;
 }
 #gate-name {
 	font-size: 1.2vw;
@@ -135,7 +171,7 @@ div {
 	display: none;
 	position: absolute;
 	background-color: rgba(14, 46, 58, 0.95);
-	width: 13vw;  /* wonder if its okay to have px? */
+	width: 13vw;
 	min-height: 5.2vw;
 	right: calc(33vw * 29 / 372);
 	bottom: calc(33vw * 29 / 372);

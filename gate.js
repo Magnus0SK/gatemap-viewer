@@ -341,7 +341,7 @@ function timer_func() {
 	if (secs < 10) time_str += '0';
 	time_str += secs;
 	
-	document.getElementById('nextname').innerHTML = time_str;
+	document.getElementById('nextdate').innerHTML = time_str;
 	
 	if (dist <= 0) {
 		clearInterval(timer);
@@ -360,6 +360,13 @@ function event_next() {
 	fetch_gate_data();
 }
 
+function gate_jump(e) {
+	var index = this.getAttribute('data-value');
+	current_gate_num = parseInt(index);
+	current_gate = gates[current_gate_num];
+	fetch_gate_data();
+}
+
 function prepare(text) {
 	gates = text.split('\n').map(e => e.split(','));
 	current_gate = gates[gates.length - 1];
@@ -367,6 +374,17 @@ function prepare(text) {
 	next_gate_time = new Date(format_date(current_gate[0]));
 	next_gate_time.setDate(next_gate_time.getDate() + 2);
 	next_gate_time.setHours(next_gate_time.getHours() + 4);
+	for (var i=0; i<gates.length; i++) {
+		var e = gates[i];
+		var img = document.createElement('img');
+		img.setAttribute('draggable', false);
+		img.setAttribute('src', 'page-icons/' + e[1] + '.png');
+		img.setAttribute('title', to_gatename(e[1]) + ' Gate (' + format_date(e[0]) + ')');
+		img.setAttribute('data-value', i);
+		img.addEventListener('click', gate_jump);
+		document.getElementById('gate-tab').appendChild(img);
+	};
+	document.getElementById('gate-tab').scrollLeft = Number.MAX_SAFE_INTEGER;
 	/* next time DST flips i'll have to figure this out better */
 	fetch_gate_data();
 }
