@@ -231,7 +231,7 @@ function format_date(s) {
 function fetch_gate_data() {
 	var fn = current_gate.join('_');
 	fetch('gates/' + fn + '.txt')
-		.then(response => response.text());
+		.then(response => response.text())
 		.then(text => populate(text));
 }
 
