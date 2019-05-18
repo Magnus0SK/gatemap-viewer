@@ -15,7 +15,7 @@ x,jk
 r,jigsaw ax,jigsaw ax2
 l,jigsaw jt,jigsaw jt2
 r,decon x,decon shock
-l,compound gremlin x undead,compound gremlin freeze beast,compound gremlin x jelly,compound gremlin x beast,tunnel gremlin x
+l,compound gremlin x undead,compound gremlin freeze beast,compound gremlin x slime,compound gremlin x beast,tunnel gremlin x
 l,starlight mm,starlight mm2
 r,tunnel slime freeze,tunnel slime x,lichen freeze,lichen x
 ?,tv,lichen shock,graveyard
