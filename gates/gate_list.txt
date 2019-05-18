@@ -1,4 +1,4 @@
-20190511,iron sun
-20190513,silver rook
-20190515,copper clover
-20190517,jade falcon
+20190511,iron_sun
+20190513,silver_rook
+20190515,copper_clover
+20190517,jade_falcon
