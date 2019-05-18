@@ -241,7 +241,6 @@ function populate(text) {
 	parent.innerHTML = '';
 	var name = document.getElementById('gate-name');
 	name.innerHTML = gatename + ' Gate';
-	parent.appendChild(name);
 	var gate_data = text.split('\n');
 	var i = 0;
 	var img_name = '';
