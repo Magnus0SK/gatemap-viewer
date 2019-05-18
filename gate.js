@@ -238,6 +238,7 @@ function fetch_gate_data() {
 function populate(text) {
 	var gatename = to_gatename(current_gate[1]);
 	var parent = document.getElementById('depth-container');
+	parent.innerHTML = '';
 	var name = document.createElement('div');
 	name.setAttribute('class', 'gate-name text-title');
 	name.innerHTML = gatename + ' Gate';
