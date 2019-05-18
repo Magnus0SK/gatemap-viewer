@@ -251,10 +251,13 @@ function format_date(s) {
 	return s.slice(0, 4) + '-' + s.slice(4, 6) + '-' + s.slice(6);
 }
 
-function populate() {
+function fetch_gate_data() {
 	var fn = current_gate.join('_');
-	var text = '';
-	fetch('gates/' + fn + '.txt').then(response => text = response.text());
+	fetch('gates/' + fn + '.txt')
+		.then(response => populate(response.text()));
+}
+
+function populate(text) {
 	var gatename = to_gatename(current_gate[1]);
 	var parent = document.getElementById('depth-container');
 	var name = document.createElement('div');
@@ -350,7 +353,7 @@ function event_prev() {
 function event_next() {
 	current_gate_num += 1;
 	current_gate = gates[current_gate_num];
-	populate();
+	fetch_gate_data();
 }
 
 function prepare(text) {
