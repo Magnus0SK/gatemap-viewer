@@ -14,12 +14,10 @@ div {
 	display: inline-block;
 	vertical-align: top;
 }
-.interactable {
-	transition: opacity 0s;
-	opacity: 0.65;
+.animate {
+	opacity: 0.5;
 }
-.interactable:hover {
-	transition: opacity 0.5s;
+.animate:hover {
 	opacity: 1;
 }
 .interactable div {
@@ -127,12 +125,6 @@ div {
 .overlay img {
 	width: 2vw;
 	margin: 0 0.25vw;
-	transition: opacity 0s;
-	opacity: 0.65;
-}
-.overlay img:hover {
-	transition: opacity 0.5s;
-	opacity: 1;
 }
 .overlay img:first-child {
 	margin-left: 1vw;

@@ -378,6 +378,7 @@ function prepare(text) {
 		var e = gates[i];
 		var img = document.createElement('img');
 		img.setAttribute('draggable', false);
+		img.setAttribute('class', 'animate');
 		img.setAttribute('src', 'page-icons/' + e[1] + '.png');
 		img.setAttribute('title', to_gatename(e[1]) + ' Gate (' + format_date(e[0]) + ')');
 		img.setAttribute('data-value', i);
