@@ -221,7 +221,7 @@ function wrap_icon(fn, ident) {
 }
 
 function to_gatename(s) {
-	return s.split('_').map(e => e[0].toUpperCase() + e.slice(1));
+	return s.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ');
 }
 
 function format_date(s) {
@@ -243,7 +243,6 @@ function populate(text) {
 	name.innerHTML = gatename + ' Gate';
 	parent.appendChild(name);
 	var gate_data = text.split('\n');
-	console.log(gate_data);
 	var i = 0;
 	var img_name = '';
 	for (var depth=-1; depth<30; depth++) {
