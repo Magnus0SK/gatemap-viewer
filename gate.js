@@ -364,6 +364,6 @@ function prepare(text) {
 
 function init() {
 	fetch('gates/gate_list.txt')
-		.then(response => response.text());
+		.then(response => response.text())
 		.then(text => prepare(text));
 };
