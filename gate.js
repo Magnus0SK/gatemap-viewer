@@ -347,7 +347,7 @@ function populate(text) {
 function event_prev() {
 	current_gate_num -= 1;
 	current_gate = gates[current_gate_num];
-	populate();
+	fetch_gate_data();
 }
 
 function event_next() {
@@ -360,7 +360,7 @@ function prepare(text) {
 	gates = text.split('\n').map(e => e.split(','));
 	current_gate = gates[gates.length - 1];
 	current_gate_num = gates.length - 1;
-	populate();
+	fetch_gate_data();
 	var divs = document.getElementsByTagName('div');
 	for (var i=0; i < divs.length; i++) {
 		divs[i].style.visibility = 'visible';
