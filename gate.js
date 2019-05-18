@@ -351,13 +351,19 @@ function event_next() {
 	populate();
 }
 
-function init() {
+function prepare(text) {
+	gates = text.split('\n').map(e => e.split(','));
+	current_gate = gates[gates.length - 1];
+	current_gate_num = gates.length - 1;
+	populate();
 	var divs = document.getElementsByTagName('div');
 	for (var i=0; i < divs.length; i++) {
 		divs[i].style.visibility = 'visible';
 	}
-	var text = fetch('gates/gate_list.txt').then(response => response.text());
-	gates = text.split('\n').map(e => e.split(','));
-	current_gate = gates[gates.length - 1];
-	current_gate_num = gates.length - 1;
+}
+
+function init() {
+	fetch('gates/gate_list.txt')
+		.then(response => response.text());
+		.then(text => prepare(text));
 };
