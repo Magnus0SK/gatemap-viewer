@@ -74,7 +74,7 @@ div {
 .depth-container {
 	display: flex;
 	flex-direction: column;
-	padding-top: calc(33vw * 34 / 372);
+	padding-top: calc(33vw * 99 / 372);
 }
 .gate-name {
 	position: fixed;
