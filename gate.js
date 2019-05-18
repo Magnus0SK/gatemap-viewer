@@ -262,6 +262,7 @@ function populate() {
 	name.innerHTML = gatename + ' Gate';
 	parent.appendChild(name);
 	var gate_data = text.split('\n');
+	console.log(gate_data);
 	var i = 0;
 	var img_name = '';
 	for (var depth=-1; depth<30; depth++) {
