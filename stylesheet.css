@@ -10,6 +10,16 @@ body {
 	text-align: center;
 	background-color: #222;
 }
+body::-webkit-scrollbar {
+	width: 20px;
+}
+body::-webkit-scrollbar-thumb {
+	background-color: rgb(208, 220, 242);
+	border-radius: 15px;
+}
+body::-webkit-scrollbar-track {
+	background-color: rgb(42, 50, 58);
+}
 div {
 	display: inline-block;
 	vertical-align: top;
@@ -26,7 +36,7 @@ div {
 .interactable img {
 	width: calc(33vw * 80 / 372);
 }
-/* for some reason the rightmost sidebar just implodes when viewport width is less than 649px.
+/* for some reason the rightmost sidebar just implodes when viewport width is too small.
    though nowadays, even on portrait orientation, smallest should be 720p? so maybe it'll be ok...
 */
 .sidebar {
