@@ -5,11 +5,16 @@
 <html>
 	<head>
 		<title>Gate Map Viewer</title>
-		<link rel="stylesheet" href="stylesheet.css">
-		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu" rel="stylesheet">
+		<link rel="stylesheet" href="stylesheet.css" />
+		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu" rel="stylesheet" />
+		<link rel="shortcut icon" href="page-icons/terminal.png">
 		<script type="text/javascript" src="gate.js"></script>
 		<script src="https://momentjs.com/downloads/moment.js"></script>
 		<script src="https://momentjs.com/downloads/moment-timezone-with-data-10-year-range.js"></script>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Gate Map Viewer" />
+		<meta name="twitter:description" content="Tool to view current and previous arcade gates in Spiral Knights." />
+		<meta name="twitter:image" content="card-image.png" />
 	</head>
 	<body onload="init();">
 		<div class="sidebar text-title"><div class="sidecontainer">
@@ -25,12 +30,15 @@
 				<img draggable=false src="background.png">
 			</div>
 			<div class="depth-container" id="depth-container"></div>
-			<div class="overlay top text-title">
-				<img id="gate-img" src="page-icons/unknown.png">
-				<p id="gate-name">---</p>
-				<p class="no-bold" id="gate-date">-</p>
+			<div class="overlay-container top">
+				<div class="overlay top-tab text-title">
+					<img id="gate-img" src="page-icons/unknown.png">
+					<p id="gate-name">---</p>
+					<p class="no-bold" id="gate-date">-</p>
+				</div>
 			</div>
-			<div id="gate-tab" class="overlay bottom text-title">
+			<div class="overlay-container bottom">
+				<div id="gate-tab" class="overlay bottom-tab text-title"></div>
 			</div>
 		</div>
 		<div class="tick-container" id="tick-container"></div>

@@ -69,7 +69,7 @@ div {
 	left: 0;
 	width: 100%;
 	z-index: -1;
-	background-color: white;
+	font-size: 0;
 }
 .bgcontainer > img {
 	width: 100%;
@@ -79,20 +79,29 @@ div {
 	flex-direction: column;
 	padding-top: calc(33vw * 99 / 372);
 }
-.overlay {
+.overlay-container {
 	position: fixed;
-	left: 50vw;
+	width: 100%;
+	left: 0;
+	display: flex;
+	justify-content: center;
+}
+.top {
+	top: 0;
+}
+.bottom {
+	bottom: 0;
+}
+.overlay {
 	width: 20vw;
 	height: 2.5vw;
 	z-index: 10;
-	/* this still doesn't center properly on all sizes and i have no idea why */
-	margin-left: calc(-10vw - 33vw * 7.5 / 372);
 	padding: calc(33vw * 6 / 372) 0;
 	background-color: rgb(14, 46, 58);
 	font-size: calc(33vw * 18 / 372);
 	color: rgb(105, 174, 182);
 }
-.top {
+.top-tab {
 	top: 0;
 	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
 	border-right: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
@@ -105,13 +114,13 @@ div {
 	align-items: center;
 	align-content: space-around;
 }
-.bottom {
+.bottom-tab {
 	bottom: 0;
 	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
 	border-right: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
 	border-top: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
 	border-radius: calc(33vw * 15 / 372) calc(33vw * 15 / 372) 0 0;
-	overflow: scroll;
+	overflow-x: scroll;
 	overflow-y: hidden;
 	white-space: nowrap;
 }
