@@ -1,5 +1,6 @@
 specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'compound', 'gww', 'rjp', 'imf', 'fsc'];
 
+// this is such an unhelpful name for this gigantic function
 function wrap_icon(fn, ident) {
 	var div = document.createElement('div');
 	div.setAttribute('class', 'icon-wrapper');
@@ -229,6 +230,7 @@ function format_date(s) {
 }
 
 function fetch_gate_data() {
+	var current_gate = gates[current_gate_index];
 	var fn = current_gate.join('_');
 	fetch('gates/' + fn + '.txt')
 		.then(response => response.text())
@@ -236,13 +238,14 @@ function fetch_gate_data() {
 }
 
 function populate(text) {
+	var current_gate = gates[current_gate_index];
 	var gatename = to_gatename(current_gate[1]);
-	var parent = document.getElementById('depth-container');
-	parent.innerHTML = '';
+	var gate_data = text.split('\n');
 	document.getElementById('gate-img').setAttribute('src', 'page-icons/' + current_gate[1] + '.png');
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
 	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
-	var gate_data = text.split('\n');
+	var parent = document.getElementById('depth-container');
+	parent.innerHTML = '';
 	var i = 0;
 	var img_name = '';
 	for (var depth=-1; depth<30; depth++) {
@@ -297,10 +300,10 @@ function populate(text) {
 		};
 		parent.appendChild(container);
 	};
-	if (current_gate_num > 0) {
-		document.getElementById('prevgate').setAttribute('src', 'page-icons/' + gates[current_gate_num-1][1] + '.png')
-		document.getElementById('prevname').innerHTML = to_gatename(gates[current_gate_num-1][1]) + ' Gate';
-		document.getElementById('prevdate').innerHTML = format_date(gates[current_gate_num-1][0]);
+	if (current_gate_index > 0) {
+		document.getElementById('prevgate').setAttribute('src', 'page-icons/' + gates[current_gate_index-1][1] + '.png')
+		document.getElementById('prevname').innerHTML = to_gatename(gates[current_gate_index-1][1]) + ' Gate';
+		document.getElementById('prevdate').innerHTML = format_date(gates[current_gate_index-1][0]);
 		document.getElementById('prev').addEventListener('click', event_prev);
 	} else {
 		document.getElementById('prevgate').setAttribute('src', 'page-icons/unknown.png')
@@ -308,11 +311,12 @@ function populate(text) {
 		document.getElementById('prevdate').innerHTML = '-';
 		document.getElementById('prev').removeEventListener('click', event_prev);
 	};
-	if (current_gate_num < gates.length - 1) {
-		document.getElementById('nextgate').setAttribute('src', 'page-icons/' + gates[current_gate_num+1][1] + '.png')
-		document.getElementById('nextname').innerHTML = to_gatename(gates[current_gate_num+1][1]) + ' Gate';
-		document.getElementById('nextdate').innerHTML = format_date(gates[current_gate_num+1][0]);
-		document.getElementById('next').addEventListener('click', event_next);clearInterval(timer);
+	if (current_gate_index < gates.length - 1) {
+		document.getElementById('nextgate').setAttribute('src', 'page-icons/' + gates[current_gate_index+1][1] + '.png')
+		document.getElementById('nextname').innerHTML = to_gatename(gates[current_gate_index+1][1]) + ' Gate';
+		document.getElementById('nextdate').innerHTML = format_date(gates[current_gate_index+1][0]);
+		document.getElementById('next').addEventListener('click', event_next);
+		clearInterval(timer);
 	} else {
 		document.getElementById('nextgate').setAttribute('src', 'page-icons/unknown.png')
 		document.getElementById('nextname').innerHTML = '---';
@@ -324,8 +328,7 @@ function populate(text) {
 };
 
 function timer_func() {
-	var now = new Date().getTime();
-	var dist = next_gate_time.getTime() - now;
+	var dist = next_gate_time - Date.now();
 	
 	var days = Math.floor(dist / (24 * 60 * 60 * 1000));
 	var hrs = Math.floor(dist / (60 * 60 * 1000)) % 24;
@@ -349,32 +352,28 @@ function timer_func() {
 }
 
 function event_prev() {
-	current_gate_num -= 1;
-	current_gate = gates[current_gate_num];
+	current_gate_index -= 1;
 	fetch_gate_data();
 }
 
 function event_next() {
-	current_gate_num += 1;
-	current_gate = gates[current_gate_num];
+	current_gate_index += 1;
 	fetch_gate_data();
 }
 
 function gate_jump(e) {
-	var index = this.getAttribute('data-value');
-	current_gate_num = parseInt(index);
-	current_gate = gates[current_gate_num];
+	current_gate_index = parseInt(this.getAttribute('data-value'));
 	fetch_gate_data();
 }
 
-function prepare(text) {
+function populate_gates(text) {
 	gates = text.split('\n').map(e => e.split(','));
-	current_gate = gates[gates.length - 1];
-	current_gate_num = gates.length - 1;
-	next_gate_time = new Date(format_date(current_gate[0]));
-	next_gate_time.setDate(next_gate_time.getDate() + 2);
-	next_gate_time.setHours(next_gate_time.getHours() + 3);
-	/* next time DST flips i'll have to figure this out better */
+	current_gate_index = gates.length - 1;  // set to latest gate
+	fetch_gate_data();
+	// new gates are created on 11pm Eastern Time
+	// i had to include this time zone library solely for this smh
+	var latest_gate = gates[current_gate_index];
+	next_gate_time = moment.tz(format_date(latest_gate[0]) + ' 23:00', 'America/New_York').add(2, 'days').valueOf();
 	for (var i=0; i<gates.length; i++) {
 		var e = gates[i];
 		var img = document.createElement('img');
@@ -387,13 +386,10 @@ function prepare(text) {
 		document.getElementById('gate-tab').appendChild(img);
 	};
 	document.getElementById('gate-tab').scrollLeft = Number.MAX_SAFE_INTEGER;
-	fetch_gate_data();
 }
 
 function init() {
-	fetch('gates/gate_list.txt')
-		.then(response => response.text())
-		.then(text => prepare(text));
+	// why write the page with the tickmarks when i can just do this
 	var tick_container = document.getElementById('tick-container');
 	for (var i=0; i<32; i++) {
 		var tick = document.createElement('img');
@@ -401,4 +397,7 @@ function init() {
 		tick.setAttribute('src', 'hashmarks.png');
 		tick_container.appendChild(tick);
 	}
+	fetch('gates/gate_list.txt')
+		.then(response => response.text())
+		.then(text => populate_gates(text));
 }
