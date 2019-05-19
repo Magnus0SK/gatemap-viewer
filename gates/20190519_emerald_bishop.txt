@@ -1,0 +1,23 @@
+r,scarlet sc,scarlet sc2,scarlet gg
+l,lichen poison,tunnel slime poison,lichen x
+?,tv,tunnel slime x,tunnel slime fire,graveyard
+x,gww d1
+x,gww d2
+x,snarb
+r,decon shock,compound construct shock slime,compound construct x undead,compound construct shock beast,decon x
+l,tunnel construct x,tunnel construct fire,decon fire
+r,jigsaw ax,jigsaw ax2
+l,jigsaw pp,jigsaw pp2
+?,tv,compound gremlin x undead,graveyard
+r,darkcity ss2,darkcity ss
+x,darkcity pm
+r,compound fiend shock undead,compound construct shock undead,tunnel undead shock
+x,tunnel beast
+r,den shock,tunnel beast shock,tunnel beast x
+l,aurora low,aurora sto,aurora jly,aurora jly2
+?,tv,den poison,den x,graveyard
+?,tv,compound gremlin fire beast,tunnel gremlin x,graveyard
+l,arena gremlin x,compound gremlin x beast
+r,tunnel gremlin fire,compound gremlin x slime
+l,decon fire,tunnel gremlin fire,decon x,tunnel gremlin x,arena gremlin x
+r,jigsaw jt,jigsaw jt2
