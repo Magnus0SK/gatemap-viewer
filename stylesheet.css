@@ -124,10 +124,10 @@ div {
 	overflow-y: hidden;
 	white-space: nowrap;
 }
-.bottom::-webkit-scrollbar {
+.bottom-tab::-webkit-scrollbar {
     height: 10px;
 }
-.bottom::-webkit-scrollbar-thumb {
+.bottom-tab::-webkit-scrollbar-thumb {
     background-color: rgb(208, 220, 242);
 	border-radius: 5px;
 }
