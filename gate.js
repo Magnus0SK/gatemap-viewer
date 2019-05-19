@@ -72,7 +72,7 @@ function wrap_icon(fn, ident) {
 				subtitle = y[ident[1]];
 				break;
 			case 'compound':
-				var x = {fire: 'Charred Compound', freeze: 'Frozen Compound', shock: 'Shocking Compound', poison: 'Blighted Compound', x: 'Ruined Compound'};
+				var x = {fire: 'Charred Compound', freeze: 'Frozen Compound', shock: 'Shocked Compound', poison: 'Blighted Compound', x: 'Ruined Compound'};
 				var y = {beast: 'Ravenous Warrens', slime: 'Creeping Colony', undead: 'Chittering Burrows'};
 				title = x[ident[2]];
 				subtitle = y[ident[3]];
