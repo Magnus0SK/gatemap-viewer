@@ -373,7 +373,8 @@ function prepare(text) {
 	current_gate_num = gates.length - 1;
 	next_gate_time = new Date(format_date(current_gate[0]));
 	next_gate_time.setDate(next_gate_time.getDate() + 2);
-	next_gate_time.setHours(next_gate_time.getHours() + 4);
+	next_gate_time.setHours(next_gate_time.getHours() + 3);
+	/* next time DST flips i'll have to figure this out better */
 	for (var i=0; i<gates.length; i++) {
 		var e = gates[i];
 		var img = document.createElement('img');
@@ -386,7 +387,6 @@ function prepare(text) {
 		document.getElementById('gate-tab').appendChild(img);
 	};
 	document.getElementById('gate-tab').scrollLeft = Number.MAX_SAFE_INTEGER;
-	/* next time DST flips i'll have to figure this out better */
 	fetch_gate_data();
 }
 
