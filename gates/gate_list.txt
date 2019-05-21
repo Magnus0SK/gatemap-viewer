@@ -3,3 +3,4 @@
 20190514,copper_clover
 20190516,jade_falcon
 20190518,emerald_bishop
+20190520,silver_lion
