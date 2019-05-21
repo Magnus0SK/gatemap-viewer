@@ -329,6 +329,7 @@ function populate(text) {
 
 function timer_func() {
 	var dist = next_gate_time - Date.now();
+	if (dist < 0) dist = 0;
 	
 	var days = Math.floor(dist / (24 * 60 * 60 * 1000));
 	var hrs = Math.floor(dist / (60 * 60 * 1000)) % 24;
