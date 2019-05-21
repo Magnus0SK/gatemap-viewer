@@ -95,6 +95,7 @@ div {
 	left: 0;
 	display: flex;
 	justify-content: center;
+	z-index: 3;
 }
 .top {
 	top: 0;
@@ -105,7 +106,6 @@ div {
 .overlay {
 	width: 20vw;
 	height: 2.5vw;
-	z-index: 10;
 	padding: calc(33vw * 6 / 372) 0;
 	background-color: rgb(14, 46, 58);
 	font-size: calc(33vw * 18 / 372);
