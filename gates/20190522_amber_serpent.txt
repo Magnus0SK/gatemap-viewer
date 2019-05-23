@@ -1,0 +1,23 @@
+l,tunnel fiend freeze,tunnel fiend x,dd freeze,dd x
+r,tunnel fiend x,dd x,tunnel fiend poison,dd poison
+l,dd shock,tunnel fiend shock
+r,tunnel undead shock,tunnel undead x,csk x,csk shock
+l,scarlet sc,scarlet sc2,scarlet gg
+r,tunnel undead shock,csk x
+l,tunnel fiend x,dd fire,dd x,tunnel fiend fire,compound fiend fire undead
+?,tv,tunnel fiend poison,dd poison,graveyard
+r,darkcity ss,darkcity ss2
+x,darkcity pm
+r,compound fiend shock slime,compound gremlin freeze slime,tunnel slime fire
+x,rjp d1
+x,rjp d2
+x,jk
+r,lichen x,tunnel slime shock
+l,compound fiend x slime,compound construct shock slime,compound gremlin x slime
+r,compound fiend freeze slime,tunnel slime x
+l,starlight mm,starlight mm2
+l,decon fire,tunnel gremlin fire
+r,den fire,compound gremlin fire beast,tunnel beast fire,compound fiend fire beast
+l,den fire,tunnel beast fire
+r,tunnel gremlin fire,decon fire
+?,tv,compound gremlin fire beast,graveyard
