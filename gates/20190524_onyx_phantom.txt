@@ -1,0 +1,23 @@
+x,tunnel construct freeze
+?,tv,dd freeze,graveyard
+r,tunnel slime freeze,lichen freeze
+l,dd fire,tunnel fiend fire
+r,tunnel slime fire,lichen fire
+l,tunnel gremlin fire,decon fire
+l,tunnel gremlin x,decon x
+?,tv,decon shock,tunnel gremlin shock,graveyard
+r,jigsaw ax,jigsaw ax2
+l,arena gremlin poison,decon poison,compound gremlin poison beast
+r,tunnel construct freeze,compound construct shock beast,tunnel construct x
+x,imf d1
+x,imf d2
+x,rt
+r,tunnel gremlin poison,decon x
+l,jigsaw ax,jigsaw ax2
+r,jigsaw pp,jigsaw pp2
+l,jigsaw jt,jigsaw jt2
+r,compound fiend freeze beast,tunnel beast freeze,den freeze,compound gremlin freeze beast
+l,compound fiend freeze beast,tunnel beast freeze
+?,tv,arena beast freeze,den freeze,graveyard
+r,tunnel gremlin freeze,decon freeze
+l,tunnel construct freeze,decon freeze
