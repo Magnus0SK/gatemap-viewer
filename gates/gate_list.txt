@@ -6,3 +6,4 @@
 20190520,silver_lion
 20190522,amber_serpent
 20190524,onyx_phantom
+20190526,jade_bishop

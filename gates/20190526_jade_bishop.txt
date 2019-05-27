@@ -1,0 +1,23 @@
+r,csk freeze,tunnel undead freeze,csk x,tunnel undead x
+l,scarlet ch,scarlet ch2,scarlet ch3,scarlet gg
+?,tv,tunnel undead fire,graveyard
+x,gww d1
+x,gww d2
+x,snarb
+r,tunnel construct fire,decon fire
+l,jigsaw ax2,jigsaw ax
+r,jigsaw pp2,jigsaw pp
+l,tunnel construct x,tunnel construct shock
+l,starlight ss,starlight ss2
+r,starlight ss3,starlight ss4
+?,tv,lichen x,graveyard
+l,compound gremlin x slime,compound construct x slime
+l,darkcity rr,darkcity rr2,darkcity rr3
+r,darkcity ss,darkcity ss2
+r,darkcity_boss
+?,tv,tunnel undead x,graveyard
+x,compound fiend shock undead
+?,tv,decon freeze,graveyard
+l,tunnel undead freeze,csk freeze
+r,compound construct freeze undead,compound gremlin freeze undead
+x,tunnel gremlin freeze
