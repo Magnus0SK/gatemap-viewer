@@ -17,9 +17,10 @@ body::-webkit-scrollbar-thumb {
 	background-color: rgb(208, 220, 242);
 	border-radius: 15px;
 }
+/* god dang rounding problems
 body::-webkit-scrollbar-track {
 	background-color: rgb(42, 50, 58);
-}
+} */
 div {
 	display: inline-block;
 	vertical-align: top;
