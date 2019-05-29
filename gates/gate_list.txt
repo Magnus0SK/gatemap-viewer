@@ -7,3 +7,4 @@
 20190522,amber_serpent
 20190524,onyx_phantom
 20190526,jade_bishop
+20190528,copper_skull
