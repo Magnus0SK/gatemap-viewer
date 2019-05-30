@@ -104,7 +104,7 @@ function wrap_icon(fn, ident) {
 				subtitle = x[ident[1]];
 				break;
 			case 'starlight':
-				var x = {ss: 'Shrine of Slumber', ss2: 'Shrine of Slumber II', ss3: 'Shrine of Slumber III', ss4: 'Shrine of Slumber IV', mm: 'Meteor Mile', mm2: 'Meteor Mile II'};
+				var x = {ss: 'Shrine of Slumber', ss2: 'Shrine of Slumber II', ss3: 'Shrine of Slumber III', ss4: 'Shrine of Slumber IV', mm: 'Meteor Mile', mm2: 'Meteor Mile II', mm3: 'Meteor Mile III'};
 				title = 'Starlight Cradle';
 				subtitle = x[ident[1]];
 				blurb = 'Beneath a moonlit sky azure islands drift in a sea of stars. These islands are home to creatures that are more than happy to creep upon those who succumb to this world\'s endless lullaby.';
