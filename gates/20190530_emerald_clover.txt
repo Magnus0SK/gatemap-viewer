@@ -1,0 +1,23 @@
+r,tunnel construct fire,decon x
+l,jigsaw pp,jigsaw pp2
+r,tunnel construct fire,tunnel construct x,decon fire,decon x
+r,arena undead fire,tunnel undead x,tunnel undead fire,csk fire
+l,csk x,tunnel undead x
+r,scarlet gg,scarlet ch,scarlet ch2,scarlet ch3
+l,compound gremlin freeze undead,arena gremlin freeze
+r,decon freeze,tunnel gremlin freeze
+?,tv,compound fiend freeze beast,graveyard
+l,den freeze,tunnel beast freeze
+r,lichen freeze,tunnel slime poison,compound gremlin freeze slime
+x,rjp d1
+x,rjp d2
+x,jk
+r,compound construct fire beast,tunnel construct fire
+?,tv,tunnel fiend fire,graveyard
+l,compound construct fire slime,decon fire
+r,compound construct fire beast,tunnel construct fire
+l,starlight ss,starlight ss2
+r,starlight ss3,starlight ss4
+x,starlight_boss
+r,lichen x,tunnel slime x
+l,compound construct x slime,tunnel slime shock
