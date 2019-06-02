@@ -1,0 +1,23 @@
+l,lichen poison,tunnel slime poison
+?,tv,tunnel gremlin poison,decon poison,graveyard
+r,tunnel beast poison,den poison
+?,tv,tunnel beast x,graveyard
+x,tunnel beast shock
+l,aurora jly,aurora jly2,aurora low,aurora sto
+r,tunnel gremlin poison,decon x,decon poison,arena gremlin x
+l,decon fire,compound gremlin x slime,compound gremlin fire undead
+r,jigsaw ax,jigsaw ax2
+?,tv,compound gremlin poison beast,graveyard
+r,compound construct fire undead,tunnel construct fire,decon x
+x,imf d1
+x,imf d2
+x,rt
+r,jigsaw ax,jigsaw ax2
+l,jigsaw jt,jigsaw jt2
+r,compound gremlin x slime,decon x,tunnel gremlin shock,tunnel grmelin x,decon shock
+l,compound gremlin x undead,tunnel gremlin freeze
+r,compound fiend fire slime,dd fire,tunnel fiend fire
+l,dd fire,compound fiend fire slime,tunnel fiend fire
+r,tunnel slime fire,compound construct fire slime,lichen fire
+l,compound gremlin fire beast,tunnel beast fire
+r,compound gremlin fire slime,decon fire
