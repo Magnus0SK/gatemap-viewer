@@ -1,0 +1,23 @@
+l,scarlet sc,scarlet sc2,scarlet gg
+r,tunnel slime fire,lichen fire,arena slime fire,tunnel slime x
+?,tv,tunnel slime shock,graveyard
+l,tunnel fiend x,dd shock
+r,dd x,tunnel fiend fire,dd fire
+l,dd shock,tunnel fiend shock
+x,decon poison
+l,concrete bb,concrete bb2
+r,tunnel construct poison,compound construct poison undead
+?,tv,den poison,graveyard
+?,tv,decon x,tunnel poison x,graveyard
+r,jigsaw ax,jigsaw ax2
+l,jigsaw pp,jigsaw pp2
+r,tunnel construct freeze,tunnel construct x
+l,darkcity rr,darkcity rr2,darkcity rr2
+r,darkcity ss,darkcity ss2
+x,darkcity_boss
+?,tv,tunnel fiend freeze,graveyard
+x,fsc d1
+x,fsc d2
+x,fsc d3
+x,fsc d4
+x,vana

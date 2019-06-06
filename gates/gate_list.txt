@@ -11,3 +11,4 @@
 20190530,emerald_clover
 20190601,amber_knight
 20190603,jade_serpent
+20190605,copper_queen
