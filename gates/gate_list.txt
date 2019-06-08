@@ -12,3 +12,4 @@
 20190601,amber_knight
 20190603,jade_serpent
 20190605,copper_queen
+20190607,coral_king
