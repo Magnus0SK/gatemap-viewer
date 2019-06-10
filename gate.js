@@ -209,6 +209,10 @@ function wrap_icon(fn, ident) {
 		};
 	};
 	
+	if (typeof title === 'undefined' || typeof subtitle === 'undefined' || typeof blurb === 'undefined') {
+		console.log('malformed entry in ' + gates[current_gate_index].join('_') + ':' + (lineno+1) + ' ("' + cur_level + '")')
+	}
+	
 	text.innerHTML = title + '<br>' + subtitle;
 	textcontainer.appendChild(text);
 	
@@ -246,7 +250,7 @@ function populate(text) {
 	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
 	var parent = document.getElementById('depth-container');
 	parent.innerHTML = '';
-	var i = 0;
+	lineno = 0;
 	var img_name = '';
 	for (var depth=-1; depth<30; depth++) {
 		var container = document.createElement('div');
@@ -271,7 +275,7 @@ function populate(text) {
 			img_name = 'terminal';
 			container.appendChild(wrap_icon(img_name));
 		} else {
-			var depth_data = gate_data[i].split(',');
+			var depth_data = gate_data[lineno].split(',');
 			var direction = depth_data[0] == 'l' ? 'left' : depth_data[0] == 'r' ? 'right' : 'random';
 			if (depth_data.length > 2) {
 				var spacer = document.createElement('img');
@@ -279,8 +283,9 @@ function populate(text) {
 				spacer.setAttribute('src', 'spacer_' + direction + '.png');
 				container.appendChild(spacer);
 			};
-			for (var j=1; j<depth_data.length; j++) {
-				var parts = depth_data[j].trim().split(' ');
+			for (var i=1; i<depth_data.length; i++) {
+				cur_level = depth_data[i]
+				var parts = cur_level.trim().split(' ');
 				if (specials.indexOf(parts[0]) != -1) {
 					img_name = parts.slice(0, -1).join('_');
 				} else if (parts[0] == 'decon') {
@@ -296,7 +301,7 @@ function populate(text) {
 					container.appendChild(spacer);
 				};
 			};
-			i++;
+			lineno++;
 		};
 		parent.appendChild(container);
 	};
