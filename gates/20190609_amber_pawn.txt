@@ -12,7 +12,7 @@ r,compound construct shock beast,arena construct fire
 x,imf d1
 x,imf d2
 x,rt
-r,csk freze,csk x,compound fiend x undead,compound fiend freeze undead
+r,csk freeze,csk x,compound fiend x undead,compound fiend freeze undead
 ?,tv,tunnel undead x,graveyard
 l,scarlet sc,scarlet sc2,scarlet gg
 r,scarlet ch,scarlet ch2,scarlet ch3
