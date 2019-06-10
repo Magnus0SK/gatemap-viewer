@@ -14,7 +14,7 @@ x,imf d2
 x,rt
 r,jigsaw ax,jigsaw ax2
 l,jigsaw jt,jigsaw jt2
-r,compound gremlin x slime,decon x,tunnel gremlin shock,tunnel grmelin x,decon shock
+r,compound gremlin x slime,decon x,tunnel gremlin shock,tunnel gremlin x,decon shock
 l,compound gremlin x undead,tunnel gremlin freeze
 r,compound fiend fire slime,dd fire,tunnel fiend fire
 l,dd fire,compound fiend fire slime,tunnel fiend fire

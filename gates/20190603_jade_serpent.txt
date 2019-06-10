@@ -16,8 +16,8 @@ l,concrete bb,concrete bb2
 r,tunnel beast poison,den poison,compound fiend poison beast
 ?,tv,tunnel fiend poison,dd poison,graveyard
 l,dd poison,tunnel fiend poison
-r,darkcity rr1,darkcity rr2,darkcity rr3
-l,darkcity ss1,darkcity ss2
+r,darkcity rr,darkcity rr2,darkcity rr3
+l,darkcity ss,darkcity ss2
 x,darkcity_boss
 l,compound fiend x undead,tunnel fiend fire,compound fiend x slime
 r,tunnel fiend poison,dd poison,dd x

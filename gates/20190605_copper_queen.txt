@@ -8,7 +8,7 @@ x,decon poison
 l,concrete bb,concrete bb2
 r,tunnel construct poison,compound construct poison undead
 ?,tv,den poison,graveyard
-?,tv,decon x,tunnel poison x,graveyard
+?,tv,decon x,tunnel construct poison,graveyard
 r,jigsaw ax,jigsaw ax2
 l,jigsaw pp,jigsaw pp2
 r,tunnel construct freeze,tunnel construct x
