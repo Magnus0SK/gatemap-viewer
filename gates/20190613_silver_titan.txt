@@ -1,0 +1,23 @@
+x,decon freeze
+l,tunnel beast freeze,arena beast freeze
+r,decon freeze,tunnel gremlin freeze
+?,tv,tunnel slime x,graveyard
+l,tunnel slime freeze,lichen x,lichen freeze
+r,scarlet ch,scarlet ch2,scarlet ch3,scarlet gg
+l,decon x,tunnel construct x,compound construct x undead
+r,compound construct shock beast,decon shock
+l,compound construct x slime,tunnel construct fire
+r,jigsaw jt,jigsaw jt2
+r,tunnel fiend freeze,dd freeze,compound fiend x beast
+l,darkcity ss,darkcity ss2
+x,darkcity pm
+l,compound fiend poison slime,dd x
+r,jigsaw pp,jigsaw pp2
+l,decon x,tunnel gremlin freeze
+?,tv,compound gremlin shock undead,tunnel gremlin shock,graveyard
+r,compound gremlin x beast,compound gremlin shock beast
+x,fsc d1
+x,fsc d2
+x,fsc d3
+x,fsc d4
+x,vana
