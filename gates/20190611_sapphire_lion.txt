@@ -3,7 +3,7 @@ r,tunnel beast freeze,arena beast freeze,den freeze
 ?,tv,decon freeze,tunnel gremlin freeze,graveyard
 x,gww d1
 x,gww d2
-x,gww snarb
+x,snarb
 l,compound fiend freeze beast,tunnel beast x,den x
 ?,tv,tunnel beast fire,graveyard
 r,compound gremlin x beast,compound gremlin freeze beast,tunnel beast freeze,den freeze
