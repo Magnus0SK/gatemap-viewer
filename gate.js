@@ -1,4 +1,4 @@
-specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'compound', 'gww', 'rjp', 'imf', 'fsc'];
+specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'gww', 'rjp', 'imf', 'fsc'];
 
 // this is such an unhelpful name for this gigantic function
 function wrap_icon(fn, ident) {
@@ -288,8 +288,6 @@ function populate(text) {
 				var parts = cur_level.trim().split(' ');
 				if (specials.indexOf(parts[0]) != -1) {
 					img_name = parts.slice(0, -1).join('_');
-				} else if (parts[0] == 'decon') {
-					img_name = ['tunnel', 'construct'].concat(parts.slice(-1)).join('_');
 				} else {
 					img_name = parts.join('_');
 				};
