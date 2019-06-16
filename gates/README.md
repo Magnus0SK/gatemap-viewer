@@ -1,12 +1,17 @@
 # Gate file specs
-A single line describes a single depth. Subtowns and Clockwork Terminals are automatically inserted, so there will always be exactly 23 lines. The contents within a line is comma-separated. Whitespace surrounding commas are allowed.
+A single line describes a single depth. However, by using special level group keywords, multiple depths can be described.
+Subtowns and Clockwork Terminals are automatically inserted, so there will always be at most 23 lines.
+The contents within a line is comma-separated. Whitespace surrounding commas are allowed.
 
-Each line starts with the direction of the depth's rotation. It must be one of the following: l, r, ?, x -- corresponding to left, right, random, and no rotation (exclusively used with single-level depths).
+Each line starts with the direction of the depth's rotation. If using a level group keyword, it specifies the rotation of the first depth.
+It must be one of the following: l, r, ? -- corresponding to left, right, random rotation.
+If a depth only has a single level, then the direction does not matter.
 
-The levels within the depth follows afterwards. Each level is described by a keyword, and if needed, descriptors follow. These must be separated by a single space.
+The levels within the depth follows afterwards.
+Each level is described by a keyword, and if needed, descriptors follow.
+These must be separated by a single space.
 
-The following table describes the levels encoded by each keyword.
-
+## Level keywords
 | Keyword        | Level name                           | Descriptor(s)
 | -------------- | ------------------------------------ | -------------
 | arena          | Battle Arena                         | Monster family, status
@@ -17,28 +22,27 @@ The following table describes the levels encoded by each keyword.
 | dd             | Devilish Drudgery                    | Status
 | den            | Wolver Den                           | Status
 | lichen         | Lichenous Lair                       | Status
-| starlight      | Starlight Cradle                     | Level specifier, given in the next table
-| starlight_boss | Starlight Cradle - Torporal Titan    | (None)
-| darkcity       | Dark City                            | Level specifier, given in the next table
-| darkcity_boss  | Dark City - Stygian Steeds           | (None)
-| concrete       | Concrete Jungle                      | Level specifier, given in the next table
-| concrete_boss  | Concrete Jungle - Briar Bone Barrage | (None)
-| scarlet        | Scarlet Fortress                     | Level specifier, given in the next table
-| aurora         | Aurora Isles                         | Level specifier, given in the next table
-| jigsaw         | Jigsaw Valley                        | Level specifier, given in the next table
-| tv             | Treasure Vault                       | (None)
-| graveyard      | Graveyard                            | (None)
+| starlight      | Starlight Cradle                     | Special descriptor
+| starlight_boss | Starlight Cradle - Torporal Titan    | -
+| darkcity       | Dark City                            | Special descriptor
+| darkcity_boss  | Dark City - Stygian Steeds           | -
+| concrete       | Concrete Jungle                      | Special descriptor
+| concrete_boss  | Concrete Jungle - Briar Bone Barrage | -
+| scarlet        | Scarlet Fortress                     | Special descriptor
+| aurora         | Aurora Isles                         | Special descriptor
+| jigsaw         | Jigsaw Valley                        | Special descriptor
+| tv             | Treasure Vault                       | -
+| graveyard      | Graveyard                            | -
 | gww            | Gloaming Wildwoods                   | Depth specifier (d1, d2)
 | rjp            | Royal Jelly Palace                   | Depth specifier (d1, d2)
 | imf            | Ironclaw Munitions Factory           | Depth specifier (d1, d2)
 | fsc            | Firestorm Citadel                    | Depth specifier (d1, d2, d3, d4)
-| snarb          | GWW - Lair of the Snarbolax          | (None)
-| jk             | RJP - Battle Royale                  | (None)
-| rt             | IMF - The Roarmulus Twins            | (None)
-| vana           | FSC - Throne Room                    | (None)
+| snarb          | GWW - Lair of the Snarbolax          | -
+| jk             | RJP - Battle Royale                  | -
+| rt             | IMF - The Roarmulus Twins            | -
+| vana           | FSC - Throne Room                    | -
 
-This table describes the level specifiers for each region.
-
+## Special descriptors for certain levels
 | Region           | Code | Level name
 | ---------------- | ---- | ----------
 | Aurora Isles     | low  | The Low Gardens
@@ -75,11 +79,24 @@ This table describes the level specifiers for each region.
 |                  | mm2  | Meteor Mile II
 |                  | mm3  | Meteor Mile III
 
-# Upcoming work
-Currently, every single level must be written down -- slightly tedious, but we can do better.
-
-Some shortcuts can be taken to simplify the gate files. such as:
-- If a depth has Aurora Isles in it, it will always have all four in rotation, in a fixed order (direction may vary).
-- Jigsaw Valley levels always comes in sets of two, and it's always a level and its counterpart.
-- Random depths always have a Treasure Vault and a Graveyard.
-- Boss levels are fixed, so it is possible to describe at least 3 depths with just one keyword, and so on.
+## Level group keywords
+| Keyword | Definition
+| ------- | ----------
+| ai      | aurora low, aurora sto, aurora jly, aurora jly2
+| dc_2d   | darkcity ss, darkcity ss2⏎ darkcity pm
+| dc_3d   | darkcity rr, darkcity rr2, darkcity rr3⏎ darkcity ss, darkcity ss2⏎ darkcity_boss
+| cj_bb   | concrete bb, concrete bb2
+| cj_tt   | concrete tt, concrete tt2
+| jv_ax   | jigsaw ax, jigsaw ax2
+| jv_jt   | jigsaw jt, jigsaw jt2
+| jv_pp   | jigsaw pp, jigsaw pp2
+| sf_sc   | scarlet sc, scarlet sc2, scarlet gg
+| sf_ch   | scarlet ch, scarlet ch2, scarlet ch3, scarlet gg
+| sf_2d   | scarlet sc, scarlet sc2, scarlet gg⏎ scarlet ch, scarlet ch2, scarlet ch3
+| sc_mm   | starlight mm, starlight mm2
+| sc_ss   | starlight ss, starlight ss2⏎ starlight ss3, starlight ss4
+| s_gww   | gww d1⏎ gww d2⏎ snarb
+| s_rjp   | rjp d1⏎ rjp d2⏎ jk
+| s_imf   | imf d1⏎ imf d2⏎ rt
+| s_fsc   | fsc d1⏎ fsc d2⏎ fsc d3⏎ fsc d4⏎ vana
+| rand    | Circumfixes levels with "tv" and "graveyard"

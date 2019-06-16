@@ -1,23 +1,19 @@
 r,tunnel slime x,lichen x
 l,tunnel slime shock,lichen shock
-r,scarlet sc,scarlet sc2,scarlet gg
-r,jigsaw ax,jigsaw ax2
+r,sf_sc
+r,jv_ax
 l,decon x,tunnel gremlin fire
 r,tunnel gremlin x,tunnel gremlin shock
 l,compound gremlin shock beast,compound fiend shock beast
-?,tv,tunnel undead shock,graveyard
+rand,tunnel undead shock
 r,den shock,tunnel beast shock
 l,csk shock,arena undead shock,compound construct shock undead
 r,lichen fire,lichen x,compound fiend freeze slime
-x,rjp d1
-x,rjp d2
-x,jk
+x,s_rjp
 l,compound construct shock beast,compound gremlin shock beast,den shock,tunnel beast shock
 x,lichen shock
 l,decon shock,tunnel construct shock
 r,compound construct shock slime,tunnel construct shock
-l,darkcity rr,darkcity rr2,darkcity rr3
-r,darkcity ss,darkcity ss2
-x,darkcity_boss
+l,dc_3d
 r,tunnel fiend x,dd poison
 l,tunnel fiend fire,dd x
