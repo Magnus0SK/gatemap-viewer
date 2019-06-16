@@ -74,9 +74,6 @@ div {
 	font-size: calc(33vw * 16 / 372);
 }
 .bgcontainer {
-	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	z-index: -1;
 	font-size: 0;
@@ -85,9 +82,12 @@ div {
 	width: 100%;
 }
 .depth-container {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	padding-top: calc(33vw * 99 / 372);
+	position: absolute;
+	top: 0;
 }
 .overlay-container {
 	position: fixed;
