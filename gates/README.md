@@ -82,21 +82,21 @@ These must be separated by a single space.
 ## Level group keywords
 | Keyword | Definition
 | ------- | ----------
-| ai      | aurora low, aurora sto, aurora jly, aurora jly2
-| dc_2d   | darkcity ss, darkcity ss2⏎ darkcity pm
-| dc_3d   | darkcity rr, darkcity rr2, darkcity rr3⏎ darkcity ss, darkcity ss2⏎ darkcity_boss
-| cj_bb   | concrete bb, concrete bb2
-| cj_tt   | concrete tt, concrete tt2
-| jv_ax   | jigsaw ax, jigsaw ax2
-| jv_jt   | jigsaw jt, jigsaw jt2
-| jv_pp   | jigsaw pp, jigsaw pp2
-| sf_sc   | scarlet sc, scarlet sc2, scarlet gg
-| sf_ch   | scarlet ch, scarlet ch2, scarlet ch3, scarlet gg
-| sf_2d   | scarlet sc, scarlet sc2, scarlet gg⏎ scarlet ch, scarlet ch2, scarlet ch3
-| sc_mm   | starlight mm, starlight mm2
-| sc_ss   | starlight ss, starlight ss2⏎ starlight ss3, starlight ss4
-| s_gww   | gww d1⏎ gww d2⏎ snarb
-| s_rjp   | rjp d1⏎ rjp d2⏎ jk
-| s_imf   | imf d1⏎ imf d2⏎ rt
-| s_fsc   | fsc d1⏎ fsc d2⏎ fsc d3⏎ fsc d4⏎ vana
-| rand    | Circumfixes levels with "tv" and "graveyard"
+| ai      | `aurora low, aurora sto, aurora jly, aurora jly2`
+| dc_2d   | `darkcity ss, darkcity ss2⏎ darkcity pm`
+| dc_3d   | `darkcity rr, darkcity rr2, darkcity rr3⏎ darkcity ss, darkcity ss2⏎ darkcity_boss`
+| cj_bb   | `concrete bb, concrete bb2`
+| cj_tt   | `concrete tt, concrete tt2`
+| jv_ax   | `jigsaw ax, jigsaw ax2`
+| jv_jt   | `jigsaw jt, jigsaw jt2`
+| jv_pp   | `jigsaw pp, jigsaw pp2`
+| sf_sc   | `scarlet sc, scarlet sc2, scarlet gg`
+| sf_ch   | `scarlet ch, scarlet ch2, scarlet ch3, scarlet gg`
+| sf_2d   | `scarlet sc, scarlet sc2, scarlet gg⏎ scarlet ch, scarlet ch2, scarlet ch3`
+| sc_mm   | `starlight mm, starlight mm2`
+| sc_ss   | `starlight ss, starlight ss2⏎ starlight ss3, starlight ss4`
+| s_gww   | `gww d1⏎ gww d2⏎ snarb`
+| s_rjp   | `rjp d1⏎ rjp d2⏎ jk`
+| s_imf   | `imf d1⏎ imf d2⏎ rt`
+| s_fsc   | `fsc d1⏎ fsc d2⏎ fsc d3⏎ fsc d4⏎ vana`
+| rand    | Circumfixes levels with `tv` and `graveyard`
