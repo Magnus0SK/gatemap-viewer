@@ -16,3 +16,4 @@
 20190609,amber_pawn
 20190611,sapphire_lion
 20190613,silver_titan
+20190615,dark_bishop
