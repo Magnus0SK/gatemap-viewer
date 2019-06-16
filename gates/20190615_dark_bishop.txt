@@ -1,5 +1,5 @@
 r,tunnel slime x,lichen x
-r,tunnel slime shock,lichen shock
+l,tunnel slime shock,lichen shock
 r,scarlet sc,scarlet sc2,scarlet gg
 r,jigsaw ax,jigsaw ax2
 l,decon x,tunnel gremlin fire
