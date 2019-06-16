@@ -1,6 +1,7 @@
 specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'gww', 'rjp', 'imf', 'fsc'];
 
 // this is such an unhelpful name for this gigantic function
+// returns a div DOMElement to be appended to each depth
 function wrap_icon(fn, ident) {
 	var div = document.createElement('div');
 	div.setAttribute('class', 'icon-wrapper');
@@ -225,14 +226,17 @@ function wrap_icon(fn, ident) {
 	return div;
 }
 
+// 'diamond_queen' -> 'Diamond Queen'
 function to_gatename(s) {
 	return s.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ');
 }
 
+// '20190616' -> '2019-06-16'
 function format_date(s) {
 	return s.slice(0, 4) + '-' + s.slice(4, 6) + '-' + s.slice(6);
 }
 
+// (async) fetches gate description text file
 function fetch_gate_data() {
 	var current_gate = gates[current_gate_index];
 	var fn = current_gate.join('_');
@@ -241,10 +245,21 @@ function fetch_gate_data() {
 		.then(text => populate(text));
 }
 
+// expands special keywords that describe entire depth(s)
+function text_expand(text) {
+	var data = text.split('\n');
+	var expanded_data = [];
+	
+	// now i have to investigate what are the level sets
+	
+	return data;
+}
+
+// fills up the gate map with level icons
 function populate(text) {
 	var current_gate = gates[current_gate_index];
 	var gatename = to_gatename(current_gate[1]);
-	var gate_data = text.split('\n');
+	var gate_data = text_expand(text);
 	document.getElementById('gate-img').setAttribute('src', 'page-icons/' + current_gate[1] + '.png');
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
 	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
@@ -330,6 +345,7 @@ function populate(text) {
 	};
 };
 
+// counts down time remaining to the next gate update
 function timer_func() {
 	var dist = next_gate_time - Date.now();
 	if (dist < 0) dist = 0;
@@ -355,21 +371,25 @@ function timer_func() {
 	}
 }
 
+// function to be bound to Previous gate button
 function event_prev() {
 	current_gate_index -= 1;
 	fetch_gate_data();
 }
 
+// function to be bound to Next gate button
 function event_next() {
 	current_gate_index += 1;
 	fetch_gate_data();
 }
 
+// function to be bound to gate icons in jump bar
 function gate_jump(e) {
 	current_gate_index = parseInt(this.getAttribute('data-value'));
 	fetch_gate_data();
 }
 
+// callback function to handle all the gate data, also populates the jump bar
 function populate_gates(text) {
 	gates = text.split('\n').map(e => e.split(','));
 	current_gate_index = gates.length - 1;  // set to latest gate
@@ -392,6 +412,7 @@ function populate_gates(text) {
 	document.getElementById('gate-tab').scrollLeft = Number.MAX_SAFE_INTEGER;
 }
 
+// function to run when the page loads
 function init() {
 	// why write the page with the tickmarks when i can just do this
 	var tick_container = document.getElementById('tick-container');
