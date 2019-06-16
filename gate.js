@@ -47,7 +47,6 @@ function populate(text) {
 	var current_gate = gates[current_gate_index];
 	var gatename = to_gatename(current_gate[1]);
 	var gate_data = text_expand(text);
-	console.log(gate_data);
 	document.getElementById('gate-img').setAttribute('src', 'page-icons/' + current_gate[1] + '.png');
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
 	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
