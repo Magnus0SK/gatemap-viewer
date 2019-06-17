@@ -1,4 +1,9 @@
-specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'gww', 'rjp', 'imf', 'fsc', 'terminal'];
+var specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'gww', 'rjp', 'imf', 'fsc', 'terminal'];
+var gates = null;
+var current_gate_index = 0;
+var next_gate_time = 0;
+var lineno = 0;
+var timer = null;
 
 // 'diamond_queen' -> 'Diamond Queen'
 function to_gatename(s) {
@@ -12,8 +17,8 @@ function format_date(s) {
 
 // (async) fetches gate description text file
 function fetch_gate_data() {
-	var current_gate = gates[current_gate_index];
-	var fn = current_gate.join('_');
+	let current_gate = gates[current_gate_index];
+	let fn = current_gate.join('_');
 	fetch('gates/' + fn + '.txt')
 		.then(response => response.text())
 		.then(text => populate(text));
@@ -26,111 +31,130 @@ function populate_gates(text) {
 	fetch_gate_data();
 	// new gates are created on 11pm Eastern Time
 	// i had to include this time zone library solely for this smh
-	var latest_gate = gates[current_gate_index];
+	let latest_gate = gates[current_gate_index];
 	next_gate_time = moment.tz(format_date(latest_gate[0]) + ' 23:00', 'America/New_York').add(2, 'days').valueOf();
-	for (var i=0; i<gates.length; i++) {
-		var e = gates[i];
-		var img = document.createElement('img');
-		img.setAttribute('draggable', false);
-		img.setAttribute('class', 'animate');
+
+	let div = document.createElement('div');
+	div.setAttribute('class', 'entry');
+	let img = document.createElement('img');
+	img.setAttribute('draggable', 'false');
+	img.setAttribute('src', 'page-icons/unknown.png');
+	let name_div = document.createElement('div');
+	name_div.setAttribute('class', 'name-date');
+	let p = document.createElement('p');
+	p.innerHTML = '---';
+	name_div.appendChild(p);
+	p = document.createElement('p');
+	p.setAttribute('class', 'no-bold');
+	p.setAttribute('id', 'nextdate');
+	p.innerHTML = '-';
+	name_div.appendChild(p);
+	div.appendChild(img);
+	div.appendChild(name_div);
+	document.getElementById('entry-wrapper').appendChild(div);
+
+	for (let i=gates.length-1; i>=0; i--) {
+		let e = gates[i];
+		let div = document.createElement('div');
+		div.setAttribute('class', 'entry');
+		div.setAttribute('data-value', i.toString());
+		div.addEventListener('click', gate_jump);
+		if ((gates.length - i) % 2 !== 0) {
+			div.setAttribute('class', 'entry dark-bg');
+		}
+		let img = document.createElement('img');
+		img.setAttribute('draggable', 'false');
 		img.setAttribute('src', 'page-icons/' + e[1] + '.png');
-		img.setAttribute('title', to_gatename(e[1]) + ' Gate (' + format_date(e[0]) + ')');
-		img.setAttribute('data-value', i);
-		img.addEventListener('click', gate_jump);
-		document.getElementById('gate-tab').appendChild(img);
-	};
-	document.getElementById('gate-tab').scrollLeft = Number.MAX_SAFE_INTEGER;
+		let name_div = document.createElement('div');
+		name_div.setAttribute('class', 'name-date');
+		let p = document.createElement('p');
+		p.innerHTML = to_gatename(e[1]) + ' Gate';
+		name_div.appendChild(p);
+		p = document.createElement('p');
+		p.setAttribute('class', 'no-bold');
+		p.innerHTML = format_date(e[0]);
+		name_div.appendChild(p);
+		div.appendChild(img);
+		div.appendChild(name_div);
+		document.getElementById('entry-wrapper').appendChild(div);
+	}
+	add_style();
+	timer_func();
+	timer = setInterval(timer_func, 1000);
 }
 
 // fills up the gate map with level icons
 function populate(text) {
-	var current_gate = gates[current_gate_index];
-	var gatename = to_gatename(current_gate[1]);
-	var gate_data = text_expand(text);
+	let current_gate = gates[current_gate_index];
+	let gatename = to_gatename(current_gate[1]);
+	let gate_data = text_expand(text);
+	let spacer = null;
 	document.getElementById('gate-img').setAttribute('src', 'page-icons/' + current_gate[1] + '.png');
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
 	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
-	var parent = document.getElementById('depth-container');
+	let parent = document.getElementById('depth-container');
 	parent.innerHTML = '';
 	lineno = 0;
-	for (var depth = -1; depth<30; depth++) {
-		var container = document.createElement('div');
+	for (let depth = -1; depth<30; depth++) {
+		let container = document.createElement('div');
 		container.setAttribute('class', 'depth-entry');
-		if (depth == -1) {
+		if (depth === -1) {
 			container.appendChild(wrap_icon(['haven']));
-		} else if (depth == 0) {
+		} else if (depth === 0) {
 			container.appendChild(wrap_icon(['lobby']));
-		} else if (depth == 8) {
-			img_name = 'moorcroft';
+		} else if (depth === 8) {
 			container.appendChild(wrap_icon(['moorcroft']));
-		} else if (depth == 18) {
-			img_name = 'emberlight';
+		} else if (depth === 18) {
 			container.appendChild(wrap_icon(['emberlight']));
-		} else if (depth == 29) {
+		} else if (depth === 29) {
 			container.appendChild(wrap_icon(['terminal', 'core']));
-		} else if (depth == 4 || depth == 13 || depth == 23) {
+		} else if (depth === 4 || depth === 13 || depth === 23) {
 			container.appendChild(wrap_icon(['terminal']));
 		} else {
-			var depth_data = gate_data[lineno].split(',');
-			var direction = depth_data[0] == 'l' ? 'left' : depth_data[0] == 'r' ? 'right' : 'random';
+			let depth_data = gate_data[lineno].split(',');
+			let direction = depth_data[0] === 'l' ? 'left' : depth_data[0] === 'r' ? 'right' : 'random';
 			if (depth_data.length > 2) {
-				var spacer = document.createElement('img');
-				spacer.setAttribute('draggable', false);
+				spacer = document.createElement('img');
+				spacer.setAttribute('draggable', 'false');
 				spacer.setAttribute('src', 'spacer_' + direction + '.png');
 				container.appendChild(spacer);
-			};
-			for (var i=1; i<depth_data.length; i++) {
+			}
+			for (let i=1; i<depth_data.length; i++) {
 				container.appendChild(wrap_icon(depth_data[i].trim().split(' ')));
-				
 				if (depth_data.length > 2) {
-					var spacer = document.createElement('img');
-					spacer.setAttribute('draggable', false);
+					spacer = document.createElement('img');
+					spacer.setAttribute('draggable', 'false');
 					spacer.setAttribute('src', 'spacer_' + direction + '.png');
 					container.appendChild(spacer);
-				};
-			};
+				}
+			}
 			lineno++;
-		};
+		}
 		parent.appendChild(container);
-	};
+	}
 	if (current_gate_index > 0) {
-		document.getElementById('prevgate').setAttribute('src', 'page-icons/' + gates[current_gate_index-1][1] + '.png')
-		document.getElementById('prevname').innerHTML = to_gatename(gates[current_gate_index-1][1]) + ' Gate';
-		document.getElementById('prevdate').innerHTML = format_date(gates[current_gate_index-1][0]);
 		document.getElementById('prev').addEventListener('click', event_prev);
 	} else {
-		document.getElementById('prevgate').setAttribute('src', 'page-icons/unknown.png')
-		document.getElementById('prevname').innerHTML = '---';
-		document.getElementById('prevdate').innerHTML = '-';
 		document.getElementById('prev').removeEventListener('click', event_prev);
-	};
+	}
 	if (current_gate_index < gates.length - 1) {
-		document.getElementById('nextgate').setAttribute('src', 'page-icons/' + gates[current_gate_index+1][1] + '.png')
-		document.getElementById('nextname').innerHTML = to_gatename(gates[current_gate_index+1][1]) + ' Gate';
-		document.getElementById('nextdate').innerHTML = format_date(gates[current_gate_index+1][0]);
 		document.getElementById('next').addEventListener('click', event_next);
-		clearInterval(timer);
 	} else {
-		document.getElementById('nextgate').setAttribute('src', 'page-icons/unknown.png')
-		document.getElementById('nextname').innerHTML = '---';
-		document.getElementById('nextdate').innerHTML = '-';
 		document.getElementById('next').removeEventListener('click', event_next);
-		timer_func();
-		timer = setInterval(timer_func, 1000);
-	};
-};
+	}
+}
 
 // counts down time remaining to the next gate update
 function timer_func() {
-	var dist = next_gate_time - Date.now();
+	let dist = next_gate_time - Date.now();
 	if (dist < 0) dist = 0;
 	
-	var days = Math.floor(dist / (24 * 60 * 60 * 1000));
-	var hrs = Math.floor(dist / (60 * 60 * 1000)) % 24;
-	var mins = Math.floor(dist / (60 * 1000)) % 60;
-	var secs = Math.floor(dist / 1000) % 60;
+	let days = Math.floor(dist / (24 * 60 * 60 * 1000));
+	let hrs = Math.floor(dist / (60 * 60 * 1000)) % 24;
+	let mins = Math.floor(dist / (60 * 1000)) % 60;
+	let secs = Math.floor(dist / 1000) % 60;
 	
-	time_str = 'in ';
+	let time_str = 'in ';
 	if (days > 0) time_str += days + ':';
 	if (days > 0 && hrs < 10) time_str += '0';
 	time_str += hrs + ':';
@@ -148,29 +172,45 @@ function timer_func() {
 
 // function to be bound to Previous gate button
 function event_prev() {
+	remove_style();
 	current_gate_index -= 1;
+	add_style();
 	fetch_gate_data();
 }
 
 // function to be bound to Next gate button
 function event_next() {
+	remove_style();
 	current_gate_index += 1;
+	add_style();
 	fetch_gate_data();
 }
 
 // function to be bound to gate icons in jump bar
-function gate_jump(e) {
+function gate_jump() {
+	remove_style();
 	current_gate_index = parseInt(this.getAttribute('data-value'));
+	add_style();
 	fetch_gate_data();
+}
+
+function remove_style() {
+	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]').classList.remove('light-bg');
+	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]>img').removeAttribute('style');
+}
+
+function add_style() {
+	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]').classList.add('light-bg');
+	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]>img').setAttribute('style', 'opacity: 1');
 }
 
 // function to run when the page loads
 function init() {
 	// why write the page with the tickmarks when i can just do this
-	var tick_container = document.getElementById('tick-container');
-	for (var i=0; i<32; i++) {
-		var tick = document.createElement('img');
-		tick.setAttribute('draggable', false);
+	let tick_container = document.getElementById('tick-container');
+	for (let i=0; i<32; i++) {
+		let tick = document.createElement('img');
+		tick.setAttribute('draggable', 'false');
 		tick.setAttribute('src', 'hashmarks.png');
 		tick_container.appendChild(tick);
 	}

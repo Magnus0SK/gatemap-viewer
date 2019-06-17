@@ -9,6 +9,7 @@
 body {
 	text-align: center;
 	background-color: #222;
+	font-size: 0;
 }
 body::-webkit-scrollbar {
 	width: 20px;
@@ -24,51 +25,116 @@ div {
 	display: inline-block;
 	vertical-align: top;
 }
-.animate {
-	opacity: 0.5;
-}
-.animate:hover {
-	opacity: 1;
-}
+/*
 .interactable div {
 	display: block;
 }
 .interactable img {
 	width: calc(33vw * 80 / 372);
-}
+} */
 /* for some reason the rightmost sidebar just implodes when viewport width is too small.
    though nowadays, even on portrait orientation, smallest should be 720p? so maybe it'll be ok...
 */
 .sidebar {
-	width: 32vw;
+	width: 25vw;
 	height: 100vh;
 	position: sticky;
 	top: 0;
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	overflow: hidden scroll;
+	color: rgb(105, 174, 182);
+	background-color: rgb(14, 46, 58);
+	border: 0 solid rgb(208, 220, 242);
+	border-left-width: calc(33vw * 5 / 372);
+}
+.sidebar::-webkit-scrollbar {
+	width: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+	background-color: rgb(208, 220, 242);
+	border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-track {
+	background-color: rgb(42, 50, 58);
+}
+.navigator {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+.navbar-container {
+	display: flex;
+	height: 3vw;
+	justify-content: space-between;
+	padding: calc(33vw * 10 / 372);
+	background-color: rgb(14, 46, 58);
+}
+.separator {
+	height: calc(33vw * 2 / 372);
+	width: 100%;
+	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(208, 220, 242), rgb(14, 46, 58));
+}
+.current-gate {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: center;
+	flex-grow: 100;
+}
+#entry-wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.entry {
+	width: 100%;
+	display: flex;
+	height: 4vw;
+	margin: 0 calc(33vw * 15 / 372);
+	padding: calc(33vw * 5 / 372) 0;
+}
+.entry:hover {
+	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(25, 60, 106), rgb(14, 46, 58));
+}
+.entry img {
+	width: 4vw;
+}
+.entry img, img.animate {
+	opacity: 0.5;
+}
+.entry:hover img, img.animate:hover {
+	opacity: 1;
+}
+.no-anim {
+	opacity: 1;
+}
+.entry .name-date {
+	display: inline-flex;
+	flex-direction: column;
+	flex-grow: 100;
+	height: 100%;
+	justify-content: space-evenly;
+}
+.name-date p:first-child {
+	font-size: 1.4vw;
+}
+.name-date p:last-child {
+	font-size: 1vw;
+}
+.dark-bg {
+	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(11, 18, 28), rgb(14, 46, 58));
+}
+.light-bg {
+	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(31, 93, 100), rgb(14, 46, 58));
 }
 .middle {
 	width: 33vw;
 	position: relative;
-}
-.sidecontainer {
-	width: 60%;
-	height: 20vw;
-	margin: calc(50vh - 10vw) auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center; 
-	justify-content: space-evenly;
-	font-size: calc(33vw * 32 / 372);
-	color: rgb(105, 174, 182);
-	background-color: rgb(14, 46, 58);
-	box-sizing: border-box;
-	border: calc(33vw * 5 / 372) solid rgb(208, 220, 242);
-	border-radius: calc(33vw * 15 / 372);
-}
-.sidecontainer > img {
-	width: calc(33vw * 64 / 372);
-}
-.sidecontainer > * {
-	margin: calc(33vh * 15 / 372) 0;
 }
 .gatename {
 	font-size: calc(33vw * 16 / 372);
@@ -111,40 +177,6 @@ div {
 	font-size: calc(33vw * 18 / 372);
 	color: rgb(105, 174, 182);
 }
-.top-tab {
-	top: 0;
-	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
-	border-right: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
-	border-bottom: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
-	border-radius: 0 0 calc(33vw * 15 / 372) calc(33vw * 15 / 372);
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	align-content: space-around;
-}
-.bottom-tab {
-	bottom: 0;
-	border-left: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
-	border-right: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
-	border-top: calc(33vw * 3 / 372) solid rgb(208, 220, 242);
-	border-radius: calc(33vw * 15 / 372) calc(33vw * 15 / 372) 0 0;
-	overflow-x: scroll;
-	overflow-y: hidden;
-	white-space: nowrap;
-}
-.bottom-tab::-webkit-scrollbar {
-    height: 10px;
-}
-.bottom-tab::-webkit-scrollbar-thumb {
-    background-color: rgb(208, 220, 242);
-	border-radius: 10px;
-}
-/* god dang rounding problems
-.bottom-tab::-webkit-scrollbar-track {
-	background-color: rgb(42, 50, 58);
-} */
 .overlay img {
 	width: 2vw;
 	margin: 0 0.25vw;
@@ -161,7 +193,7 @@ div {
 }
 #gate-img {
 	width: 2.5vw;
-	margin: 0 1vw;
+	margin-right: 1vw;
 }
 #gate-name {
 	font-size: 1.2vw;
@@ -237,7 +269,7 @@ div {
 }
 .tick-container {
 	position: absolute;
-	right: 33.2vw;
+	right: 20.5vw;
 	top: 0;
 	display: flex;
 	flex-direction: column;
@@ -253,6 +285,6 @@ div {
 	height: calc(33vw * 88 * 5 / 372);
 	color: rgb(208, 220, 242);
 }
-p:first-child {
+.tick-container p:first-child {
 	margin-top: calc(33vw * 184 / 372);
 }

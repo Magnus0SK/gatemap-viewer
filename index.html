@@ -2,7 +2,7 @@
 <!--     please don't view this page on small windows     -->
 <!--           made by silverhawke (@fluffderg)           -->
 <!-- this might not display right on other browsers, oops -->
-<html>
+<html lang="en">
 	<head>
 		<title>Gate Map Viewer</title>
 		<link rel="stylesheet" href="stylesheet.css" />
@@ -19,29 +19,27 @@
 		<meta name="twitter:image" content="https://silverhawke.xyz/gatemap-viewer/card-image.png" />
 	</head>
 	<body onload="init();">
-		<div class="sidebar text-title"><div class="sidecontainer">
-			<div class="sidebar-head">Previous</div>
-			<div class="interactable animate" id="prev">
-				<img draggable=false src="page-icons/unknown.png" id="prevgate">
-				<div class="gatename" id="prevname">---</div>
-				<div class="gatename no-bold" id="prevdate">-</div>
+		<div class="sidebar text-title">
+			<div class="navigator">
+				<div class="navbar-container">
+					<img class="animate" id="prev" draggable=false src="spacer_left.png">
+					<div class="current-gate text-title">
+						<img id="gate-img" draggable="false" src="page-icons/dark_bishop.png">
+						<p id="gate-name">Diamond Phantom Gate</p>
+						<p class="no-bold" id="gate-date">2019-06-15</p>
+					</div>
+					<img class="animate" id="next" draggable=false src="spacer_right.png">
+				</div>
+				<div class="separator"></div>
 			</div>
-		</div></div>
+			<div id="entry-wrapper">
+			</div>
+		</div>
 		<div class="middle">
 			<div class="bgcontainer">
 				<img draggable=false src="background.png">
 			</div>
 			<div class="depth-container" id="depth-container"></div>
-			<div class="overlay-container top">
-				<div class="overlay top-tab text-title">
-					<img id="gate-img" src="page-icons/unknown.png">
-					<p id="gate-name">---</p>
-					<p class="no-bold" id="gate-date">-</p>
-				</div>
-			</div>
-			<div class="overlay-container bottom">
-				<div id="gate-tab" class="overlay bottom-tab text-title"></div>
-			</div>
 		</div>
 		<div class="tick-container" id="tick-container"></div>
 		<div class="tick-container">
@@ -52,13 +50,5 @@
 			<p>20</p>
 			<p>25</p>
 		</div>
-		<div class="sidebar text-title"><div class="sidecontainer">
-			<div class="sidebar-head">Next</div>
-			<div class="interactable animate" id="next">
-				<img draggable=false src="page-icons/unknown.png" id="nextgate">
-				<div class="gatename" id="nextname">---</div>
-				<div class="gatename no-bold" id="nextdate">-</div>
-			</div>
-		</div></div>
 	</body>
 </html>
