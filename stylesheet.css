@@ -127,7 +127,7 @@ div {
 	font-size: 1vw;
 }
 .dark-bg {
-	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(11, 18, 28), rgb(14, 46, 58));
+	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(12, 26, 45), rgb(14, 46, 58));
 }
 .light-bg {
 	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(31, 93, 100), rgb(14, 46, 58));
