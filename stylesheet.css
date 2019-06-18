@@ -2,17 +2,18 @@
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 0.832vw;
+	font-size: 9pt;
 	font-family: 'Ubuntu', sans-serif;
 	vertical-align: baseline;
 }
 body {
+	min-width: 933px;
 	text-align: center;
 	background-color: #222;
 	font-size: 0;
 }
 body::-webkit-scrollbar {
-	width: 20px;
+	width: 15px;
 }
 body::-webkit-scrollbar-thumb {
 	background-color: rgb(208, 220, 242);
@@ -25,18 +26,8 @@ div {
 	display: inline-block;
 	vertical-align: top;
 }
-/*
-.interactable div {
-	display: block;
-}
-.interactable img {
-	width: calc(33vw * 80 / 372);
-} */
-/* for some reason the rightmost sidebar just implodes when viewport width is too small.
-   though nowadays, even on portrait orientation, smallest should be 720p? so maybe it'll be ok...
-*/
 .sidebar {
-	width: 25vw;
+	width: 370px;
 	height: 100vh;
 	position: sticky;
 	top: 0;
@@ -47,7 +38,7 @@ div {
 	color: rgb(105, 174, 182);
 	background-color: rgb(14, 46, 58);
 	border: 0 solid rgb(208, 220, 242);
-	border-left-width: calc(33vw * 5 / 372);
+	border-left-width: 5px;
 }
 .sidebar::-webkit-scrollbar {
 	width: 10px;
@@ -67,15 +58,17 @@ div {
 }
 .navbar-container {
 	display: flex;
-	height: 3vw;
+	height: 45px;
 	justify-content: space-between;
-	padding: calc(33vw * 10 / 372);
+	padding: 10px;
 	background-color: rgb(14, 46, 58);
 }
-.separator {
-	height: calc(33vw * 2 / 372);
-	width: 100%;
-	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(208, 220, 242), rgb(14, 46, 58));
+#gate-img {
+	width: 40px;
+	margin-right: 15px;
+}
+#gate-name {
+	font-size: 14pt;
 }
 .current-gate {
 	display: flex;
@@ -86,6 +79,11 @@ div {
 	align-content: center;
 	flex-grow: 100;
 }
+.separator {
+	height: 2px;
+	width: 100%;
+	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(208, 220, 242), rgb(14, 46, 58));
+}
 #entry-wrapper {
 	width: 100%;
 	display: flex;
@@ -94,15 +92,15 @@ div {
 .entry {
 	width: 100%;
 	display: flex;
-	height: 4vw;
-	margin: 0 calc(33vw * 15 / 372);
-	padding: calc(33vw * 5 / 372) 0;
+	height: 55px;
+	margin: 0 20px;
+	padding: 7px 0;
 }
 .entry:hover {
 	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(25, 60, 106), rgb(14, 46, 58));
 }
 .entry img {
-	width: 4vw;
+	width: 55px;
 }
 .entry img, img.animate {
 	opacity: 0.5;
@@ -121,10 +119,10 @@ div {
 	justify-content: space-evenly;
 }
 .name-date p:first-child {
-	font-size: 1.4vw;
+	font-size: 16pt;
 }
 .name-date p:last-child {
-	font-size: 1vw;
+	font-size: 11pt;
 }
 .dark-bg {
 	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(12, 26, 45), rgb(14, 46, 58));
@@ -133,11 +131,8 @@ div {
 	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(31, 93, 100), rgb(14, 46, 58));
 }
 .middle {
-	width: 33vw;
+	width: 558px;
 	position: relative;
-}
-.gatename {
-	font-size: calc(33vw * 16 / 372);
 }
 .bgcontainer {
 	width: 100%;
@@ -151,64 +146,18 @@ div {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	padding-top: calc(33vw * 99 / 372);
+	padding-top: 148px;
 	position: absolute;
 	top: 0;
 }
-.overlay-container {
-	position: fixed;
-	width: 100%;
-	left: 0;
-	display: flex;
-	justify-content: center;
-	z-index: 3;
-}
-.top {
-	top: 0;
-}
-.bottom {
-	bottom: 0;
-}
-.overlay {
-	width: 20vw;
-	height: 2.5vw;
-	padding: calc(33vw * 6 / 372) 0;
-	background-color: rgb(14, 46, 58);
-	font-size: calc(33vw * 18 / 372);
-	color: rgb(105, 174, 182);
-}
-.overlay img {
-	width: 2vw;
-	margin: 0 0.25vw;
-}
-.overlay img:first-child {
-	margin-left: 1vw;
-}
-.overlay img:last-child {
-	margin-right: 1vw;
-}
-.overlay p {
-	width: 14.5vw;
-	margin-right: 1vw;
-}
-#gate-img {
-	width: 2.5vw;
-	margin-right: 1vw;
-}
-#gate-name {
-	font-size: 1.2vw;
-}
-#gate-date {
-	font-size: 0.8vw;
-}
 .depth-entry {
 	width: 100%;
-	height: calc(33vw * 88 / 372);
+	height: 132px;
 }
 .depth-entry img {
 	position: relative;
-	height: calc(33vw * 36 / 372);
-	margin: 0 0.2vw;
+	height: 54px;
+	margin: 0 3px;
 }
 .icon-wrapper {
 	position: relative;
@@ -218,12 +167,12 @@ div {
 	display: none;
 	position: absolute;
 	background-color: rgba(14, 46, 58, 0.95);
-	width: 13vw;
-	min-height: 5.2vw;
-	right: calc(33vw * 29 / 372);
-	bottom: calc(33vw * 29 / 372);
-	padding-top: 0.624vw;
-	border-radius: 0.52vw;
+	width: 210px;
+	min-height: 80px;
+	right: 43px;
+	bottom: 43px;
+	padding-top: 9px;
+	border-radius: 8px;
 }
 .icon-wrapper:hover > .hover-wrapper {
 	display: flex;
@@ -236,14 +185,16 @@ div {
 	width: 100%;
 	background-color: rgb(235, 201, 77);
 	line-height: 0.95em;
+	font-size: 10.5pt;
 }
 .title {
-	margin: 0.156vw 0 0.104vw 0.52vw;
+	font-size: 10.5pt;
+	margin: 3px 0 2px 8px;
 }
 .blurb {
 	flex-grow: 2;
-	padding: 0.624vw 0.78vw 1.3vw;
-	font-size: 0.6656vw;
+	padding: 9px 11px 22px;
+	font-size: 8pt;
 	letter-spacing: 0.02em;
 	line-height: 1.4em;
 	color: rgb(105, 174, 182);
@@ -251,8 +202,8 @@ div {
 }
 .hover-footer {
 	background-color: rgb(208, 220, 242);
-	height: 1.04vw;
-	border-radius: 0 0 0 0.52vw;
+	height: 15px;
+	border-radius: 0 0 0 8px;
 }
 .text-title {
 	font-weight: bold;
@@ -260,16 +211,12 @@ div {
 	font-family: Lato, sans-serif;
 	user-select: none;
 }
-.sidebar-head {
-	font-style: normal;
-	font-size: 2.496vw;
-}
 .no-bold {
 	font-weight: normal;
 }
 .tick-container {
 	position: absolute;
-	right: 20.5vw;
+	right: 15px;
 	top: 0;
 	display: flex;
 	flex-direction: column;
@@ -277,14 +224,15 @@ div {
 	user-select: none;
 }
 .tick-container img {
-	width: calc(33vw * 28 / 372);
+	width: 150%;
 }
 .tick-container p {
 	text-align: left;
-	margin-right: calc(33vw * 12 / 372);
-	height: calc(33vw * 88 * 5 / 372);
+	font-size: 11pt;
+	margin-right: 6px;
+	height: 660px;
 	color: rgb(208, 220, 242);
 }
 .tick-container p:first-child {
-	margin-top: calc(33vw * 184 / 372);
+	margin-top: 276px;
 }
