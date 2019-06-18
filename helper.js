@@ -335,7 +335,7 @@ function text_expand(text) {
 						expanded_data.push('x, vana');
 				}
 			} else {
-				if (data_arr[0] === 'r' || data_arr[0] === 'l') {
+				if (data_arr[0].length === 1) {
 					ndir = data_arr[0];
 					expanded_data.push(data[i]);
 				} else {
