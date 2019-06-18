@@ -1,3 +1,5 @@
+var keywords = ['ai', 'dc_2d', 'dc_3d', 'cj_bb', 'cj_tt', 'jv_ax', 'jv_jt', 'jv_pp', 'sf_sc', 'sf_ch', 'sf_2d', 'sc_mm', 'sc_ss', 's_gww', 's_rjp', 's_imf', 's_fsc']
+
 // returns a div DOMElement to be appended to each depth
 // descriptor should be an array of strings
 function wrap_icon(descriptor) {
@@ -232,89 +234,114 @@ function wrap_icon(descriptor) {
 function text_expand(text) {
 	let data = text.split('\n');
 	let expanded_data = [];
+	let ndir = 'r';
+	let rdir = 'l';
 	
 	for (let i=0; i < data.length; i++) {
 		let data_arr = data[i].split(',');
-		if (data_arr.length === 1) {
-			expanded_data.push('x,' + data[i]);
+		if (data_arr.length === 1 && keywords.indexOf(data_arr[0].trim()) == -1) {
+			expanded_data.push(ndir + ',' + data[i]);
+			ndir = ndir === 'r' ? 'l' : 'r';
 		} else if (data_arr[0] === 'rand') {
 			data_arr[0] = 'tv';
 			data_arr.unshift('?');
 			data_arr.push('graveyard');
 			expanded_data.push(data_arr.join(','));
 		} else {
-			let dir = data_arr[0];
-			let rdir = dir === 'r' ? 'l' : 'r';
-			switch(data_arr[1].trim()){
-				case 'ai':
-					expanded_data.push(dir + ', aurora low, aurora sto, aurora jly, aurora jly2');
-					break;
-				case 'dc_2d':
-					expanded_data.push(dir + ', darkcity ss, darkcity ss2');
-					expanded_data.push(rdir + ', darkcity pm');
-					break;
-				case 'dc_3d':
-					expanded_data.push(dir + ', darkcity rr, darkcity rr2, darkcity rr3');
-					expanded_data.push(rdir + ', darkcity ss, darkcity ss2');
-					expanded_data.push(dir + ', darkcity_boss');
-					break;
-				case 'cj_bb':
-					expanded_data.push(dir + ', concrete bb, concrete bb2');
-					break;
-				case 'cj_tt':
-					expanded_data.push(dir + ', concrete tt, concrete tt2');
-					break;
-				case 'jv_ax':
-					expanded_data.push(dir + ', jigsaw ax, jigsaw ax2');
-					break;
-				case 'jv_jt':
-					expanded_data.push(dir + ', jigsaw jt, jigsaw jt2');
-					break;
-				case 'jv_pp':
-					expanded_data.push(dir + ', jigsaw pp, jigsaw pp2');
-					break;
-				case 'sf_sc':
-					expanded_data.push(dir + ', scarlet sc, scarlet sc2, scarlet gg');
-					break;
-				case 'sf_ch':
-					expanded_data.push(dir + ', scarlet ch, scarlet ch2, scarlet ch3, scarlet gg');
-					break;
-				case 'sf_2d':
-					expanded_data.push(dir + ', scarlet sc, scarlet sc2, scarlet gg');
-					expanded_data.push(rdir + ', scarlet ch, scarlet ch2, scarlet ch3');
-					break;
-				case 'sc_mm':
-					expanded_data.push(dir + ', starlight mm, starlight mm2');
-					break;
-				case 'sc_ss':
-					expanded_data.push(dir + ', starlight ss, starlight ss2');
-					expanded_data.push(rdir + ', starlight ss3, starlight ss4');
-					break;
-				case 's_gww':
-					expanded_data.push('x, gww d1');
-					expanded_data.push('x, gww d2');
-					expanded_data.push('x, snarb');
-					break;
-				case 's_rjp':
-					expanded_data.push('x, rjp d1');
-					expanded_data.push('x, rjp d2');
-					expanded_data.push('x, jk');
-					break;
-				case 's_imf':
-					expanded_data.push('x, imf d1');
-					expanded_data.push('x, imf d2');
-					expanded_data.push('x, rt');
-					break;
-				case 's_fsc':
-					expanded_data.push('x, fsc d1');
-					expanded_data.push('x, fsc d2');
-					expanded_data.push('x, fsc d3');
-					expanded_data.push('x, fsc d4');
-					expanded_data.push('x, vana');
-					break;
-				default:
+			if (keywords.indexOf(data_arr[0].trim()) !== -1 || keywords.indexOf(data_arr[1].trim()) !== -1) {
+				let kw = '';
+				if (data_arr.length === 2) {
+					kw = data_arr[1].trim();
+					ndir = data_arr[0];
+				} else {
+					kw = data_arr[0].trim();
+				}
+				rdir = ndir === 'r' ? 'l' : 'r';
+				switch(kw){
+					case 'ai':
+						expanded_data.push(ndir + ', aurora low, aurora sto, aurora jly, aurora jly2');
+						ndir = rdir;
+						break;
+					case 'dc_2d':
+						expanded_data.push(ndir + ', darkcity ss, darkcity ss2');
+						expanded_data.push(rdir + ', darkcity pm');
+						break;
+					case 'dc_3d':
+						expanded_data.push(ndir + ', darkcity rr, darkcity rr2, darkcity rr3');
+						expanded_data.push(rdir + ', darkcity ss, darkcity ss2');
+						expanded_data.push(ndir + ', darkcity_boss');
+						ndir = rdir;
+						break;
+					case 'cj_bb':
+						expanded_data.push(ndir + ', concrete bb, concrete bb2');
+						ndir = rdir;
+						break;
+					case 'cj_tt':
+						expanded_data.push(ndir + ', concrete tt, concrete tt2');
+						ndir = rdir;
+						break;
+					case 'jv_ax':
+						expanded_data.push(ndir + ', jigsaw ax, jigsaw ax2');
+						ndir = rdir;
+						break;
+					case 'jv_jt':
+						expanded_data.push(ndir + ', jigsaw jt, jigsaw jt2');
+						ndir = rdir;
+						break;
+					case 'jv_pp':
+						expanded_data.push(ndir + ', jigsaw pp, jigsaw pp2');
+						ndir = rdir;
+						break;
+					case 'sf_sc':
+						expanded_data.push(ndir + ', scarlet sc, scarlet sc2, scarlet gg');
+						ndir = rdir;
+						break;
+					case 'sf_ch':
+						expanded_data.push(ndir + ', scarlet ch, scarlet ch2, scarlet ch3, scarlet gg');
+						ndir = rdir;
+						break;
+					case 'sf_2d':
+						expanded_data.push(ndir + ', scarlet sc, scarlet sc2, scarlet gg');
+						expanded_data.push(rdir + ', scarlet ch, scarlet ch2, scarlet ch3');
+						break;
+					case 'sc_mm':
+						expanded_data.push(ndir + ', starlight mm, starlight mm2');
+						ndir = rdir;
+						break;
+					case 'sc_ss':
+						expanded_data.push(ndir + ', starlight ss, starlight ss2');
+						expanded_data.push(rdir + ', starlight ss3, starlight ss4');
+						break;
+					case 's_gww':
+						expanded_data.push('x, gww d1');
+						expanded_data.push('x, gww d2');
+						expanded_data.push('x, snarb');
+						break;
+					case 's_rjp':
+						expanded_data.push('x, rjp d1');
+						expanded_data.push('x, rjp d2');
+						expanded_data.push('x, jk');
+						break;
+					case 's_imf':
+						expanded_data.push('x, imf d1');
+						expanded_data.push('x, imf d2');
+						expanded_data.push('x, rt');
+						break;
+					case 's_fsc':
+						expanded_data.push('x, fsc d1');
+						expanded_data.push('x, fsc d2');
+						expanded_data.push('x, fsc d3');
+						expanded_data.push('x, fsc d4');
+						expanded_data.push('x, vana');
+				}
+			} else {
+				if (data_arr[0] === 'r' || data_arr[0] === 'l') {
+					ndir = data_arr[0];
 					expanded_data.push(data[i]);
-					break;
+				} else {
+					expanded_data.push(ndir + ', ' + data[i]);
+				}
+				ndir = ndir === 'r' ? 'l' : 'r';
 			}
 		}
 	}

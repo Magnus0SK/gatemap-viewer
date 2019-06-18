@@ -3,8 +3,10 @@ A single line describes a single depth. However, by using special level group ke
 Subtowns and Clockwork Terminals are automatically inserted, so there will always be at most 23 lines.
 The contents within a line is comma-separated. Whitespace surrounding commas are allowed.
 
-Each line starts with the direction of the depth's rotation. If using a level group keyword, it specifies the rotation of the first depth.
+Each line may or may not start with the direction of the depth's rotation.
+If using a level group keyword, it specifies the rotation of the first depth.
 It must be one of the following: l, r, ? -- corresponding to left, right, random rotation.
+If it is omitted, then it is assumed to be the opposite of the previous depth's rotation.
 If a depth only has a single level, then the direction does not matter.
 
 The levels within the depth follows afterwards.
