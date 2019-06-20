@@ -42,10 +42,11 @@ function populate_gates(text) {
 	let name_div = document.createElement('div');
 	name_div.setAttribute('class', 'name-date');
 	let p = document.createElement('p');
+	p.setAttribute('class', 'text-title');
 	p.innerHTML = '---';
 	name_div.appendChild(p);
 	p = document.createElement('p');
-	p.setAttribute('class', 'no-bold');
+	p.setAttribute('class', 'text-title no-bold');
 	p.setAttribute('id', 'nextdate');
 	p.innerHTML = '-';
 	name_div.appendChild(p);
@@ -68,10 +69,11 @@ function populate_gates(text) {
 		let name_div = document.createElement('div');
 		name_div.setAttribute('class', 'name-date');
 		let p = document.createElement('p');
+		p.setAttribute('class', 'text-title');
 		p.innerHTML = to_gatename(e[1]) + ' Gate';
 		name_div.appendChild(p);
 		p = document.createElement('p');
-		p.setAttribute('class', 'no-bold');
+		p.setAttribute('class', 'text-title no-bold');
 		p.innerHTML = format_date(e[0]);
 		name_div.appendChild(p);
 		div.appendChild(img);

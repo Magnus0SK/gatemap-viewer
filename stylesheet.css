@@ -119,6 +119,11 @@ div {
 	height: 100%;
 	justify-content: space-evenly;
 }
+.text-title {
+	font-family: Lato, sans-serif;
+	font-weight: bold;
+	font-style: oblique;
+}
 .name-date p:first-child {
 	font-size: 16pt;
 }
@@ -150,6 +155,7 @@ div {
 	padding-top: 148px;
 	position: absolute;
 	top: 0;
+	user-select: none;
 }
 .depth-entry {
 	width: 100%;
@@ -189,6 +195,9 @@ div {
 	font-size: 10.5pt;
 }
 .title {
+	font-family: Lato, sans-serif;
+	font-weight: bold;
+	font-style: oblique;
 	font-size: 10.5pt;
 	margin: 3px 0 2px 8px;
 }
@@ -206,13 +215,8 @@ div {
 	height: 15px;
 	border-radius: 0 0 0 8px;
 }
-.text-title {
-	font-weight: bold;
-	font-style: oblique;
-	font-family: Lato, sans-serif;
-	user-select: none;
-}
 .no-bold {
+	font-family: Ubuntu, sans-serif;
 	font-weight: normal;
 }
 .tick-container {
