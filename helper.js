@@ -8,9 +8,9 @@ function wrap_icon(descriptor) {
 	let hover = document.createElement('div');
 	hover.setAttribute('class', 'hover-wrapper');
 	let textcontainer = document.createElement('div');
-	textcontainer.setAttribute('class', 'title-wrapper text-title');
+	textcontainer.setAttribute('class', 'title-wrapper');
 	let text = document.createElement('div');
-	text.setAttribute('class', 'title');
+	text.setAttribute('class', 'title text-title');
 	let blurbdiv = document.createElement('div');
 	blurbdiv.setAttribute('class', 'blurb');
 	let footer = document.createElement('div');
