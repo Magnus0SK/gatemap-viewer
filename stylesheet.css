@@ -40,6 +40,7 @@ div {
 	background-color: rgb(14, 46, 58);
 	border: 0 solid rgb(208, 220, 242);
 	border-left-width: 5px;
+	user-select: none;
 }
 .sidebar::-webkit-scrollbar {
 	width: 10px;
