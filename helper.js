@@ -1,4 +1,4 @@
-var keywords = ['ai', 'dc_2d', 'dc_3d', 'cj_bb', 'cj_tt', 'jv_ax', 'jv_jt', 'jv_pp', 'sf_sc', 'sf_ch', 'sf_2d', 'sc_mm', 'sc_ss', 's_gww', 's_rjp', 's_imf', 's_fsc']
+var keywords = ['ai', 'dc_2d', 'dc_3d', 'cj_bb', 'cj_tt', 'jv_ax', 'jv_jt', 'jv_pp', 'sf_sc', 'sf_ch', 'sf_2d', 'sc_mm', 'sc_ss', 's_gww', 's_rjp', 's_imf', 's_fsc'];
 
 // returns a div DOMElement to be appended to each depth
 // descriptor should be an array of strings
@@ -239,7 +239,7 @@ function text_expand(text) {
 	
 	for (let i=0; i < data.length; i++) {
 		let data_arr = data[i].split(',');
-		if (data_arr.length === 1 && keywords.indexOf(data_arr[0].trim()) == -1) {
+		if (data_arr.length === 1 && keywords.indexOf(data_arr[0].trim()) === -1) {
 			expanded_data.push(ndir + ',' + data[i]);
 			ndir = ndir === 'r' ? 'l' : 'r';
 		} else if (data_arr[0] === 'rand') {
@@ -347,4 +347,212 @@ function text_expand(text) {
 	}
 	
 	return expanded_data;
+}
+
+// converts expanded keywords to canonical names
+// return array of array of strings
+function to_canonical(text_array) {
+	let out_array = [];
+	for (let i=0; i<text_array.length; i++) {
+		if (i === 0 || i === 3 || i === 6 || i === 10 || i === 14 || i === 18) {
+			switch (i) {
+				case 0:
+					out_array.push(['m.arcade_lobby']);
+					break;
+				case 6:
+					out_array.push(['m.moorcroft']);
+					break;
+				case 14:
+					out_array.push(['m.emberlight']);
+					break;
+				case 3:
+				case 10:
+				case 18:
+					out_array.push(['m.terminal_1']);
+					break;
+			}
+		}
+		let depth_data = text_array[i].split(',').slice(1).map(a => a.trim());
+		let x = null;
+		let depth_array = [];
+		for (let j=0; j<depth_data.length; j++) {
+			let descriptor = depth_data[j].split(' ');
+			switch (descriptor[0]) {
+				// levels
+				case 'arena':
+					x = {
+						fire: 'fla',
+						freeze: 'ima',
+						shock: 'tfa',
+						poison: 'vfa',
+						x: 'iea'
+					};
+					depth_array.push('m.' + x[descriptor[2]] + '_' + descriptor[1]);
+					break;
+				case 'tunnel':
+					x = {
+						fire: 'bf',
+						freeze: 'cc',
+						shock: 'pc',
+						poison: 'ww',
+						x: 'ct'
+					};
+					depth_array.push('m.' + x[descriptor[2]] + '_' + descriptor[1]);
+					break;
+				case 'compound':
+					x = {
+						fire: 'cc',
+						freeze: 'fc',
+						shock: 'sc',
+						poison: 'bc',
+						x: 'rc'
+					};
+					depth_array.push('m.' + x[descriptor[2]] + '_' + descriptor[3] + '_minis');
+					break;
+				case 'csk':
+					if (descriptor[1] === 'x') {
+						depth_array.push('m.candlestick_keep_vanilla');
+					} else {
+						depth_array.push('m.candlestick_keep_' + descriptor[1]);
+					}
+					break;
+				case 'decon':
+					if (descriptor[1] === 'x') {
+						depth_array.push('m.deconstruction_zone_vanilla');
+					} else {
+						depth_array.push('m.deconstruction_zone_' + descriptor[1]);
+					}
+					break;
+				case 'den':
+					if (descriptor[1] === 'x') {
+						depth_array.push('m.wolver_den_vanilla');
+					} else {
+						depth_array.push('m.wolver_den_' + descriptor[1]);
+					}
+					break;
+				case 'lichen':
+					if (descriptor[1] === 'x') {
+						depth_array.push('m.lichenous_lair_vanilla');
+					} else {
+						depth_array.push('m.lichenous_lair_' + descriptor[1]);
+					}
+					break;
+				case 'dd':
+					if (descriptor[1] === 'x') {
+						depth_array.push('m.devilish_drudgery_vanilla');
+					} else {
+						depth_array.push('m.devilish_drudgery_' + descriptor[1]);
+					}
+					break;
+				case 'starlight':
+					x = {
+						ss: 'shrine_of_slumber',
+						ss2: 'shrine_of_slumber_2',
+						ss3: 'shrine_of_slumber_3',
+						ss4: 'shrine_of_slumber_4',
+						mm: 'meteor_mile',
+						mm2: 'meteor_mile_2',
+						mm3: 'meteor_mile_3'
+					};
+					depth_array.push('m.starlight_cradle_' + x[descriptor[1]]);
+					break;
+				case 'starlight_boss':
+					depth_array.push('m.starlight_cradle_miniboss');
+					break;
+				case 'darkcity':
+					x = {
+						ss: 'devilish_drudgery_4',
+						ss2: 'devilish_drudgery_5',
+						pm: 'devilish_drudgery_6',
+						rr: 'devilish_drudgery',
+						rr2: 'devilish_drudgery_2',
+						rr3: 'devilish_drudgery_3'
+					};
+					depth_array.push('m.dark_city_' + x[descriptor[1]]);
+					break;
+				case 'darkcity_boss':
+					depth_array.push('m.dark_city_miniboss');
+					break;
+				case 'concrete':
+					x = {
+						tt: 'totem_trouble',
+						tt2: 'totem_trouble_2',
+						bb: 'blight_boulevard',
+						bb2: 'blight_boulevard_2'
+					};
+					depth_array.push('m.concrete_jungle_' + x[descriptor[1]]);
+					break;
+				case 'concrete_boss':
+					depth_array.push('m.concrete_jungle_miniboss');
+					break;
+				case 'scarlet':
+					x = {
+						ch: 'cravat_hall',
+						ch2: 'cravat_hall_2',
+						ch3: 'cravat_hall_3',
+						gg: 'grim_gallery',
+						sc: 'spiral_court',
+						sc2: 'spiral_court_2'
+					};
+					if (descriptor[1] === 'gg') {
+						depth_array.push('m.scarlet_fortress_' + x[descriptor[1]]);
+					} else {
+						depth_array.push('m.lost_castle_' + x[descriptor[1]]);
+					}
+					break;
+				case 'aurora':
+					x = {sto: 'stone_grove', jly: 'the_jelly_farm', jly2: 'the_jelly_farm_2', low: 'the_low_gardens'};
+					depth_array.push('m.aurora_isles_' + x[descriptor[1]]);
+					break;
+				case 'jigsaw':
+					x = {
+						ax: 'emerald_axis',
+						ax2: 'emerald_axis_2',
+						jt: 'the_jade_tangle',
+						jt2: 'the_jade_tangle_2',
+						pp: 'perimeter_promenade',
+						pp2: 'perimeter_promenade_2'
+					};
+					depth_array.push('m.jigsaw_valley_' + x[descriptor[1]]);
+					break;
+				case 'tv':
+					depth_array.push('m.treasure_vault_1');
+					break;
+				case 'graveyard':
+					depth_array.push('m.graveyard_vanilla');
+					break;
+				case 'gww':
+					x = {d1: 'path', d2: 'ruins'};
+					depth_array.push('m.gloaming_wildwoods_' + x[descriptor[1]]);
+					break;
+				case 'rjp':
+					x = {d1: 'garden', d2: 'court'};
+					depth_array.push('m.royal_jelly_' + x[descriptor[1]]);
+					break;
+				case 'imf':
+					x = {d1: 'assembly', d2: 'workshop'};
+					depth_array.push('m.ironclaw_munitions_factory_' + x[descriptor[1]]);
+					break;
+				case 'fsc':
+					x = {d1: 'blackstone_bridge', d2: 'charred_court', d3: 'ash_armory', d4: 'smoldering_steps'};
+					depth_array.push('m.firestorm_citadel_' + x[descriptor[1]]);
+					break;
+				case 'snarb':
+					depth_array.push('m.gloaming_wildwoods_snarbolax');
+					break;
+				case 'jk':
+					depth_array.push('m.royal_jelly_lair');
+					break;
+				case 'rt':
+					depth_array.push('m.ironclaw_munitions_factory_twins');
+					break;
+				case 'vana':
+					depth_array.push('m.firestorm_citadel_vanaduke');
+					break;
+			}
+		}
+		out_array.push(depth_array);
+	}
+	out_array.push(['m.terminal_core']);
+	return out_array;
 }

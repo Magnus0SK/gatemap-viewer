@@ -144,6 +144,9 @@ function populate(text) {
 	} else {
 		document.getElementById('next').removeEventListener('click', event_next);
 	}
+	// extra stuff
+    console.log(gatename + ' Gate');
+	console.log(to_canonical(gate_data));
 }
 
 // counts down time remaining to the next gate update
