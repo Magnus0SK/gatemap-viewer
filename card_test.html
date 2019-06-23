@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card interface test</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+    <script type="text/javascript">
+        var current_gate_index = 0;
+        function to_gatename(s) {
+            return s.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ');
+        }
+        function load() {
+            fetch('gates/gate_list.txt')
+                .then(response => response.text())
+                .then(text => populate_gates(text));
+        }
+        function populate_gates(text) {
+            let gates = text.split('\n');
+            current_gate_index = gates.length-1;
+            for (let i=gates.length-1; i>=0; i--) {
+                let gate_info = gates[i].split(',');
+                let gate_name = to_gatename(gate_info[1]) + ' Gate';
+                let card_div = document.createElement('div');
+                let overlay_div = document.createElement('div');
+                let img = document.createElement('img');
+                let text_div = document.createElement('div');
+                let p = document.createElement('p');
+                let border1_div = document.createElement('div');
+                let border2_div = document.createElement('div');
+                let arrow_down = document.createElement('div');
+                let arrow_up = document.createElement('div');
+                card_div.setAttribute('class', 'card');
+                card_div.setAttribute('data-value', i.toString());
+                card_div.addEventListener('click', gate_jump);
+                overlay_div.setAttribute('class', 'card-overlay');
+                text_div.setAttribute('class', 'text-container');
+                border1_div.setAttribute('class', 'card-border1');
+                border2_div.setAttribute('class', 'card-border2');
+                arrow_down.setAttribute('class', 'arr-down');
+                arrow_up.setAttribute('class', 'arr-up');
+                border1_div.appendChild(arrow_down);
+                border1_div.appendChild(arrow_up);
+                img.setAttribute('draggable', 'false');
+                img.setAttribute('alt', gate_name);
+                img.setAttribute('src', 'page-icons/' + gate_info[1] + '.png');
+                p.setAttribute('class', 'gate-name');
+                p.innerHTML = gate_name;
+                text_div.appendChild(p);
+                overlay_div.appendChild(img);
+                overlay_div.appendChild(text_div);
+                card_div.appendChild(overlay_div);
+                card_div.appendChild(border1_div);
+                card_div.appendChild(border2_div);
+                document.getElementById('container').appendChild(card_div);
+            }
+            add_style();
+        }
+        function gate_jump() {
+            remove_style();
+            current_gate_index = parseInt(this.getAttribute('data-value'));
+            add_style();
+        }
+        function remove_style() {
+            document.querySelector('.card[data-value="' + current_gate_index.toString() + '"]>.card-border1').classList.remove('b1-sel');
+            document.querySelector('.card[data-value="' + current_gate_index.toString() + '"]>.card-border2').classList.remove('b2-sel');
+        }
+        function add_style() {
+            document.querySelector('.card[data-value="' + current_gate_index.toString() + '"]>.card-border1').classList.add('b1-sel');
+            document.querySelector('.card[data-value="' + current_gate_index.toString() + '"]>.card-border2').classList.add('b2-sel');
+        }
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #222;
+        }
+        .container {
+            width: 394px;
+            height: 100vh;
+            padding: 5px;
+            position: sticky;
+            top: 0;
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            overflow: hidden scroll;
+            color: rgb(105, 174, 182);
+            background-color: rgb(14, 46, 58);
+            border: 0 solid rgb(208, 220, 242);
+            border-left-width: 5px;
+            user-select: none;
+        }
+        .container::-webkit-scrollbar {
+            width: 10px;
+        }
+        .container::-webkit-scrollbar-thumb {
+            background-color: rgb(208, 220, 242);
+            border-radius: 10px;
+        }
+        .container::-webkit-scrollbar-track {
+            background-color: rgb(42, 50, 58);
+        }
+        .card {
+            position: relative;
+            margin: 4px;
+            width: 120px;
+            height: 170px;
+            border-radius: 5px;
+            background-color: rgb(44, 54, 61);
+        }
+        .card-overlay {
+            width: 100%;
+            height: 100%;
+            border-radius: 60px 5px 60px 5px;
+            background-color: rgb(23, 33, 31);
+            display: flex;
+            flex-direction: column;
+            z-index: 0;
+        }
+        .card-overlay>img {
+            border-top-left-radius: 60px;
+            border-top-right-radius: 5px;
+            width: 100%;
+        }
+        .text-container {
+            flex-grow: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 8px;
+            z-index: 1;
+        }
+        .text-container>.gate-name {
+            padding: 1px 5px;
+            color: rgb(208, 220, 242);
+            font-size: 9pt;
+            font-family: Ubuntu, sans-serif;
+            font-style: oblique;
+            text-align: center;
+            background-color: rgb(44, 54, 61);
+        }
+        .card-border1 {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+            box-shadow: inset 0 0 0 2px rgb(105, 159, 184);
+            z-index: 2;
+        }
+        .card-border2 {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+            box-shadow: inset -2px -2px 0 0 rgb(48, 73, 95);
+            z-index: 2;
+        }
+        .card:hover .card-border1:not([class~="b1-sel"]) {
+            box-shadow: inset 0 0 0 5px rgb(220, 228, 244);
+        }
+        .card:hover .card-border2:not([class~="b2-sel"]) {
+            box-shadow: inset 0 0 0 2px #fff;
+        }
+        .b1-sel {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+            box-shadow: inset 0 0 0 0 transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .b2-sel {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+            box-shadow: inset 0 0 0 5px rgb(238, 204, 83);
+        }
+        .b1-sel>.arr-down {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid rgb(238, 204, 83);
+        }
+        .b1-sel>.arr-up {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid rgb(238, 204, 83);
+            z-index: 3;
+        }
+    </style>
+</head>
+<body onload="load();">
+    <div id="container" class="container">
+    </div>
+</body>
+</html>
