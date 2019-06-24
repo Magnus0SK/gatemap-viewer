@@ -81,7 +81,7 @@
             background-color: #222;
         }
         .container {
-            width: 394px;
+            width: 390px;
             height: 100vh;
             padding: 5px;
             position: sticky;
@@ -89,6 +89,7 @@
             display: inline-flex;
             flex-wrap: wrap;
             align-content: flex-start;
+            justify-content: space-evenly;
             overflow: hidden scroll;
             color: rgb(105, 174, 182);
             background-color: rgb(14, 46, 58);
@@ -108,23 +109,23 @@
         }
         .card {
             position: relative;
-            margin: 4px;
-            width: 120px;
-            height: 170px;
+            margin: 5px 0;
+            width: 84px;
+            height: 119px;
             border-radius: 5px;
             background-color: rgb(44, 54, 61);
         }
         .card-overlay {
             width: 100%;
             height: 100%;
-            border-radius: 60px 5px 60px 5px;
+            border-radius: 50% 5px 50% 5px;
             background-color: rgb(23, 33, 31);
             display: flex;
             flex-direction: column;
             z-index: 0;
         }
         .card-overlay>img {
-            border-top-left-radius: 60px;
+            border-top-left-radius: 50%;
             border-top-right-radius: 5px;
             width: 100%;
         }
@@ -134,12 +135,12 @@
             flex-direction: column;
             justify-content: center;
             margin-bottom: 8px;
-            z-index: 1;
+            z-index: 0;
         }
         .text-container>.gate-name {
-            padding: 1px 5px;
+            padding: 1px 3px;
             color: rgb(208, 220, 242);
-            font-size: 9pt;
+            font-size: 7pt;
             font-family: Ubuntu, sans-serif;
             font-style: oblique;
             text-align: center;
@@ -153,7 +154,7 @@
             left: 0;
             border-radius: 5px;
             box-shadow: inset 0 0 0 2px rgb(105, 159, 184);
-            z-index: 2;
+            z-index: 1;
         }
         .card-border2 {
             height: 100%;
@@ -163,7 +164,7 @@
             left: 0;
             border-radius: 5px;
             box-shadow: inset -2px -2px 0 0 rgb(48, 73, 95);
-            z-index: 2;
+            z-index: 1;
         }
         .card:hover .card-border1:not([class~="b1-sel"]) {
             box-shadow: inset 0 0 0 5px rgb(220, 228, 244);
@@ -193,24 +194,23 @@
             border-radius: 5px;
             box-shadow: inset 0 0 0 5px rgb(238, 204, 83);
         }
-        .b1-sel>.arr-down {
+        .b1-sel>div {
             width: 0;
             height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid rgb(238, 204, 83);
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+        }
+        .b1-sel>.arr-down {
+            border-top: 14px solid rgb(238, 204, 83);
         }
         .b1-sel>.arr-up {
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-bottom: 20px solid rgb(238, 204, 83);
-            z-index: 3;
+            border-bottom: 14px solid rgb(238, 204, 83);
+            z-index: 1;
         }
     </style>
 </head>
 <body onload="load();">
-    <div id="container" class="container"></div>
+    <div id="container" class="container">
+    </div>
 </body>
 </html>

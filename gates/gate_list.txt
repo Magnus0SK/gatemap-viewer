@@ -20,3 +20,4 @@
 20190617,golden_knight
 20190619,onyx_clover
 20190621,diamond_falcon
+20190623,amber_titan
