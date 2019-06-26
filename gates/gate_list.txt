@@ -21,3 +21,4 @@
 20190619,onyx_clover
 20190621,diamond_falcon
 20190623,amber_titan
+20190625,dark_sun
