@@ -160,8 +160,13 @@ function wrap_icon(descriptor) {
 			blurb = 'Appearing to be sky islands ripped apart and put back together again as if it were a puzzle this world can sometimes be confusing to navigate. Unfortunately it also seems to be home to a host of mindless slimes and constructs who do not seem to mind its erratic layout.';
 			break;
 		case 'tv':
-			title = 'Treasure Vault';
+			title = 'Treasure Trove';
 			subtitle = 'Fortune Smiles on the Greedy';
+			break;
+		case 'pv':
+			x = {fire: 'Burn Rate', freeze: 'Frozen Assets', shock: 'Flash Crash', poison: 'Toxic Debt', x: 'Obscurity through Security'};
+			title = 'Treasure Vault';
+			subtitle = x[descriptor[1]];
 			break;
 		case 'graveyard':
 			title = 'Graveyard';
@@ -242,10 +247,31 @@ function text_expand(text) {
 		if (data_arr.length === 1 && keywords.indexOf(data_arr[0].trim()) === -1) {
 			expanded_data.push(ndir + ',' + data[i]);
 			ndir = ndir === 'r' ? 'l' : 'r';
-		} else if (data_arr[0] === 'rand') {
-			data_arr[0] = 'tv';
+		} else if (data_arr[0].indexOf('rand') !== -1) {
+			let level = '';
+			switch(data_arr[0]) {
+				case 'rand':
+					level = 'tv';
+					break;
+				case 'rand_x':
+					level = 'pv x';
+					break;
+				case 'rand_fire':
+					level = 'pv fire';
+					break;
+				case 'rand_freeze':
+					level = 'pv freeze';
+					break;
+				case 'rand_poison':
+					level = 'pv poison';
+					break;
+				case 'rand_shock':
+					level = 'pv shock';
+					break;
+			}
+			data_arr[0] = 'graveyard';
 			data_arr.unshift('?');
-			data_arr.push('graveyard');
+			data_arr.push(level);
 			expanded_data.push(data_arr.join(','));
 		} else {
 			if (keywords.indexOf(data_arr[0].trim()) !== -1 || keywords.indexOf(data_arr[1].trim()) !== -1) {
