@@ -544,6 +544,13 @@ function to_canonical(text_array) {
 				case 'tv':
 					depth_array.push('m.treasure_vault_1');
 					break;
+				case 'pv':
+					if (descriptor[1] === 'x') {
+						depth_array.push('m.tvault_vanilla');
+					} else {
+						depth_array.push('m.tvault_' + descriptor[1]);
+					}
+					break;
 				case 'graveyard':
 					depth_array.push('m.graveyard_vanilla');
 					break;

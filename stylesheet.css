@@ -239,3 +239,6 @@ div {
 .tick-container p:first-child {
 	margin-top: 276px;
 }
+.tick-container p:last-child {
+	height: initial;
+}
