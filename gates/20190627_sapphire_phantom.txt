@@ -1,0 +1,19 @@
+l, arena beast x, den poison, tunnel beast x, tunnel beast poison
+tunnel beast x, den x, den shock, tunnel beast shock, arena beast x
+tunnel beast x, den x
+r, csk freeze, tunnel undead freeze
+rand_x, tunnel construct freeze
+l, tunnel beast freeze, den freeze
+l, den freeze
+compound gremlin freeze undead, tunnel undead freeze, csk freeze
+decon freeze, compound gremlin freeze slime, tunnel gremlin freeze
+csk freeze, tunnel undead freeze
+rand, tunnel beast x
+l, ai
+den poison, compound fiend x beast
+compound construct x beast, tunnel beast shock
+l, tunnel undead freeze, csk freeze, arena undead freeze
+rand_freeze, den freeze, tunnel beast freeze
+r, csk freeze
+decon freeze, compound gremlin freeze undead
+s_fsc

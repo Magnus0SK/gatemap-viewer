@@ -1,0 +1,20 @@
+l, tunnel undead fire, csk fire
+tunnel construct fire, decon fire
+rand_x, tunnel slime fire
+s_gww
+r, decon fire, tunnel construct fire
+rand_fire, csk fire
+l, decon fire, tunnel gremlin fire
+lichen fire, compound gremlin fire slime, tunnel slime fire
+rand_shock, arena gremlin shock
+l, jv_pp
+jv_jt
+decon fire, tunnel gremlin fire
+l, compound gremlin shock undead, csk shock, compound construct x undead
+sf_2d
+rand_poison, csk x
+r, decon fire, tunnel gremlin x, decon x, compound gremlin fire slime
+compound gremlin freeze slime, decon freeze
+compound gremlin shock undead, decon shock, tunnel gremlin shock
+decon fire, tunnel gremlin x, decon x, tunnel gremlin fire
+jv_jt
