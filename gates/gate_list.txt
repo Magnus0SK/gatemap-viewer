@@ -26,3 +26,4 @@
 20190627,sapphire_phantom
 20190627,iron_knight
 20190627,golden_titan
+20190627,emerald_serpent
