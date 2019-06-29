@@ -1,3 +1,4 @@
+var specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'pv', 'gww', 'rjp', 'imf', 'fsc', 'terminal'];
 var keywords = ['ai', 'dc_2d', 'dc_3d', 'cj_bb', 'cj_tt', 'jv_ax', 'jv_jt', 'jv_pp', 'sf_sc', 'sf_ch', 'sf_2d', 'sc_mm', 'sc_ss', 's_gww', 's_rjp', 's_imf', 's_fsc'];
 
 // returns a div DOMElement to be appended to each depth
@@ -24,7 +25,7 @@ function wrap_icon(descriptor) {
 	} else {
 		fn = descriptor.join('_');
 	}
-	img.setAttribute('src', 'page-icons/' + fn + '.png');
+	img.setAttribute('src', `page-icons/${fn}.png`);
 	
 	let title = undefined;
 	let subtitle = undefined;
@@ -219,10 +220,10 @@ function wrap_icon(descriptor) {
 	}
 	
 	if (typeof title === 'undefined' || typeof subtitle === 'undefined') {
-		console.log('malformed entry in ' + gates[current_gate_index].join('_') + ':' + (lineno+1) + ' ("' + descriptor + '")')
+		console.log(`malformed entry in ${gates[current_gate_index].join('_')}:${lineno+1} (${descriptor.join(' ')})`)
 	}
 	
-	text.innerHTML = title + '<br>' + subtitle;
+	text.innerHTML = `${title}<br>${subtitle}`;
 	textcontainer.appendChild(text);
 	
 	blurbdiv.innerHTML = blurb;
@@ -245,7 +246,7 @@ function text_expand(text) {
 	for (let i=0; i < data.length; i++) {
 		let data_arr = data[i].split(',');
 		if (data_arr.length === 1 && keywords.indexOf(data_arr[0].trim()) === -1) {
-			expanded_data.push(ndir + ',' + data[i]);
+			expanded_data.push(`${ndir}, ${data[i]}`);
 			ndir = ndir === 'r' ? 'l' : 'r';
 		} else if (data_arr[0].indexOf('rand') !== -1) {
 			let level = '';
@@ -285,58 +286,58 @@ function text_expand(text) {
 				rdir = ndir === 'r' ? 'l' : 'r';
 				switch(kw){
 					case 'ai':
-						expanded_data.push(ndir + ', aurora low, aurora sto, aurora jly, aurora jly2');
+						expanded_data.push(`${ndir}, aurora low, aurora sto, aurora jly, aurora jly2`);
 						ndir = rdir;
 						break;
 					case 'dc_2d':
-						expanded_data.push(ndir + ', darkcity ss, darkcity ss2');
-						expanded_data.push(rdir + ', darkcity pm');
+						expanded_data.push(`${ndir}, darkcity ss, darkcity ss2`);
+						expanded_data.push(`${rdir}, darkcity pm`);
 						break;
 					case 'dc_3d':
-						expanded_data.push(ndir + ', darkcity rr, darkcity rr2, darkcity rr3');
-						expanded_data.push(rdir + ', darkcity ss, darkcity ss2');
-						expanded_data.push(ndir + ', darkcity_boss');
+						expanded_data.push(`${ndir}, darkcity rr, darkcity rr2, darkcity rr3`);
+						expanded_data.push(`${rdir}, darkcity ss, darkcity ss2`);
+						expanded_data.push(`${ndir}, darkcity_boss`);
 						ndir = rdir;
 						break;
 					case 'cj_bb':
-						expanded_data.push(ndir + ', concrete bb, concrete bb2');
+						expanded_data.push(`${ndir}, concrete bb, concrete bb2`);
 						ndir = rdir;
 						break;
 					case 'cj_tt':
-						expanded_data.push(ndir + ', concrete tt, concrete tt2');
+						expanded_data.push(`${ndir}, concrete tt, concrete tt2`);
 						ndir = rdir;
 						break;
 					case 'jv_ax':
-						expanded_data.push(ndir + ', jigsaw ax, jigsaw ax2');
+						expanded_data.push(`${ndir}, jigsaw ax, jigsaw ax2`);
 						ndir = rdir;
 						break;
 					case 'jv_jt':
-						expanded_data.push(ndir + ', jigsaw jt, jigsaw jt2');
+						expanded_data.push(`${ndir}, jigsaw jt, jigsaw jt2`);
 						ndir = rdir;
 						break;
 					case 'jv_pp':
-						expanded_data.push(ndir + ', jigsaw pp, jigsaw pp2');
+						expanded_data.push(`${ndir}, jigsaw pp, jigsaw pp2`);
 						ndir = rdir;
 						break;
 					case 'sf_sc':
-						expanded_data.push(ndir + ', scarlet sc, scarlet sc2, scarlet gg');
+						expanded_data.push(`${ndir}, scarlet sc, scarlet sc2, scarlet gg`);
 						ndir = rdir;
 						break;
 					case 'sf_ch':
-						expanded_data.push(ndir + ', scarlet ch, scarlet ch2, scarlet ch3, scarlet gg');
+						expanded_data.push(`${ndir}, scarlet ch, scarlet ch2, scarlet ch3, scarlet gg`);
 						ndir = rdir;
 						break;
 					case 'sf_2d':
-						expanded_data.push(ndir + ', scarlet sc, scarlet sc2, scarlet gg');
-						expanded_data.push(rdir + ', scarlet ch, scarlet ch2, scarlet ch3');
+						expanded_data.push(`${ndir}, scarlet sc, scarlet sc2, scarlet gg`);
+						expanded_data.push(`${rdir}, scarlet ch, scarlet ch2, scarlet ch3`);
 						break;
 					case 'sc_mm':
-						expanded_data.push(ndir + ', starlight mm, starlight mm2');
+						expanded_data.push(`${ndir}, starlight mm, starlight mm2`);
 						ndir = rdir;
 						break;
 					case 'sc_ss':
-						expanded_data.push(ndir + ', starlight ss, starlight ss2');
-						expanded_data.push(rdir + ', starlight ss3, starlight ss4');
+						expanded_data.push(`${ndir}, starlight ss, starlight ss`);
+						expanded_data.push(`${rdir}, starlight ss3, starlight ss4`);
 						break;
 					case 's_gww':
 						expanded_data.push('x, gww d1');
@@ -365,7 +366,7 @@ function text_expand(text) {
 					ndir = data_arr[0];
 					expanded_data.push(data[i]);
 				} else {
-					expanded_data.push(ndir + ', ' + data[i]);
+					expanded_data.push(`${ndir}, ${data[i]}`);
 				}
 				ndir = ndir === 'r' ? 'l' : 'r';
 			}
@@ -413,7 +414,7 @@ function to_canonical(text_array) {
 						poison: 'vfa',
 						x: 'iea'
 					};
-					depth_array.push('m.' + x[descriptor[2]] + '_' + descriptor[1]);
+					depth_array.push(`m.${x[descriptor[2]]}_${descriptor[1]}`);
 					break;
 				case 'tunnel':
 					x = {
@@ -423,7 +424,7 @@ function to_canonical(text_array) {
 						poison: 'ww',
 						x: 'ct'
 					};
-					depth_array.push('m.' + x[descriptor[2]] + '_' + descriptor[1]);
+					depth_array.push(`m.${x[descriptor[2]]}_${descriptor[1]}`);
 					break;
 				case 'compound':
 					x = {
@@ -433,41 +434,41 @@ function to_canonical(text_array) {
 						poison: 'bc',
 						x: 'rc'
 					};
-					depth_array.push('m.' + x[descriptor[2]] + '_' + descriptor[3] + '_minis');
+					depth_array.push(`m.${x[descriptor[2]]}_${descriptor[3]}_minis`);
 					break;
 				case 'csk':
 					if (descriptor[1] === 'x') {
 						depth_array.push('m.candlestick_keep_vanilla');
 					} else {
-						depth_array.push('m.candlestick_keep_' + descriptor[1]);
+						depth_array.push(`m.candlestick_keep_${descriptor[1]}`);
 					}
 					break;
 				case 'decon':
 					if (descriptor[1] === 'x') {
 						depth_array.push('m.deconstruction_zone_vanilla');
 					} else {
-						depth_array.push('m.deconstruction_zone_' + descriptor[1]);
+						depth_array.push(`m.deconstruction_zone_${descriptor[1]}`);
 					}
 					break;
 				case 'den':
 					if (descriptor[1] === 'x') {
 						depth_array.push('m.wolver_den_vanilla');
 					} else {
-						depth_array.push('m.wolver_den_' + descriptor[1]);
+						depth_array.push(`m.wolver_den_${descriptor[1]}`);
 					}
 					break;
 				case 'lichen':
 					if (descriptor[1] === 'x') {
 						depth_array.push('m.lichenous_lair_vanilla');
 					} else {
-						depth_array.push('m.lichenous_lair_' + descriptor[1]);
+						depth_array.push(`m.lichenous_lair_${descriptor[1]}`);
 					}
 					break;
 				case 'dd':
 					if (descriptor[1] === 'x') {
 						depth_array.push('m.devilish_drudgery_vanilla');
 					} else {
-						depth_array.push('m.devilish_drudgery_' + descriptor[1]);
+						depth_array.push(`m.devilish_drudgery_${descriptor[1]}`);
 					}
 					break;
 				case 'starlight':
@@ -480,7 +481,7 @@ function to_canonical(text_array) {
 						mm2: 'meteor_mile_2',
 						mm3: 'meteor_mile_3'
 					};
-					depth_array.push('m.starlight_cradle_' + x[descriptor[1]]);
+					depth_array.push(`m.starlight_cradle_${x[descriptor[1]]}`);
 					break;
 				case 'starlight_boss':
 					depth_array.push('m.starlight_cradle_miniboss');
@@ -494,7 +495,7 @@ function to_canonical(text_array) {
 						rr2: 'devilish_drudgery_2',
 						rr3: 'devilish_drudgery_3'
 					};
-					depth_array.push('m.dark_city_' + x[descriptor[1]]);
+					depth_array.push(`m.dark_city_${x[descriptor[1]]}`);
 					break;
 				case 'darkcity_boss':
 					depth_array.push('m.dark_city_miniboss');
@@ -506,7 +507,7 @@ function to_canonical(text_array) {
 						bb: 'blight_boulevard',
 						bb2: 'blight_boulevard_2'
 					};
-					depth_array.push('m.concrete_jungle_' + x[descriptor[1]]);
+					depth_array.push(`m.concrete_jungle_${x[descriptor[1]]}`);
 					break;
 				case 'concrete_boss':
 					depth_array.push('m.concrete_jungle_miniboss');
@@ -521,14 +522,14 @@ function to_canonical(text_array) {
 						sc2: 'spiral_court_2'
 					};
 					if (descriptor[1] === 'gg') {
-						depth_array.push('m.scarlet_fortress_' + x[descriptor[1]]);
+						depth_array.push(`m.scarlet_fortress_${x[descriptor[1]]}`);
 					} else {
-						depth_array.push('m.lost_castle_' + x[descriptor[1]]);
+						depth_array.push(`m.lost_castle_${x[descriptor[1]]}`);
 					}
 					break;
 				case 'aurora':
 					x = {sto: 'stone_grove', jly: 'the_jelly_farm', jly2: 'the_jelly_farm_2', low: 'the_low_gardens'};
-					depth_array.push('m.aurora_isles_' + x[descriptor[1]]);
+					depth_array.push(`m.aurora_isles_${x[descriptor[1]]}`);
 					break;
 				case 'jigsaw':
 					x = {
@@ -539,7 +540,7 @@ function to_canonical(text_array) {
 						pp: 'perimeter_promenade',
 						pp2: 'perimeter_promenade_2'
 					};
-					depth_array.push('m.jigsaw_valley_' + x[descriptor[1]]);
+					depth_array.push(`m.jigsaw_valley_${x[descriptor[1]]}`);
 					break;
 				case 'tv':
 					depth_array.push('m.treasure_vault_1');
@@ -548,7 +549,7 @@ function to_canonical(text_array) {
 					if (descriptor[1] === 'x') {
 						depth_array.push('m.tvault_vanilla');
 					} else {
-						depth_array.push('m.tvault_' + descriptor[1]);
+						depth_array.push(`m.tvault_${descriptor[1]}`);
 					}
 					break;
 				case 'graveyard':
@@ -556,19 +557,19 @@ function to_canonical(text_array) {
 					break;
 				case 'gww':
 					x = {d1: 'path', d2: 'ruins'};
-					depth_array.push('m.gloaming_wildwoods_' + x[descriptor[1]]);
+					depth_array.push(`m.gloaming_wildwoods_${x[descriptor[1]]}`);
 					break;
 				case 'rjp':
 					x = {d1: 'garden', d2: 'court'};
-					depth_array.push('m.royal_jelly_' + x[descriptor[1]]);
+					depth_array.push(`m.royal_jelly_${x[descriptor[1]]}`);
 					break;
 				case 'imf':
 					x = {d1: 'assembly', d2: 'workshop'};
-					depth_array.push('m.ironclaw_munitions_factory_' + x[descriptor[1]]);
+					depth_array.push(`m.ironclaw_munitions_factory_${x[descriptor[1]]}`);
 					break;
 				case 'fsc':
 					x = {d1: 'blackstone_bridge', d2: 'charred_court', d3: 'ash_armory', d4: 'smoldering_steps'};
-					depth_array.push('m.firestorm_citadel_' + x[descriptor[1]]);
+					depth_array.push(`m.firestorm_citadel_${x[descriptor[1]]}`);
 					break;
 				case 'snarb':
 					depth_array.push('m.gloaming_wildwoods_snarbolax');

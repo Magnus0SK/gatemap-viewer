@@ -1,4 +1,3 @@
-var specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'gww', 'rjp', 'imf', 'fsc', 'terminal'];
 var gates = null;
 var current_gate_index = 0;
 var next_gate_time = 0;
@@ -91,7 +90,7 @@ function populate(text) {
 	let gatename = to_gatename(current_gate[1]);
 	let gate_data = text_expand(text);
 	let spacer = null;
-	document.getElementById('gate-img').setAttribute('src', 'page-icons/' + current_gate[1] + '.png');
+	document.getElementById('gate-img').setAttribute('src', `page-icons/${current_gate[1]}.png`);
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
 	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
 	let parent = document.getElementById('depth-container');
@@ -118,7 +117,7 @@ function populate(text) {
 			if (depth_data.length > 2) {
 				spacer = document.createElement('img');
 				spacer.setAttribute('draggable', 'false');
-				spacer.setAttribute('src', 'spacer_' + direction + '.png');
+				spacer.setAttribute('src', `spacer_${direction}.png`);
 				container.appendChild(spacer);
 			}
 			for (let i=1; i<depth_data.length; i++) {
@@ -126,7 +125,7 @@ function populate(text) {
 				if (depth_data.length > 2) {
 					spacer = document.createElement('img');
 					spacer.setAttribute('draggable', 'false');
-					spacer.setAttribute('src', 'spacer_' + direction + '.png');
+					spacer.setAttribute('src', `spacer_${direction}.png`);
 					container.appendChild(spacer);
 				}
 			}
@@ -145,8 +144,7 @@ function populate(text) {
 		document.getElementById('next').removeEventListener('click', event_next);
 	}
 	// extra stuff
-    console.log(gatename + ' Gate');
-	console.log(to_canonical(gate_data));
+    console.log({ 'gate-name': gatename + ' Gate', 'levels': to_canonical(gate_data) });
 }
 
 // counts down time remaining to the next gate update
@@ -200,13 +198,13 @@ function gate_jump() {
 }
 
 function remove_style() {
-	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]').classList.remove('light-bg');
-	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]>img').removeAttribute('style');
+	document.querySelector(`div.entry[data-value="${current_gate_index}"]`).classList.remove('light-bg');
+	document.querySelector(`div.entry[data-value="${current_gate_index}"]>img`).removeAttribute('style');
 }
 
 function add_style() {
-	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]').classList.add('light-bg');
-	document.querySelector('div.entry[data-value="' + current_gate_index.toString() + '"]>img').setAttribute('style', 'opacity: 1');
+	document.querySelector(`div.entry[data-value="${current_gate_index}"]`).classList.add('light-bg');
+	document.querySelector(`div.entry[data-value="${current_gate_index}"]>img`).setAttribute('style', 'opacity: 1');
 }
 
 // function to run when the page loads
