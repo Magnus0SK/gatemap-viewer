@@ -28,3 +28,4 @@
 20190627,golden_titan
 20190627,emerald_serpent
 20190629,amber_clover
+20190701,onyx_knight

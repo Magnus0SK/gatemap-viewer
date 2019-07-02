@@ -1,0 +1,19 @@
+r, tunnel fiend freeze, dd freeze
+arena undead freeze, csk freeze, tunnel undead freeze
+tunnel undead freeze, csk freeze
+r, ai
+tunnel beast x, den x
+rand, den shock
+r, csk poison, csk x, compound fiend poison undead
+compound fiend x undead, compound fiend freeze undead, compound gremlin x undead, tunnel undead freeze, tunnel undead x
+compound gremlin poison undead, csk x, csk poison, tunnel undead poison, tunnel undead x
+sf_sc
+r, arena slime x, tunnel slime x
+s_rjp
+l, jv_ax
+jv_pp
+jv_jt
+tunnel construct x, decon x
+r, tunnel fiend x, arena fiend x
+dc_3d
+rand_poison, compound fiend poison undead, dd poison
