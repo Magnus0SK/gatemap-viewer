@@ -29,3 +29,4 @@
 20190627,emerald_serpent
 20190629,amber_clover
 20190701,onyx_knight
+20190703,silver_pawn
