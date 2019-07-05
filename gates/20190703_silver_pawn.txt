@@ -18,4 +18,4 @@ rand_shock, csk x, csk shock
 r, tunnel undead fire, tunnel undead x, csk fire
 compound construct freeze undead, csk freeze, tunnel undead freeze
 sf_ch
-csk x, tunnel undead x, compound construct x undead
+csk x, arena undead x, compound construct x undead
