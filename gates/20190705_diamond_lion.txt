@@ -1,0 +1,21 @@
+l, tunnel construct fire, decon fire
+csk fire
+arena gremlin fire, tunnel gremlin fire
+s_gww
+l, decon x, decon freeze
+jv_ax
+jv_pp
+tunnel gremlin freeze, tunnel gremlin x, compound gremlin x beast
+rand_freeze, tunnel beast freeze, den freeze
+r, tunnel gremlin freeze, arena gremlin freeze, decon freeze
+lichen freeze, tunnel slime freeze
+den freeze, tunnel beast freeze
+l, arena fiend shock, dd shock
+compound fiend shock beast, tunnel beast shock, den shock
+rand_shock, compound gremlin shock beast
+l, arena undead shock, csk shock, tunnel undead shock
+rand, lichen poison, lichen x
+l, sc_mm
+tunnel slime fire, lichen fire
+compound fiend x slime, compound construct x slime
+compound fiend freeze slime, tunnel slime freeze

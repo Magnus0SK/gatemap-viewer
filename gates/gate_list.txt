@@ -30,3 +30,4 @@
 20190629,amber_clover
 20190701,onyx_knight
 20190703,silver_pawn
+20190705,diamond_lion
