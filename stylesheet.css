@@ -6,8 +6,11 @@
 	font-family: 'Ubuntu', sans-serif;
 	vertical-align: baseline;
 }
+html {
+	scroll-behavior: smooth;
+}
 body {
-	min-width: 933px;
+	min-width: 968px;
 	text-align: center;
 	background-color: #222;
 	font-size: 0;
@@ -241,4 +244,32 @@ div {
 }
 .tick-container p:last-child {
 	height: initial;
+}
+.section-jump {
+	position: sticky;
+	top: 0;
+	width: 30px;
+	color: rgb(105, 174, 182);
+	background-color: rgb(14, 46, 58);
+	border: 0 solid rgb(208, 220, 242);
+	border-bottom-right-radius: 10px;
+	border-bottom-width: 5px;
+	border-right-width: 5px;
+	user-select: none;
+	display: inline-flex;
+	flex-direction: column;
+}
+a {
+	color: unset;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.active {
+	background-color: rgb(31, 93, 100);
+}
+a:hover {
+	background-color: rgb(25, 60, 106);
+}
+.section-jump>a {
+	padding: 20px 0;
 }

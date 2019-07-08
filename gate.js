@@ -3,6 +3,7 @@ var current_gate_index = 0;
 var next_gate_time = 0;
 var lineno = 0;
 var timer = null;
+var section_heights = null;
 
 // 'diamond_queen' -> 'Diamond Queen'
 function to_gatename(s) {
@@ -103,14 +104,18 @@ function populate(text) {
 			container.appendChild(wrap_icon(['haven']));
 		} else if (depth === 0) {
 			container.appendChild(wrap_icon(['lobby']));
+			container.setAttribute('id', 's1');
 		} else if (depth === 8) {
 			container.appendChild(wrap_icon(['moorcroft']));
+			container.setAttribute('id', 's3');
 		} else if (depth === 18) {
 			container.appendChild(wrap_icon(['emberlight']));
+			container.setAttribute('id', 's5');
 		} else if (depth === 29) {
 			container.appendChild(wrap_icon(['terminal', 'core']));
 		} else if (depth === 4 || depth === 13 || depth === 23) {
 			container.appendChild(wrap_icon(['terminal']));
+			container.setAttribute('id', depth === 4 ? 's2' : depth === 13 ? 's4' : 's6');
 		} else {
 			let depth_data = gate_data[lineno].split(',');
 			let direction = depth_data[0] === 'l' ? 'left' : depth_data[0] === 'r' ? 'right' : 'random';
@@ -143,8 +148,30 @@ function populate(text) {
 	} else {
 		document.getElementById('next').removeEventListener('click', event_next);
 	}
+	// get section heights
+	section_heights = [...Array(6).keys()]
+		.map(i => i + 1)
+		.map(s => document.getElementById(`s${s}`).offsetTop);
 	// extra stuff
     console.log({ 'gate-name': gatename + ' Gate', 'levels': to_canonical(gate_data) });
+}
+
+// function to keep track of scroll position
+function section_jump_func() {
+	let scroll_pos = window.pageYOffset;
+	let stratum = 0;
+	for (; stratum <= 5; stratum++){
+		if (scroll_pos < section_heights[stratum]) {
+			break;
+		}
+	}
+	let container = document.getElementById('section-jump');
+	for (let i=0; i<6; i++) {
+		container.children[i].classList.remove('active');
+		if (stratum === i+1) {
+			container.children[i].classList.add('active');
+		}
+	}
 }
 
 // counts down time remaining to the next gate update
@@ -220,4 +247,5 @@ function init() {
 	fetch('gates/gate_list.txt')
 		.then(response => response.text())
 		.then(text => populate_gates(text));
+	window.addEventListener('scroll', section_jump_func);
 }
