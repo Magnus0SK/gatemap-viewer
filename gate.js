@@ -150,14 +150,25 @@ function populate(text) {
 	}
 	// get section heights
 	section_heights = [...Array(6).keys()]
-		.map(i => i + 1)
-		.map(s => document.getElementById(`s${s}`).offsetTop);
+		.map(s => s + 1)
+		.map(s => document.getElementById(`s${s}`).offsetTop)
+		.map(s => s - 33);  // quarter of one entry height (132)
+	let container = document.getElementById('section-jump');
+	for (let i=0; i<6; i++) {
+		container.children[i].setAttribute('offset', section_heights[i]);
+		container.children[i].addEventListener('click', section_jump_func);
+	}
 	// extra stuff
     console.log({ 'gate-name': gatename + ' Gate', 'levels': to_canonical(gate_data) });
 }
 
-// function to keep track of scroll position
+// function to jump to a section (cuz i'm too cool for hash links)
 function section_jump_func() {
+	window.scrollTo(window.pageXOffset, parseInt(this.getAttribute('offset')));
+}
+
+// function to keep track of scroll position
+function section_track_func() {
 	let scroll_pos = window.pageYOffset;
 	let stratum = 0;
 	for (; stratum <= 5; stratum++){
@@ -247,5 +258,5 @@ function init() {
 	fetch('gates/gate_list.txt')
 		.then(response => response.text())
 		.then(text => populate_gates(text));
-	window.addEventListener('scroll', section_jump_func);
+	window.addEventListener('scroll', section_track_func);
 }
