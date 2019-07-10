@@ -32,3 +32,4 @@
 20190703,silver_pawn
 20190705,diamond_lion
 20190707,emerald_phantom
+20190709,amber_falcon
