@@ -33,3 +33,4 @@
 20190705,diamond_lion
 20190707,emerald_phantom
 20190709,amber_falcon
+20190711,jade_titan
