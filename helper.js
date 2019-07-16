@@ -215,7 +215,7 @@ function wrap_icon(descriptor) {
 		case 'vana':
 			title = 'Firestorm Citadel';
 			subtitle = 'Throne Room';
-			blurb = 'All that remains of the once great kingdom of Almire, the Firestorm Citadel houses the legions of lost souls burning in the flames of a forgotten war, endlessly rekindled by the twisted spirit of their former lord.';
+			blurb = 'Within the throne room of the citadel Lord Vanaduke stands waiting to mount a final defense against any who manage to breach his citadel\'s defenses.';
 			break;
 	}
 	
