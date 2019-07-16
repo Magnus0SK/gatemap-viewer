@@ -1,0 +1,18 @@
+r, tunnel beast x, den freeze
+rand, arena beast x, den x
+l, ai
+r, tunnel beast freeze, den freeze
+decon freeze, tunnel construct freeze
+tunnel undead freeze, csk freeze, arena undead freeze
+l, compound fiend x beast, tunnel fiend x, den fire, arena fiend x
+dc_2d
+dd x, tunnel fiend fire, compound fiend x undead, tunnel fiend x
+rand_shock, tunnel slime x, compound construct x slime
+r, sc_mm
+lichen x, compound fiend x slime, compound gremlin shock slime, compound gremlin x slime
+tunnel slime freeze, lichen freeze
+l, arena undead freeze, compound gremlin x undead, compound construct freeze undead
+rand, tunnel undead x
+r, sf_sc
+tunnel undead freeze, csk x
+s_fsc
