@@ -36,3 +36,4 @@
 20190711,jade_titan
 20190713,iron_skull
 20190715,onyx_serpent
+20190717,emerald_phantom
