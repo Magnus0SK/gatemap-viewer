@@ -38,3 +38,4 @@
 20190715,onyx_serpent
 20190717,emerald_phantom
 20190719,golden_falcon
+20190721,amber_knight
