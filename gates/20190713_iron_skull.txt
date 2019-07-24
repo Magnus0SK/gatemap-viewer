@@ -1,6 +1,6 @@
 r, dd poison
 tunnel fiend x, tunnel fiend shock
-rand_poison, tunnel fiend poison, dd x
+rand, tunnel fiend poison, dd x
 s_gww
 r, tunnel beast x
 compound gremlin x beast, tunnel beast poison
