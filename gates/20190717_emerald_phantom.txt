@@ -1,6 +1,6 @@
 r, jv_pp
 arena construct x, decon fire
-rand_poison, tunnel construct x, decon poison
+rand_x, tunnel construct x, decon poison
 rand, tunnel construct poison
 l, tunnel undead poison, csk poison
 tunnel gremlin poison, decon poison
