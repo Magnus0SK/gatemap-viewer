@@ -336,7 +336,7 @@ function text_expand(text) {
 						ndir = rdir;
 						break;
 					case 'sc_ss':
-						expanded_data.push(`${ndir}, starlight ss, starlight ss`);
+						expanded_data.push(`${ndir}, starlight ss, starlight ss2`);
 						expanded_data.push(`${rdir}, starlight ss3, starlight ss4`);
 						break;
 					case 's_gww':
