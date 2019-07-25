@@ -14,6 +14,7 @@ Each level is described by a keyword, and if needed, descriptors follow.
 These must be separated by a single space.
 
 ## Level keywords
+
 | Keyword        | Level name                           | Descriptor(s)
 | -------------- | ------------------------------------ | -------------
 | arena          | Battle Arena                         | Monster family, status
@@ -45,6 +46,7 @@ These must be separated by a single space.
 | vana           | FSC - Throne Room                    | -
 
 ## Special descriptors for certain levels
+
 | Region           | Code | Level name
 | ---------------- | ---- | ----------
 | Aurora Isles     | low  | The Low Gardens
@@ -82,6 +84,7 @@ These must be separated by a single space.
 |                  | mm3  | Meteor Mile III
 
 ## Level group keywords
+
 | Keyword | Definition
 | ------- | ----------
 | ai      | `aurora low, aurora sto, aurora jly, aurora jly2`
