@@ -40,3 +40,4 @@
 20190719,golden_falcon
 20190721,amber_knight
 20190723,iron_lion
+20190725,dark_clover
