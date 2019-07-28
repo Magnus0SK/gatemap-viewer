@@ -41,3 +41,4 @@
 20190721,amber_knight
 20190723,iron_lion
 20190725,dark_clover
+20190727,diamond_titan
