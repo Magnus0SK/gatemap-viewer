@@ -1,0 +1,18 @@
+r, csk shock, tunnel undead shock
+decon shock, tunnel gremlin shock
+rand, tunnel fiend shock
+r, jv_jt
+rand_x, decon x, decon fire
+tunnel construct fire
+l, den freeze
+compound fiend freeze undead, tunnel fiend freeze, dd freeze
+rand_freeze, decon freeze
+l, tunnel undead freeze, csk freeze
+rand, tunnel undead fire
+r, dc_2d
+csk x, csk fire
+l, jv_ax
+jv_pp
+compound gremlin x undead, decon x, compound gremlin fire undead
+compound gremlin x beast, compound gremlin freeze slime, tunnel gremlin x, tunnel gremlin freeze
+s_fsc

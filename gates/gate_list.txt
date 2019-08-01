@@ -43,3 +43,4 @@
 20190725,dark_clover
 20190727,diamond_titan
 20190729,golden_pawn
+20190731,amber_falcon
