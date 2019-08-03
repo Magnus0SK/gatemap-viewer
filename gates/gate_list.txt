@@ -44,3 +44,4 @@
 20190727,diamond_titan
 20190729,golden_pawn
 20190731,amber_falcon
+20190802,silver_sun
