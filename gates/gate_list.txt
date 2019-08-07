@@ -46,3 +46,4 @@
 20190731,amber_falcon
 20190802,silver_sun
 20190804,dark_clover
+20190806,copper_lion
