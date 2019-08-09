@@ -47,3 +47,4 @@
 20190802,silver_sun
 20190804,dark_clover
 20190806,copper_lion
+20190808,amber_phantom
