@@ -50,3 +50,4 @@
 20190808,amber_phantom
 20190810,iron_queen
 20190812,diamond_skull
+20190814,ruby_falcon
