@@ -1,0 +1,18 @@
+r, tunnel fiend x, dd freeze, dd x, tunnel fiend freeze
+dd x, tunnel fiend fire, dd fire
+tunnel fiend x, dd x, tunnel fiend fire, dd fire
+rand, tunnel slime fire, lichen fire
+l, den fire, tunnel beast fire
+decon fire, tunnel construct fire
+l, compound fiend freeze beast, dd freeze, tunnel fiend freeze
+dc_2d
+tunnel fiend x, compound fiend x beast
+rand_shock, csk shock, tunnel undead shock
+r, tunnel construct shock, decon shock
+decon shock, arena gremlin shock, tunnel gremlin shock
+decon shock, arena gremlin shock
+l, lichen fire, tunnel slime x
+sc_mm
+compound fiend fire slime, lichen x
+lichen freeze, compound gremlin x slime
+s_fsc

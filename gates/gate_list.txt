@@ -51,3 +51,4 @@
 20190810,iron_queen
 20190812,diamond_skull
 20190814,ruby_falcon
+20190816,dark_bishop
