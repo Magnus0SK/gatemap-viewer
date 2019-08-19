@@ -52,3 +52,4 @@
 20190812,diamond_skull
 20190814,ruby_falcon
 20190816,dark_bishop
+20190818,onyx_sun
