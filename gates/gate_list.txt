@@ -53,3 +53,4 @@
 20190814,ruby_falcon
 20190816,dark_bishop
 20190818,onyx_sun
+20190820,silver_king
