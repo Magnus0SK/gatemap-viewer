@@ -1,0 +1,21 @@
+r, lichen shock
+rand, lichen x
+r, sf_sc
+s_gww
+l, tunnel beast x, compound construct x beast
+tunnel beast poison, den x, compound gremlin x beast, den poison
+ai
+compound construct poison beast, compound gremlin poison beast
+l, compound construct fire beast, tunnel construct x
+jv_pp
+rand, tunnel construct freeze
+l, decon shock, decon x
+l, decon freeze, compound gremlin x undead, tunnel gremlin x, compound gremlin freeze slime
+jv_ax
+jv_pp
+rand, decon x, tunnel gremlin freeze
+rand, lichen shock, tunnel slime shock
+r, lichen shock, compound gremlin shock slime
+tunnel gremlin shock, compound gremlin shock undead, decon shock
+tunnel beast shock
+den shock
