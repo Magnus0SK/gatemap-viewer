@@ -55,3 +55,4 @@
 20190818,onyx_sun
 20190820,silver_king
 20190822,coral_clover
+20190824,sapphire_knight
