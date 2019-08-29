@@ -57,3 +57,4 @@
 20190822,coral_clover
 20190824,sapphire_knight
 20190826,ruby_queen
+20190828,emerald_rook
