@@ -58,3 +58,5 @@
 20190824,sapphire_knight
 20190826,ruby_queen
 20190828,emerald_rook
+20190830,dark_king
+20190901,copper_titan
