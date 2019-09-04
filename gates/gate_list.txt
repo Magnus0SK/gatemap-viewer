@@ -60,3 +60,4 @@
 20190828,emerald_rook
 20190830,dark_king
 20190901,copper_titan
+20190903,coral_phantom
