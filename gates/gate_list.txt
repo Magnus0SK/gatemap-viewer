@@ -61,3 +61,4 @@
 20190830,dark_king
 20190901,copper_titan
 20190903,coral_phantom
+20190905,jade_knight
