@@ -1,0 +1,19 @@
+l, tunnel slime freeze, tunnel slime x
+lichen x
+sf_sc
+s_gww
+r, tunnel slime poison, lichen poison
+compound fiend poison beast, den poison
+decon poison
+cj_bb
+r, compound fiend poison undead, tunnel undead x, tunnel undead poison
+csk x, arena undead poison
+compound construct x undead, csk fire
+sf_ch
+l, dc_3d
+rand_fire, tunnel fiend fire, tunnel fiend x
+l, den x
+ai
+compound fiend poison beast, den poison, compound construct x beast
+rand_shock, compound gremlin x beast, tunnel beast x
+r, den x, tunnel beast fire, den fire
