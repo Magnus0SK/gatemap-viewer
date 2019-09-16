@@ -66,3 +66,4 @@
 20190909,sapphire_falcon
 20190911,silver_king
 20190913,iron_skull
+20190915,amber_serpent
