@@ -67,3 +67,4 @@
 20190911,silver_king
 20190913,iron_skull
 20190915,amber_serpent
+20190917,onyx_bishop
