@@ -68,3 +68,4 @@
 20190913,iron_skull
 20190915,amber_serpent
 20190917,onyx_bishop
+20190919,dark_clover
