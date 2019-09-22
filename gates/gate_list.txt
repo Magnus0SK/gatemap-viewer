@@ -69,3 +69,4 @@
 20190915,amber_serpent
 20190917,onyx_bishop
 20190919,dark_clover
+20190921,diamond_rook

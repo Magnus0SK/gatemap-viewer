@@ -1,0 +1,21 @@
+r, tunnel undead freeze
+rand, csk x
+r, sf_sc
+rand_x, arena slime poison, lichen poison
+l, decon poison, tunnel gremlin poison
+tunnel fiend poison, dd poison
+r, den x, tunnel beast poison
+tunnel beast x
+ai
+tunnel beast poison, compound gremlin x beast, den poison
+r, compound construct freeze beast, arena construct poison
+s_imf
+r, decon poison, decon x, tunnel construct poison, tunnel construct x
+jv_ax
+jv_pp
+rand, compound construct x beast, compound construct x undead
+rand, decon shock, tunnel gremlin shock
+l, tunnel gremlin shock, compound gremlin shock beast
+arena construct shock, tunnel construct shock
+decon shock, tunnel construct shock
+compound gremlin shock undead, tunnel gremlin shock
