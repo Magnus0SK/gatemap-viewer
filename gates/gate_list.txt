@@ -73,3 +73,4 @@
 20190923,copper_sun
 20190925,onyx_serpent
 20190927,jade_falcon
+20190929,emerald_skull
