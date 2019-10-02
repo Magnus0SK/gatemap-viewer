@@ -1,0 +1,19 @@
+r, sf_sc
+rand_x, arena undead freeze
+l, arena undead x, tunnel undead freeze
+s_gww
+r, dc_2d
+tunnel fiend x, dd x
+rand, compound fiend poison undead
+l, sf_2d
+rand, compound construct fire undead, compound construct x undead
+l, csk x, arena undead freeze
+l, tunnel gremlin x
+decon poison
+jv_ax
+jv_pp
+rand_freeze, decon x
+r, tunnel construct fire, decon fire
+compound construct freeze undead, tunnel construct freeze, decon freeze, compound construct x beast, tunnel construct x
+jv_pp
+decon fire, decon x
