@@ -78,3 +78,4 @@
 20191003,sapphire_phantom
 20191005,golden_titan
 20191007,copper_rook
+20191009,silver_lion
