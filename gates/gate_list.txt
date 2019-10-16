@@ -81,3 +81,4 @@
 20191009,silver_lion
 20191011,ruby_skull
 20191013,dark_serpent
+20191015,copper_queen
