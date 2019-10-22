@@ -84,3 +84,4 @@
 20191015,copper_queen
 20191017,coral_king
 20191019,iron_bishop
+20191021,silver_phantom
