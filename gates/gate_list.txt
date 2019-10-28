@@ -87,3 +87,4 @@
 20191021,silver_phantom
 20191023,golden_pawn
 20191025,emerald_knight
+20191027,jade_falcon
