@@ -89,3 +89,4 @@
 20191025,emerald_knight
 20191027,jade_falcon
 20191029,iron_phantom
+20191031,silver_skull
