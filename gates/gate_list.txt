@@ -91,3 +91,5 @@
 20191029,iron_phantom
 20191031,silver_skull
 20191102,diamond_sun
+20191104,jade_clover
+20191104,sapphire_phantom
