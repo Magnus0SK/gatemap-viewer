@@ -94,3 +94,4 @@
 20191104,jade_clover
 20191104,sapphire_phantom
 20191106,golden_skull
+20191108,iron_lion
