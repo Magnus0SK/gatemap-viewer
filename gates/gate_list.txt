@@ -95,3 +95,4 @@
 20191104,sapphire_phantom
 20191106,golden_skull
 20191108,iron_lion
+20191110,coral_serpent
