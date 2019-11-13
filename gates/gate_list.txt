@@ -96,3 +96,4 @@
 20191106,golden_skull
 20191108,iron_lion
 20191110,coral_serpent
+20191112,silver_pawn
