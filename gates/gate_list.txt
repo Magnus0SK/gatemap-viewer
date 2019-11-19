@@ -99,3 +99,4 @@
 20191112,silver_pawn
 20191114,ruby_clover
 20191116,iron_falcon
+20191118,coral_titan
