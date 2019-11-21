@@ -100,3 +100,4 @@
 20191114,ruby_clover
 20191116,iron_falcon
 20191118,coral_titan
+20191120,diamond_bishop
