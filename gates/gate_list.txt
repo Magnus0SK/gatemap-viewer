@@ -102,3 +102,4 @@
 20191118,coral_titan
 20191120,diamond_bishop
 20191122,dark_knight
+20191124,amber_falcon
