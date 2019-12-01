@@ -105,3 +105,4 @@
 20191124,amber_falcon
 20191126,iron_queen
 20191128,sapphire_serpent
+20191130,golden_rook
