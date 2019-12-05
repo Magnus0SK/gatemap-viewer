@@ -107,3 +107,4 @@
 20191128,sapphire_serpent
 20191130,golden_rook
 20191202,amber_titan
+20191204,copper_skull
