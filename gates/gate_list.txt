@@ -109,3 +109,4 @@
 20191202,amber_titan
 20191204,copper_skull
 20191206,sapphire_phantom
+20191208,jade_knight
