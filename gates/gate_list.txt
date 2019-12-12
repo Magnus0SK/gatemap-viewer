@@ -110,3 +110,4 @@
 20191204,copper_skull
 20191206,sapphire_phantom
 20191208,jade_knight
+20191210,diamond_lion
