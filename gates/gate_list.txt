@@ -112,3 +112,4 @@
 20191208,jade_knight
 20191210,diamond_lion
 20191212,iron_clover
+20191214,dark_bishop
