@@ -1,0 +1,19 @@
+r, tunnel gremlin poison, arena gremlin x
+jv_ax
+rand, arena gremlin fire
+l, decon shock, tunnel construct shock
+rand, den shock
+csk shock
+r, tunnel construct shock, arena construct shock, decon shock
+rand_shock, compound fiend shock slime
+l, compound gremlin shock undead, csk shock
+csk shock, compound construct shock undead, tunnel undead shock
+r, decon poison, arena construct fire, compound construct shock slime
+s_imf
+r, tunnel construct x, compound construct poison slime
+jv_jt
+compound construct poison undead, arena construct poison, decon x, decon poison, tunnel construct poison
+tunnel construct fire, compound construct fire slime
+r, tunnel fiend shock, dd shock
+rand_freeze, dd x
+l, dc_3d
