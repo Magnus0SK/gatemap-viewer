@@ -114,3 +114,4 @@
 20191212,iron_clover
 20191214,dark_bishop
 20191216,onyx_titan
+20191218,ruby_sun
