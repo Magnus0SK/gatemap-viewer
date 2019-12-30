@@ -1,0 +1,19 @@
+r, csk x, csk freeze, tunnel undead x
+sf_ch
+rand_x, tunnel undead freeze, csk freeze
+s_gww
+r, csk poison, compound gremlin x undead, compound fiend x undead
+sf_2d
+compound construct x undead, tunnel undead freeze, tunnel undead x, csk x, csk freeze
+r, cj_bb
+decon poison, tunnel gremlin poison
+rand, compound fiend poison slime
+r, tunnel gremlin poison, decon poison
+l, compound fiend fire slime, tunnel fiend fire, dd fire
+den fire, tunnel beast fire
+tunnel gremlin fire, compound gremlin fire beast, decon fire
+rand, tunnel construct fire
+rand, dd fire
+r, dd x, dd fire, tunnel fiend x, tunnel fiend fire
+dc_2d
+dd fire, dd x, compound fiend fire undead

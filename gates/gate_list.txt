@@ -118,3 +118,4 @@
 20191220,coral_phantom
 20191222,copper_rook
 20191224,golden_serpent
+20191226,amber_knight
