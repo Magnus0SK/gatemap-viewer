@@ -122,3 +122,4 @@
 20191228,dark_falcon
 20191230,jade_sun
 20200101,onyx_serpent
+20200103,sapphire_titan
