@@ -120,3 +120,4 @@
 20191224,golden_serpent
 20191226,amber_knight
 20191228,dark_falcon
+20191230,jade_sun

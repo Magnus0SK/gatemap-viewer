@@ -1,0 +1,20 @@
+l, tunnel fiend x, dd fire, dd x
+dd shock, tunnel fiend shock
+rand, dd poison
+r, tunnel slime freeze, lichen freeze
+rand, tunnel gremlin freeze
+tunnel construct freeze
+r, dc_2d
+arena fiend fire, compound fiend fire beast, tunnel fiend x
+dd freeze, tunnel fiend x, tunnel fiend freeze, compound fiend x undead, dd x
+tunnel slime fire
+s_rjp
+l, csk x, tunnel undead shock, csk shock, tunnel undead x
+tunnel undead x, compound gremlin shock undead
+cj_tt
+rand, arena undead x
+r, decon x, arena construct x, tunnel construct poison
+decon x, tunnel construct x, decon fire, tunnel construct fire
+jv_ax
+jv_pp
+compound construct x beast, compound construct fire undead
