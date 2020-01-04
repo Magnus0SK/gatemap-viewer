@@ -1,0 +1,20 @@
+l, dd x, tunnel fiend x
+dd x, dd shock, tunnel fiend x, tunnel fiend shock
+rand, dd freeze
+r, jv_jt
+rand, tunnel construct poison
+l, tunnel construct freeze, decon x, tunnel construct x, decon freeze
+l, dd fire, tunnel fiend fire, tunnel fiend x
+dc_2d
+rand_freeze, tunnel fiend freeze
+tunnel construct poison
+s_imf
+r, tunnel gremlin shock, compound gremlin x slime, decon x, tunnel gremlin x, decon shock
+jv_ax
+jv_pp
+jv_jt
+r, tunnel construct shock, decon shock
+rand, compound gremlin shock slime
+l, compound construct shock slime, decon shock
+lichen shock, tunnel slime shock
+csk shock, tunnel undead shock
