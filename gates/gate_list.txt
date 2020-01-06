@@ -123,3 +123,4 @@
 20191230,jade_sun
 20200101,onyx_serpent
 20200103,sapphire_titan
+20200105,copper_falcon
