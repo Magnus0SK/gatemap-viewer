@@ -126,3 +126,4 @@
 20200105,copper_falcon
 20200107,silver_pawn
 20200109,amber_knight
+20200111,coral_lion

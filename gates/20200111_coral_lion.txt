@@ -1,0 +1,23 @@
+l, scarlet ch, scarlet ch2, scarlet ch3, scarlet gg
+rand, csk x
+r, csk fire, tunnel undead fire
+r, gww d1
+gww d2
+snarb
+r, tunnel gremlin poison, tunnel gremlin x, compound gremlin x slime, decon x
+rand_shock, tunnel gremlin shock, compound gremlin x beast
+l, jigsaw jt, jigsaw jt2
+arena gremlin x, compound gremlin shock undead
+rand, tunnel fiend poison
+r, dd 4, dd 5
+dd 6
+dd shock, dd x
+l, compound gremlin fire slime, lichen fire
+tunnel construct fire, decon fire
+compound construct fire undead, csk fire
+compound gremlin fire undead, decon fire, tunnel gremlin fire
+r, compound gremlin shock undead, csk shock
+tunnel beast shock, compound construct shock beast
+tunnel slime shock, lichen shock
+rand_shock, compound construct shock undead, tunnel undead shock
+l, tunnel slime shock, lichen shock
