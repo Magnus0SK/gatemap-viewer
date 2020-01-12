@@ -9,8 +9,8 @@ rand_shock, tunnel gremlin shock, compound gremlin x beast
 l, jigsaw jt, jigsaw jt2
 arena gremlin x, compound gremlin shock undead
 rand, tunnel fiend poison
-r, dd 4, dd 5
-dd 6
+r, darkcity ss, darkcity ss2
+darkcity pm
 dd shock, dd x
 l, compound gremlin fire slime, lichen fire
 tunnel construct fire, decon fire
