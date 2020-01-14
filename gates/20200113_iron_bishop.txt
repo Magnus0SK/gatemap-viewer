@@ -1,0 +1,23 @@
+r, jigsaw ax, jigsaw ax2
+decon fire, tunnel construct fire
+rand, decon freeze, decon x
+rand_x, tunnel beast fire, tunnel beast x
+l, tunnel beast fire, den fire, den x
+den x, tunnel beast x, tunnel beast shock, den shock
+r, compound gremlin poison slime, decon poison, tunnel gremlin poison, arena gremlin poison, compound gremlin poison undead
+concrete bb, concrete bb2
+concrete tt, concrete tt2
+tunnel gremlin poison, decon poison, compound gremlin poison slime
+rand, compound construct x beast, tunnel construct x
+r, decon fire, tunnel construct fire
+jigsaw ax, jigsaw ax2
+jigsaw pp, jigsaw pp2
+l, den x, tunnel beast shock
+tunnel beast x, den shock, compound gremlin x beast
+arena beast freeze, tunnel beast freeze, den freeze
+aurora jly, aurora jly2, aurora low, aurora sto
+r, fsc d1
+fsc d2
+fsc d3
+fsc d4
+vana
