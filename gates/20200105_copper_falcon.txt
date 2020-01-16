@@ -1,17 +1,27 @@
-l, arena beast x, den x
+##GATEDATA
+##LEVELS
+l, den x, arena beast x
 rand, tunnel beast shock, den shock
-r, ai
+r, aurora jly, aurora jly2, aurora low, aurora sto
 rand, lichen fire
-r, tunnel slime fire, lichen fire
+r, lichen fire, tunnel slime fire
 tunnel gremlin fire
-l, csk freeze, tunnel undead freeze
-decon freeze, tunnel gremlin freeze
-compound fiend freeze beast, compound fiend freeze undead
+l, tunnel undead freeze, csk freeze
+tunnel gremlin freeze, decon freeze
+compound fiend freeze undead, compound fiend freeze beast
 compound gremlin freeze undead, decon freeze
-l, dc_2d
-compound fiend shock undead, dd shock, dd x
-tunnel fiend x, tunnel fiend fire, dd fire, compound fiend x undead
-l, lichen shock, tunnel slime shock
+l, darkcity ss, darkcity ss2
+darkcity pm
+dd x, compound fiend shock undead, dd shock
+dd fire, compound fiend x undead, tunnel fiend x, tunnel fiend fire
+l, tunnel slime shock, lichen shock
 tunnel slime freeze
-sc_ss
-s_fsc
+starlight ss, starlight ss2
+starlight ss3, starlight ss4
+r, fsc d1
+fsc d2
+fsc d3
+fsc d4
+vana
+##THEMES
+Beast, Fire, Freeze, Fiend, Slime, Fire

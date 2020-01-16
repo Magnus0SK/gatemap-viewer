@@ -1,3 +1,5 @@
+##GATEDATA
+##LEVELS
 r, jigsaw ax, jigsaw ax2
 decon fire, tunnel construct fire
 rand, decon freeze, decon x
@@ -21,3 +23,5 @@ fsc d2
 fsc d3
 fsc d4
 vana
+##THEMES
+Construct, Beast, Poison, Construct, Beast, Fire

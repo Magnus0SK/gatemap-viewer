@@ -1,3 +1,5 @@
+##GATEDATA
+##LEVELS
 r, tunnel fiend x, dd x
 dd fire
 rand, arena fiend fire
@@ -6,16 +8,20 @@ decon fire, tunnel gremlin fire
 lichen fire, tunnel slime fire
 r, compound construct poison slime, tunnel construct poison
 rand, tunnel beast poison
-l, tunnel beast poison, compound construct poison beast, den poison
-cj_bb
-compound construct poison slime
-s_imf
+l, compound construct poison beast, den poison, tunnel beast poison
+concrete bb, concrete bb2
+r, compound construct poison slime
+imf d1
+imf d2
+rt
 r, decon fire, tunnel gremlin fire
 tunnel fiend fire, compound fiend fire slime
-compound gremlin fire beast, tunnel gremlin fire, compound gremlin fire undead
+tunnel gremlin fire, compound gremlin fire undead, compound gremlin fire beast
 rand, compound fiend fire beast, dd fire
 rand_poison, compound gremlin poison slime
 r, tunnel fiend poison, dd poison
-cj_bb
-cj_tt
+concrete bb, concrete bb2
+concrete tt, concrete tt2
 concrete_boss
+##THEMES
+Fiend, Fire, Poison, Construct, Fire, Poison

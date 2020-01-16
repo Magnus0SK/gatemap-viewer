@@ -1,3 +1,5 @@
+##GATEDATA
+##LEVELS
 l, scarlet ch, scarlet ch2, scarlet ch3, scarlet gg
 rand, csk x
 r, csk fire, tunnel undead fire
@@ -21,3 +23,5 @@ tunnel beast shock, compound construct shock beast
 tunnel slime shock, lichen shock
 rand_shock, compound construct shock undead, tunnel undead shock
 l, tunnel slime shock, lichen shock
+##THEMES
+Undead, Beast, Gremlin, Fiend, Fire, Shock

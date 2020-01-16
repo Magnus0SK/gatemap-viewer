@@ -1,4 +1,6 @@
-l, jv_ax
+##GATEDATA
+##LEVELS
+l, jigsaw ax, jigsaw ax2
 tunnel gremlin poison
 tunnel gremlin shock, tunnel gremlin x, decon x
 rand, tunnel undead freeze, csk freeze
@@ -7,15 +9,19 @@ dd freeze, tunnel fiend freeze
 l, compound gremlin x undead, decon freeze
 tunnel gremlin poison, tunnel gremlin x
 rand, decon x, compound gremlin x beast
-l, jv_pp
+l, jigsaw pp, jigsaw pp2
 r, compound fiend shock slime, compound construct shock slime
-s_rjp
+rjp d1
+rjp d2
+jk
 r, tunnel gremlin fire, decon fire
 tunnel beast fire, compound fiend fire beast
 rand, compound fiend fire undead
 r, compound gremlin fire slime, compound gremlin fire beast
-r, arena undead poison, compound construct poison undead, csk poison
+r, compound construct poison undead, csk poison, arena undead poison
 rand, tunnel construct poison, decon poison
 l, arena fiend poison, dd poison
-cj_tt
+concrete tt, concrete tt2
 lichen poison, tunnel slime poison
+##THEMES
+Gremlin, Freeze, Gremlin, Slime, Fire, Poison
