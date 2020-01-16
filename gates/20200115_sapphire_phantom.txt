@@ -1,0 +1,27 @@
+##GATEDATA
+##LEVELS
+l, decon fire, tunnel gremlin fire
+rand, dd fire
+r, dd fire, tunnel fiend fire
+r, scarlet ch, scarlet ch2, scarlet ch3, scarlet gg
+tunnel undead x, csk x
+csk x, tunnel undead freeze, csk freeze
+r, tunnel undead poison, csk x
+scarlet sc, scarlet sc2, scarlet gg
+tunnel undead shock, compound fiend x undead
+rand, csk fire
+r, compound gremlin shock slime, compound construct poison slime
+rjp d1
+rjp d2
+jk
+l, decon x, compound construct fire undead
+jigsaw pp, jigsaw pp2
+compound construct x beast, compound construct shock undead, compound construct shock beast
+arena construct poison
+r, compound fiend x beast, compound gremlin x beast, compound construct x beast, den x, tunnel beast poison
+aurora jly, aurora jly2, aurora low, aurora sto
+rand_shock, den shock, tunnel beast x
+r, den freeze, tunnel beast x, den x, compound gremlin x beast, tunnel beast freeze
+den shock, arena beast x, tunnel beast shock
+##THEMES
+Fire, Undead, Undead, Slime, Construct, Beast
