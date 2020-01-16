@@ -376,6 +376,20 @@ function text_expand(text) {
 	return expanded_data;
 }
 
+// handle new text format, featuring chunks that include optional data
+function get_chunks(t) {
+	chunks = t.split('##');
+	output = {};
+	for (let i=1; i<chunks.length; i++) {
+		lines = chunks[i].split('\n');
+		if (lines[0].trim() == 'LEVELS')
+			output.levels = lines.slice(1).join('\n');
+		else if (lines[0].trim() == 'THEMES')
+			output.themes = lines[1].split(', ');
+	}
+	return output;
+}
+
 // converts expanded keywords to canonical names
 // return array of array of strings
 function to_canonical(text_array) {

@@ -89,7 +89,15 @@ function populate_gates(text) {
 function populate(text) {
 	let current_gate = gates[current_gate_index];
 	let gatename = to_gatename(current_gate[1]);
-	let gate_data = text_expand(text);
+	let data_chunk, gate_data
+	if (text.startsWith('##')) {
+		data_chunk = get_chunks(text);
+		gate_data = text_expand(data_chunk.levels);
+	} else {
+		data_chunk = {levels: text};
+		gate_data = text_expand(text);
+	}
+	
 	let spacer = null;
 	document.getElementById('gate-img').setAttribute('src', `page-icons/${current_gate[1]}.png`);
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
@@ -148,6 +156,7 @@ function populate(text) {
 	} else {
 		document.getElementById('next').removeEventListener('click', event_next);
 	}
+	
 	// get section heights
 	section_heights = [...Array(6).keys()]
 		.map(s => s + 1)
@@ -157,9 +166,23 @@ function populate(text) {
 	for (let i=0; i<6; i++) {
 		container.children[i].setAttribute('offset', section_heights[i]);
 		container.children[i].addEventListener('click', section_jump_func);
+		container.children[i].innerHTML = '';
+		if ('themes' in data_chunk) {
+			let icon = document.createElement('img');
+			icon.setAttribute('class', 'stratum-icon');
+			icon.setAttribute('alt', data_chunk.themes[i]);
+			icon.setAttribute('src', `theme-icons/${data_chunk.themes[i].toLowerCase()}.png`);
+			container.children[i].appendChild(icon);
+		}
+		let text = document.createElement('span');
+		text.innerHTML = `S${i+1}`;
+		container.children[i].appendChild(text);
 	}
+	
 	// extra stuff
     console.log({ 'gate-name': gatename + ' Gate', 'levels': to_canonical(gate_data) });
+	if ('themes' in data_chunk)
+		console.log(data_chunk.themes);
 }
 
 // function to jump to a section (cuz i'm too cool for hash links)

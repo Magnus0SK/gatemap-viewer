@@ -273,3 +273,11 @@ a:hover {
 .section-jump>a {
 	padding: 20px 0;
 }
+.section-jump span {
+	font-size: 110%;
+}
+.stratum-icon {
+	width: 20px;
+	border: 1.5px rgb(105, 174, 182) solid;
+	border-radius: 20px;
+}
