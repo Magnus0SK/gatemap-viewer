@@ -1,0 +1,27 @@
+##GATEDATA
+##LEVELS
+l, tunnel undead poison, csk poison
+tunnel undead shock
+scarlet sc, scarlet sc2, scarlet gg
+rand, arena gremlin freeze, tunnel gremlin freeze
+r, tunnel undead freeze, csk freeze
+tunnel beast freeze, den freeze
+r, tunnel slime freeze, arena slime freeze, lichen freeze
+tunnel construct freeze, decon freeze
+rand, den freeze, compound gremlin freeze beast
+r, dd freeze, tunnel fiend freeze, compound fiend freeze undead
+r, compound construct shock beast, tunnel construct x
+imf d1
+imf d2
+rt
+l, darkcity rr, darkcity rr2, darkcity rr3
+darkcity ss, darkcity ss2
+darkcity_boss
+csk shock, compound gremlin shock undead
+rand, tunnel slime fire, compound gremlin fire slime
+r, compound fiend fire beast, arena beast fire
+compound fiend fire beast, tunnel fiend fire, dd fire
+tunnel fiend fire, compound fiend fire undead, dd fire
+dd fire, tunnel fiend fire
+##THEMES
+Undead, Freeze, Freeze, Construct, Undead, Fire
