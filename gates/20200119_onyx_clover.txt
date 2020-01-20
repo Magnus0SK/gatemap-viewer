@@ -1,0 +1,27 @@
+##GATEDATA
+##LEVELS
+l, dd freeze, dd x, tunnel fiend x
+dd poison, dd x, tunnel fiend x, tunnel fiend poison
+rand, dd fire, tunnel fiend fire
+r, gww d1
+gww d2
+snarb
+r, tunnel beast freeze, den freeze, compound gremlin freeze beast
+tunnel gremlin freeze, decon freeze
+compound gremlin freeze undead
+rand_freeze, lichen freeze, tunnel slime freeze
+l, den shock, compound gremlin shock beast, tunnel beast shock, compound fiend shock beast
+tunnel beast shock, den shock
+tunnel gremlin shock, decon shock
+compound construct shock slime, lichen shock
+r, decon fire, tunnel construct fire
+tunnel slime fire, lichen fire
+rand_fire, compound construct fire undead
+r, compound fiend fire slime, tunnel fiend fire
+r, concrete tt, concrete tt2
+tunnel beast poison, compound gremlin poison beast
+rand_poison, tunnel gremlin poison, compound gremlin poison undead
+r, compound gremlin poison undead, csk poison, tunnel undead poison
+tunnel slime poison, compound gremlin poison slime
+##THEMES
+Fiend, Beast, Freeze, Shock, Fire, Poison
