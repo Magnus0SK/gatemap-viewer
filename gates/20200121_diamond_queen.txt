@@ -1,0 +1,27 @@
+##GATEDATA
+##LEVELS
+l, tunnel fiend freeze, tunnel fiend x
+dd x, dd freeze, tunnel fiend freeze, tunnel fiend x
+tunnel fiend x, tunnel fiend freeze
+r, scarlet ch, scarlet ch2, scarlet ch3, scarlet gg
+csk poison, tunnel undead x
+rand_x, csk x, csk freeze
+r, decon freeze, compound gremlin freeze beast, tunnel gremlin freeze
+lichen freeze, compound construct freeze slime, tunnel slime freeze
+tunnel beast freeze, den freeze
+compound construct freeze slime, lichen freeze, arena slime freeze
+l, decon shock, tunnel gremlin shock
+compound gremlin shock beast, decon shock
+compound fiend shock slime, lichen shock
+rand, tunnel construct shock
+r, compound fiend shock beast, dd shock
+rand, den shock
+l, compound fiend shock undead, arena undead shock
+tunnel fiend shock
+r, fsc d1
+fsc d2
+fsc d3
+fsc d4
+vana
+##THEMES
+Fiend, Undead, Freeze, Shock, Shock, Fire
