@@ -1,0 +1,27 @@
+##GATEDATA
+##LEVELS
+l, jigsaw jt, jigsaw jt2
+rand, decon x, tunnel construct x
+r, tunnel construct x, decon x, tunnel construct fire, decon fire
+r, dd fire, tunnel fiend fire
+rand, dd x
+l, tunnel fiend x, tunnel fiend poison, dd x, dd poison
+r, decon shock, tunnel construct shock
+compound fiend shock slime, dd shock
+csk shock, tunnel undead shock
+rand, tunnel construct shock
+r, tunnel slime shock
+rjp d1
+rjp d2
+jk
+l, den freeze, compound gremlin freeze beast
+rand, tunnel construct freeze, decon freeze
+r, decon freeze, tunnel construct freeze
+compound fiend freeze undead, tunnel fiend freeze
+r, compound construct shock beast, compound gremlin shock beast, tunnel beast shock, den shock
+rand, compound construct shock undead
+l, lichen shock
+den shock, tunnel beast shock
+tunnel construct shock, decon shock, compound construct shock beast
+##THEMES
+Construct, Fiend, Shock, Slime, Freeze, Shock

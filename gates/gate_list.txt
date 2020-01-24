@@ -132,3 +132,4 @@
 20200117,ruby_falcon
 20200119,onyx_clover
 20200121,diamond_queen
+20200123,jade_phantom
