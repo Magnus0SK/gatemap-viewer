@@ -1,0 +1,27 @@
+##GATEDATA
+##LEVELS
+l, decon freeze, tunnel construct freeze, decon x, tunnel construct x
+jigsaw ax, jigsaw ax2
+decon x, decon shock, tunnel construct shock, arena construct x
+l, den shock, tunnel beast shock
+dd shock, tunnel fiend shock
+rand, tunnel beast shock
+l, tunnel slime shock, lichen shock
+decon shock, tunnel gremlin shock
+decon shock, tunnel construct shock
+lichen shock, compound fiend shock slime, arena slime shock
+r, tunnel construct x
+imf d1
+imf d2
+rt
+l, darkcity ss, darkcity ss2
+darkcity pm
+tunnel fiend poison, compound fiend x beast, dd x, dd poison, compound fiend poison undead
+compound fiend fire undead, compound fiend fire beast
+rand_fire, compound fiend x beast
+r, tunnel beast x, den poison
+aurora jly, aurora jly2, aurora low, aurora sto
+tunnel beast poison, compound construct x beast
+den x, compound fiend freeze beast, tunnel beast freeze
+##THEMES
+Construct, Shock, Shock, Construct, Fiend, Beast
