@@ -146,7 +146,6 @@ div {
 }
 .bgcontainer {
 	width: 100%;
-	z-index: -1;
 	font-size: 0;
 }
 .bgcontainer > img {
@@ -280,4 +279,98 @@ a:hover {
 	width: 20px;
 	border: 1.5px rgb(105, 174, 182) solid;
 	border-radius: 20px;
+}
+.line-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-top: 142px;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	flex-direction: column;
+}
+.border-line {
+	height: 58px;
+	width: 58px;
+	border: 4px solid darkred;
+	border-radius: 4px;
+}
+.pos-l1 {
+	margin-right: 93px;
+}
+.pos-l2 {
+	margin-right: 186px;
+}
+.pos-l3 {
+	margin-right: 279px;
+}
+.pos-l4 {
+	margin-right: 372px;
+}
+.pos-r1 {
+	margin-left: 93px;
+}
+.pos-r2 {
+	margin-left: 186px;
+}
+.pos-r3 {
+	margin-left: 279px;
+}
+.pos-r4 {
+	margin-left: 372px;
+}
+.vert-line {
+	height: 31px;
+	border-left: 4px solid darkred;
+}
+.horiz-line {
+	height: 4px;
+	border-left: 4px solid darkred;
+}
+.next-level {
+	border-color: pink;
+}
+.random-line>.vert-line {
+	margin: 0 44px;
+}
+.random-line>.border-line {
+	margin: 0 13.5px;
+}
+.timer-container {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: 290px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 7px 10px;
+	color: rgb(105, 174, 182);
+	background-color: rgb(14, 46, 58);
+	border: 0 solid rgb(208, 220, 242);
+	border-left-width: 5px;
+	border-top-width: 5px;
+	border-top-left-radius: 10px;
+}
+#rotation-timer {
+	font-size: 16pt;
+	margin: 0 10px;
+	user-select: none;
+}
+#timer-img {
+	height: 40px;
+	border: 2px solid;
+	border-radius: 5px;
+}
+#next-level-name {
+	width: 130px;
+	margin-left: 10px;
+}
+#next-level-name>p:first-child {
+	font-weight: bold;
+	font-style: oblique;
+}
+#next-level-name>p:nth-child(2) {
+	font-size: 80%;
 }

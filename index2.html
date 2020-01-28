@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--     please don't view this page on small windows     -->
+<!--           made by silverhawke (@fluffderg)           -->
+<!-- this might not display right on other browsers, oops -->
+<html lang="en">
+	<head>
+		<title>Gate Map Viewer</title>
+		<link rel="stylesheet" href="stylesheet.css" />
+		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu" rel="stylesheet" />
+		<link rel="shortcut icon" href="page-icons/terminal.png">
+		<script src="gate2.js"></script>
+		<script src="helper2.js"></script>
+		<script src="https://momentjs.com/downloads/moment.js"></script>
+		<script src="https://momentjs.com/downloads/moment-timezone-with-data-10-year-range.js"></script>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Gate Map Viewer" />
+		<meta name="twitter:creator" content="@fluffderg">
+		<meta name="twitter:description" content="Tool to view current and previous arcade gates in Spiral Knights." />
+		<meta name="twitter:image" content="https://silverhawke.xyz/gatemap-viewer/card-image.png" />
+	</head>
+	<body onload="init();">
+		<div class="sidebar text-title">
+			<div class="navigator">
+				<div class="navbar-container">
+					<img alt="Previous gate" class="animate" id="prev" draggable=false src="spacer_left.png">
+					<div class="current-gate">
+						<img alt="Current gate icon" id="gate-img" draggable="false" src="page-icons/unknown.png">
+						<p id="gate-name" class="text-title">---</p>
+						<p class="text-title no-bold" id="gate-date">-</p>
+					</div>
+					<img alt="Next gate" class="animate" id="next" draggable=false src="spacer_right.png">
+				</div>
+				<div class="separator"></div>
+			</div>
+			<div id="entry-wrapper">
+			</div>
+		</div>
+		<div class="middle">
+			<div class="bgcontainer">
+				<img alt="Background" draggable=false src="background.png">
+			</div>
+			<div class="line-container" id="line-container"></div>
+			<div class="depth-container" id="depth-container"></div>
+			<div class="tick-container" id="tick-container"></div>
+			<div class="tick-container">
+				<p>0</p>
+				<p>5</p>
+				<p>10</p>
+				<p>15</p>
+				<p>20</p>
+				<p>25</p>
+				<p>30</p>
+			</div>
+			<div class="timer-container" id="timer-container">
+				<p id="rotation-timer">‒‒:‒‒ to</p><img draggable="false" id="timer-img" src="page-icons/unknown.png"><div id="next-level-name"><p>---</p></div>
+			</div>
+		</div>
+		<div id="section-jump" class="section-jump">
+			<a></a>
+			<a></a>
+			<a></a>
+			<a></a>
+			<a></a>
+			<a></a>
+		</div>
+	</body>
+</html>
