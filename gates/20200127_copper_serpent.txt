@@ -1,0 +1,27 @@
+##GATEDATA
+##LEVELS
+r, decon freeze, decon x
+jigsaw pp, jigsaw pp2
+decon shock, tunnel construct x, decon x, tunnel construct shock
+r, gww d1
+gww d2
+snarb
+r, dd fire, tunnel fiend fire
+decon fire, compound construct fire beast, tunnel construct fire, compound construct fire slime
+tunnel gremlin fire, decon fire
+decon fire, tunnel gremlin fire
+l, darkcity ss, darkcity ss2
+darkcity pm
+tunnel fiend x, tunnel fiend poison, arena fiend poison, dd x, compound fiend x beast
+dd poison, dd x, tunnel fiend poison, arena fiend x, compound fiend x slime
+r, jigsaw ax, jigsaw ax2
+jigsaw pp, jigsaw pp2
+tunnel gremlin poison, tunnel gremlin x
+decon x
+r, tunnel fiend freeze, compound fiend freeze undead, dd freeze
+tunnel fiend freeze, compound fiend freeze undead, dd freeze
+rand_freeze, compound construct freeze beast
+r, lichen freeze, tunnel slime freeze
+compound gremlin freeze slime, tunnel slime freeze
+##THEMES
+Construct, Beast, Fire, Fiend, Gremlin, Freeze
