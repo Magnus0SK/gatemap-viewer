@@ -15,7 +15,7 @@ compound fiend fire undead, compound fiend fire slime
 rand, arena fiend fire, tunnel fiend fire
 r, tunnel undead fire, csk fire
 r, compound fiend x slime, tunnel slime shock, tunnel slime x
-starlight mme, starlight mm2
+starlight mm, starlight mm2
 starlight mm3
 tunnel slime freeze, compound construct x slime
 r, jigsaw pp, jigsaw pp2
