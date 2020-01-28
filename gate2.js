@@ -9,7 +9,6 @@ var next_level_time = 0;
 var gate_refresh_time = Infinity;
 var section_heights = null;
 var rot_data = null;
-var current_level = 0;
 var current_depth = -1;
 var selected_levels = [];
 var show_old_rotations;
@@ -108,7 +107,6 @@ function populate(text) {
 	}
 	
 	// clear out lines and timer
-	current_level = 0;
 	current_depth = -1;
 	selected_levels = [];
 	if (rotation_timer != null) {

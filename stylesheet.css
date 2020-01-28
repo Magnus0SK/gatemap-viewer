@@ -366,6 +366,7 @@ a:hover {
 #next-level-name {
 	width: 130px;
 	margin-left: 10px;
+	user-select: none;
 }
 #next-level-name>p:first-child {
 	font-weight: bold;

@@ -609,18 +609,14 @@ function to_canonical(text_array) {
 }
 
 function icon_click_func() {
-	if (current_level == parseInt(this.getAttribute('data-levelnum')) && current_depth == parseInt(this.getAttribute('data-depth')))
+	if (selected_levels[current_depth] == parseInt(this.getAttribute('data-levelnum')) && current_depth == parseInt(this.getAttribute('data-depth')))
 		return;
 	
-	current_level = parseInt(this.getAttribute('data-levelnum'));
+	let current_level = parseInt(this.getAttribute('data-levelnum'));
 	current_depth = parseInt(this.getAttribute('data-depth'));
 	if (current_depth == -1) {
 		selected_levels = [];
 	} else {
-		while (selected_levels.length < current_depth) {
-			let n = rot_data[selected_levels.length].n;
-			selected_levels.push(Math.floor(n * Math.random()));
-		}
 		selected_levels[current_depth] = current_level;
 		if (selected_levels.length > current_depth+1) {
 			selected_levels = selected_levels.slice(0, current_depth+1);
@@ -715,10 +711,6 @@ function get_next_level() {
 			}
 			
 			// get the next level in rotation and start the timer
-			next_rotation = next_level + Math.sign(rel_speed)
-			if (next_rotation < 0) next_rotation += rot_data[cdepth+1].n
-			next_rotation %= rot_data[cdepth+1].n;
-			
 			let countdown = time_left / Math.abs(next_speed - cur_speed);
 			let mins = Math.floor(countdown / 60) % 60;
 			let secs = Math.floor(countdown) % 60;
@@ -727,6 +719,10 @@ function get_next_level() {
 				gate_refresh_time = Date.now() + countdown * 1000;
 			
 			if (cdepth == current_depth) {
+				next_rotation = next_level + Math.sign(rel_speed)
+				if (next_rotation < 0) next_rotation += rot_data[cdepth+1].n
+				next_rotation %= rot_data[cdepth+1].n;
+				
 				next_level_time = Date.now() + countdown * 1000;
 				
 				time_str = '';
