@@ -1,5 +1,6 @@
 var specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'pv', 'gww', 'rjp', 'imf', 'fsc', 'terminal'];
 var keywords = ['ai', 'dc_2d', 'dc_3d', 'cj_bb', 'cj_tt', 'jv_ax', 'jv_jt', 'jv_pp', 'sf_sc', 'sf_ch', 'sf_2d', 'sc_mm', 'sc_ss', 's_gww', 's_rjp', 's_imf', 's_fsc'];
+var TWOPI = 6.2831855;
 
 // returns a div DOMElement to be appended to each depth
 // descriptor should be an array of strings
@@ -656,8 +657,8 @@ function get_next_level() {
 			next_level = 0;
 			next_speed = rot_data[cdepth+1].data.velocity;
 			next_pos = (Date.now() - rot_data[cdepth+1].data.start) * next_speed / 1000;
-			next_pos %= 2*Math.PI;
-			if (next_pos < 0) next_pos += 2*Math.PI;
+			next_pos %= TWOPI;
+			if (next_pos < 0) next_pos += TWOPI;
 		} else {
 			// if next depth is a random depth...
 			next_level = -1;
@@ -670,14 +671,20 @@ function get_next_level() {
 		if (cdepth != -1 && rot_data[cdepth].data != null) {
 			cur_speed = rot_data[cdepth].data.velocity;
 			cur_pos = (Date.now() - rot_data[cdepth].data.start) * cur_speed / 1000;
-			cur_pos %= 2*Math.PI;
-			if (cur_pos < 0) cur_pos += 2*Math.PI;
-			for (let i=0; i<selected_levels[cdepth]; i++) {
-				offset += rot_data[cdepth].data.lengths[i];
-			}
+			cur_pos %= TWOPI;
+			if (cur_pos < 0) cur_pos += TWOPI;
+			// if (cur_speed < 0) {
+				for (let i=0; i<selected_levels[cdepth]; i++) {
+					offset += rot_data[cdepth].data.lengths[i];
+				}
+			// } else {
+				// for (let i=rot_data[cdepth]-1; i>selected_levels[cdepth]; i++) {
+					// offset += rot_data[cdepth].data.lengths[i];
+				// }
+			// }
 			offset += rot_data[cdepth].data.lengths[selected_levels[cdepth]] / 2;
-			offset %= 2*Math.PI;
-			if (offset < 0) offset += 2*Math.PI;
+			offset %= TWOPI;
+			if (offset < 0) offset += TWOPI;
 		}
 		
 		// get location where the player's at
@@ -687,8 +694,8 @@ function get_next_level() {
 			rel_speed = cur_speed - next_speed;
 			point += (Date.now() - rot_data[cdepth+1].data.start) * rel_speed / 1000;
 		}
-		point %= 2*Math.PI;
-		if (point < 0) point += 2*Math.PI;
+		point %= TWOPI;
+		if (point < 0) point += TWOPI;
 		// console.log(`relspeed: ${rel_speed}  point: ${point}`);
 		// console.log(`cur_sped: ${cur_speed}  nextsped: ${next_speed}`);
 		
