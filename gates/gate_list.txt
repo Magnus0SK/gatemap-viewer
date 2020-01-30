@@ -135,3 +135,4 @@
 20200123,jade_phantom
 20200125,iron_titan
 20200127,copper_serpent
+20200129,diamond_lion
