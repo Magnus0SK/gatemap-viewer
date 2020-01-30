@@ -11,7 +11,7 @@ var section_heights = null;
 var rot_data = null;
 var current_depth = -1;
 var selected_levels = [];
-var show_old_rotations;
+var show_old_rotations = false;
 
 // 'diamond_queen' -> 'Diamond Queen'
 function to_gatename(s) {
@@ -115,7 +115,7 @@ function populate(text) {
 	if (next_level_timer != null) {
 		clearTimeout(next_level_timer);
 	}
-	if ('rotations' in data_chunk && (gates.length - current_gate_index <= 4 || show_old_rotations !== undefined)) {
+	if ('rotations' in data_chunk && (gates.length - current_gate_index <= 4 || show_old_rotations)) {
 		rot_data = data_chunk.rotations;
 	} else {
 		rot_data = null;
