@@ -613,16 +613,17 @@ function icon_click_func() {
 	if (selected_levels[current_depth] == parseInt(this.getAttribute('data-levelnum')) && current_depth == parseInt(this.getAttribute('data-depth')))
 		return;
 	
+	let current_node = document.querySelector(`[data-depth="${current_depth}"][data-levelnum="${selected_levels[current_depth]}"]`).parentElement
+	current_node.classList.remove('selected-level');
+	this.parentElement.classList.add('selected-level');
+	
 	let current_level = parseInt(this.getAttribute('data-levelnum'));
 	current_depth = parseInt(this.getAttribute('data-depth'));
-	if (current_depth == -1) {
-		selected_levels = [];
-	} else {
-		selected_levels[current_depth] = current_level;
-		if (selected_levels.length > current_depth+1) {
-			selected_levels = selected_levels.slice(0, current_depth+1);
-		}
-	}
+	
+	selected_levels[current_depth] = current_level;
+	if (selected_levels.length > current_depth+1)
+		selected_levels = selected_levels.slice(0, current_depth+1);
+	
 	get_next_level();
 	draw_lines();
 }
@@ -794,15 +795,12 @@ function draw_lines(only_clear_lines=false) {
 	if (only_clear_lines)
 		return;
 	
+	// Segments for Haven
 	add_line_segment(container, 'border', 0);
-	// If some levels were actually traversed...
-	// (aka not in Haven)
-	if (current_depth >= 0) {
-		add_line_segment(container, 'vert', 0);
-		add_line_segment(container, 'horiz', [0, 0]);
-	}
+	add_line_segment(container, 'vert', 0);
+	add_line_segment(container, 'horiz', [0, 0]);
 	
-	// Now for each depth: draw leading vertical line,
+	// For each depth: draw leading vertical line,
 	// the selected border, trailing vertical line and horizontal line
 	for (let i=0; i<current_depth+1; i++) {
 		let lv_total = rot_data[i].n;

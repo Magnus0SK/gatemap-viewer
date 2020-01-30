@@ -9,8 +9,8 @@ var next_level_time = 0;
 var gate_refresh_time = Infinity;
 var section_heights = null;
 var rot_data = null;
-var current_depth = -1;
-var selected_levels = [];
+var current_depth = 0;
+var selected_levels = [0];
 var show_old_rotations = false;
 
 // 'diamond_queen' -> 'Diamond Queen'
@@ -107,8 +107,8 @@ function populate(text) {
 	}
 	
 	// clear out lines and timer
-	current_depth = -1;
-	selected_levels = [];
+	current_depth = 0;
+	selected_levels = [0];
 	if (rotation_timer != null) {
 		clearTimeout(rotation_timer);
 	}
@@ -172,7 +172,7 @@ function populate(text) {
 			}
 			lineno++;
 		}
-		if (rot_data != null) {
+		if (rot_data != null && depth > -1) {
 			let imgs = container.querySelectorAll('.icon-wrapper img');
 			for (let i=0; i<imgs.length; i++) {
 				imgs[i].setAttribute('data-depth', depth);
@@ -217,6 +217,8 @@ function populate(text) {
 	
 	// actually draw the lines now
 	if (rot_data != null) {
+		let lobby_node = document.querySelector('[data-depth="0"][data-levelnum="0"]').parentElement;
+		lobby_node.classList.add('selected-level');
 		get_next_level();
 		draw_lines();
 	}

@@ -6,6 +6,17 @@
 	font-family: 'Ubuntu', sans-serif;
 	vertical-align: baseline;
 }
+:root {
+	--color-white: rgb(208, 220, 242);
+	--color-dark-grey: rgb(42, 50, 58);
+	--color-body-text: rgb(105, 174, 182);
+	--color-title-bg: rgb(235, 201, 77);
+	--color-body-bg: rgb(14, 46, 58);
+	--color-body-bg-trans: rgba(14, 46, 58, 0.95);
+	--color-dark-bg: rgb(12, 26, 45);
+	--color-highlight-bg: rgb(31, 93, 100);
+	--color-hover-bg: rgb(25, 60, 106);
+}
 html {
 	scroll-behavior: smooth;
 }
@@ -20,11 +31,11 @@ body::-webkit-scrollbar {
 	height: 15px;
 }
 body::-webkit-scrollbar-thumb {
-	background-color: rgb(208, 220, 242);
+	background-color: var(--color-white);
 	border-radius: 15px;
 }
 body::-webkit-scrollbar-track, body::-webkit-scrollbar-corner {
-	background-color: rgb(42, 50, 58);
+	background-color: var(--color-dark-grey);
 }
 div {
 	display: inline-block;
@@ -39,9 +50,9 @@ div {
 	flex-wrap: wrap;
 	align-content: flex-start;
 	overflow: hidden scroll;
-	color: rgb(105, 174, 182);
-	background-color: rgb(14, 46, 58);
-	border: 0 solid rgb(208, 220, 242);
+	color: var(--color-body-text);
+	background-color: var(--color-body-bg);
+	border: 0 solid var(--color-white);
 	border-left-width: 5px;
 	user-select: none;
 }
@@ -49,11 +60,11 @@ div {
 	width: 10px;
 }
 .sidebar::-webkit-scrollbar-thumb {
-	background-color: rgb(208, 220, 242);
+	background-color: var(--color-white);
 	border-radius: 10px;
 }
 .sidebar::-webkit-scrollbar-track {
-	background-color: rgb(42, 50, 58);
+	background-color: var(--color-dark-grey);
 }
 .navigator {
 	position: sticky;
@@ -66,7 +77,7 @@ div {
 	height: 45px;
 	justify-content: space-between;
 	padding: 10px;
-	background-color: rgb(14, 46, 58);
+	background-color: var(--color-body-bg);
 }
 #gate-img {
 	width: 40px;
@@ -87,7 +98,7 @@ div {
 .separator {
 	height: 2px;
 	width: 100%;
-	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(208, 220, 242), rgb(14, 46, 58));
+	background-image: linear-gradient(to right, var(--color-body-bg), var(--color-white), var(--color-body-bg));
 }
 #entry-wrapper {
 	width: 100%;
@@ -102,7 +113,7 @@ div {
 	padding: 7px 0;
 }
 .entry:hover {
-	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(25, 60, 106), rgb(14, 46, 58));
+	background-image: linear-gradient(to right, var(--color-body-bg), var(--color-hover-bg), var(--color-body-bg));
 }
 .entry img {
 	width: 55px;
@@ -135,10 +146,10 @@ div {
 	font-size: 11pt;
 }
 .dark-bg {
-	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(12, 26, 45), rgb(14, 46, 58));
+	background-image: linear-gradient(to right, var(--color-body-bg), var(--color-dark-bg), var(--color-body-bg));
 }
 .light-bg {
-	background-image: linear-gradient(to right, rgb(14, 46, 58), rgb(31, 93, 100), rgb(14, 46, 58));
+	background-image: linear-gradient(to right, var(--color-body-bg), var(--color-highlight-bg), var(--color-body-bg));
 }
 .middle {
 	width: 558px;
@@ -176,7 +187,7 @@ div {
 .hover-wrapper {
 	display: none;
 	position: absolute;
-	background-color: rgba(14, 46, 58, 0.95);
+	background-color: var(--color-body-bg-trans);
 	width: 210px;
 	min-height: 80px;
 	right: 43px;
@@ -193,7 +204,7 @@ div {
 }
 .title-wrapper {
 	width: 100%;
-	background-color: rgb(235, 201, 77);
+	background-color: var(--color-title-bg);
 	line-height: 0.95em;
 	font-size: 10.5pt;
 }
@@ -207,11 +218,11 @@ div {
 	font-size: 8pt;
 	letter-spacing: 0.02em;
 	line-height: 1.4em;
-	color: rgb(105, 174, 182);
+	color: var(--color-body-text);
 	user-select: none;
 }
 .hover-footer {
-	background-color: rgb(208, 220, 242);
+	background-color: var(--color-white);
 	height: 15px;
 	border-radius: 0 0 0 8px;
 }
@@ -236,7 +247,7 @@ div {
 	font-size: 11pt;
 	margin-right: 6px;
 	height: 660px;
-	color: rgb(208, 220, 242);
+	color: var(--color-white);
 }
 .tick-container p:first-child {
 	margin-top: 276px;
@@ -248,9 +259,9 @@ div {
 	position: sticky;
 	top: 0;
 	width: 30px;
-	color: rgb(105, 174, 182);
-	background-color: rgb(14, 46, 58);
-	border: 0 solid rgb(208, 220, 242);
+	color: var(--color-body-text);
+	background-color: var(--color-body-bg);
+	border: 0 solid var(--color-white);
 	border-bottom-right-radius: 10px;
 	border-bottom-width: 5px;
 	border-right-width: 5px;
@@ -264,10 +275,10 @@ a {
 	font-weight: bold;
 }
 a.active {
-	background-color: rgb(31, 93, 100);
+	background-color: var(--color-highlight-bg);
 }
 a:hover {
-	background-color: rgb(25, 60, 106);
+	background-color: var(--color-hover-bg);
 }
 .section-jump>a {
 	padding: 20px 0;
@@ -277,7 +288,7 @@ a:hover {
 }
 .stratum-icon {
 	width: 20px;
-	border: 1.5px rgb(105, 174, 182) solid;
+	border: 1.5px var(--color-body-text) solid;
 	border-radius: 20px;
 }
 .line-container {
@@ -346,9 +357,9 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	padding: 7px 10px;
-	color: rgb(105, 174, 182);
-	background-color: rgb(14, 46, 58);
-	border: 0 solid rgb(208, 220, 242);
+	color: var(--color-body-text);
+	background-color: var(--color-body-bg);
+	border: 0 solid var(--color-white);
 	border-left-width: 5px;
 	border-top-width: 5px;
 	border-top-left-radius: 10px;
@@ -374,4 +385,17 @@ a:hover {
 }
 #next-level-name>p:nth-child(2) {
 	font-size: 80%;
+}
+.selected-level::after {
+    position: absolute;
+    left: -1px;
+    top: -4px;
+    width: 48px;
+    height: 48px;
+    border: 7px solid red;
+    border-radius: 50%;
+    content: '';
+}
+.selected-level:hover::after {
+	z-index: 2;
 }
