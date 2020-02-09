@@ -323,4 +323,46 @@ function init() {
 		.then(response => response.text())
 		.then(text => populate_gates(text));
 	window.addEventListener('scroll', section_track_func);
+	
+	/* add disclaimer that this stuff isn't accurate... yet
+	   someone please help me fix it */
+	// get cookie
+	let cookie_array = document.cookie.split(';');
+	cookie_array = cookie_array.map(s => s.trim());
+	let message_seen = false;
+	let key_name = 'timerWarning';
+	for (let i=0; i<cookie_array.length; i++) {
+		if (cookie_array[i].startsWith(`${key_name}=`)) {
+			message_seen = Boolean(parseInt(cookie_array[i].substring(key_name.length + 1)));
+			break;
+		}
+	}
+	// set cookie
+	let expiry_time = new Date();
+	expiry_time.setTime(expiry_time.getTime() + 365 * 24 * 60 * 60 * 1000);
+	document.cookie = `${key_name}=1; expires=${expiry_time.toUTCString()}; path=/`;
+	// display message depending on cookie value
+	if (!message_seen) {
+		let d1 = document.createElement('div');
+		d1.setAttribute('class', 'warning-cover');
+		let d = document.createElement('div');
+		d.setAttribute('class', 'warning-box');
+		let p = document.createElement('p');
+		p.setAttribute('class', 'warning-head dark-bg');
+		p.innerText = 'Warning';
+		d.appendChild(p);
+		p = document.createElement('p');
+		p.setAttribute('class', 'warning-body');
+		p.innerText = 'While this version of the gatemap viewer features level rotation timings, the predicted timings might be inaccurate under certain conditions.';
+		d.appendChild(p);
+		p = document.createElement('p');
+		p.setAttribute('class', 'warning-button');
+		p.innerText = 'OK';
+		p.addEventListener('click', function() {
+			this.parentElement.parentElement.remove();
+		});
+		d.appendChild(p);
+		d1.appendChild(d);
+		document.body.appendChild(d1);
+	}
 }
