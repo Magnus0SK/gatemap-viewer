@@ -222,9 +222,6 @@ function populate(text) {
 		get_next_level();
 		draw_lines();
 	}
-	
-	// extra stuff
-	// console.log({ 'gate-name': gatename + ' Gate', 'levels': to_canonical(gate_data) });
 }
 
 // function to jump to a section (cuz i'm too cool for hash links)

@@ -645,81 +645,81 @@ function get_next_level() {
 	
 	let next_rotation, time_str;
 	for (let i=current_depth; i<30; i++) {
-		let next_level = 0;
+		let time_left = 0;
+		let rel_speed = 0;
 		let cdepth = i;
 		
 		if (cdepth == 29)
 			break;
-	
-		// get next depth's rotation info
-		let next_speed = 0;
-		let next_pos = 0;
-		if (rot_data[cdepth+1].data != null) {
-			next_level = 0;
-			next_speed = rot_data[cdepth+1].data.velocity;
-			next_pos = (Date.now() - rot_data[cdepth+1].data.start) * next_speed / 1000;
-			next_pos %= TWOPI;
-			if (next_pos < 0) next_pos += TWOPI;
-		} else {
-			// if next depth is a random depth...
-			next_level = -1;
-		}
 		
-		// get current depth's rotation info
-		let cur_speed = 0;
-		let cur_pos = 0;
-		let offset = 0;
-		if (cdepth != -1 && rot_data[cdepth].data != null) {
-			cur_speed = rot_data[cdepth].data.velocity;
-			cur_pos = (Date.now() - rot_data[cdepth].data.start) * cur_speed / 1000;
-			cur_pos %= TWOPI;
-			if (cur_pos < 0) cur_pos += TWOPI;
-			// if (cur_speed < 0) {
-				for (let i=0; i<selected_levels[cdepth]; i++) {
+		// test new method from decompilation
+		if (rot_data[cdepth+1].data != null) {
+			let cur_level = selected_levels[cdepth];
+			let cur_time = Date.now();
+			let cur_speed = rot_data[cdepth].data == null ? 0 : rot_data[cdepth].data.velocity;
+			let dist_travel = 0;
+			if (cur_speed != 0) {
+				dist_travel = (cur_time - rot_data[cdepth].data.start) % Math.floor(TWOPI * 1000 / Math.abs(cur_speed)) * cur_speed / 1000;
+			}
+			// dist_travel %= TWOPI;
+			// if (dist_travel < 0) dist_travel += TWOPI;
+			// if (dist_travel > TWOPI/2) dist_travel -= TWOPI;
+			
+			let offset = 0;
+			if (rot_data[cdepth].data != null) {
+				for (let i=0; i<cur_level; i++) {
 					offset += rot_data[cdepth].data.lengths[i];
 				}
-			// } else {
-				// for (let i=rot_data[cdepth]-1; i>selected_levels[cdepth]; i++) {
-					// offset += rot_data[cdepth].data.lengths[i];
-				// }
-			// }
-			offset += rot_data[cdepth].data.lengths[selected_levels[cdepth]] / 2;
-			offset %= TWOPI;
-			if (offset < 0) offset += TWOPI;
-		}
-		
-		// get location where the player's at
-		let point = offset;
-		let rel_speed = 0;
-		if (Math.abs(next_speed) > 1.0e-6) {
-			rel_speed = cur_speed - next_speed;
-			point += (Date.now() - rot_data[cdepth+1].data.start) * rel_speed / 1000;
-		}
-		point %= TWOPI;
-		if (point < 0) point += TWOPI;
-		// console.log(`relspeed: ${rel_speed}  point: ${point}`);
-		// console.log(`cur_sped: ${cur_speed}  nextsped: ${next_speed}`);
-		
-		// get (current) next level
-		if (next_level != -1 && rot_data[cdepth+1].n > 1) {
+				offset += rot_data[cdepth].data.lengths[cur_level] / 2;
+			}
+			// offset %= TWOPI;
+			// if (offset < 0) offset += TWOPI;
+			// if (offset > TWOPI/2) offset -= TWOPI;
+			
+			let combined = dist_travel + offset;
+			// combined %= TWOPI;
+			// if (combined < 0) combined += TWOPI;
+			// if (combined > TWOPI/2) combined -= TWOPI;
+			
+			let next_speed = rot_data[cdepth+1].data.velocity;
+			let next_dist_travel = 0;
+			if (next_speed != 0) {
+				next_dist_travel = (cur_time - rot_data[cdepth+1].data.start) % Math.floor(TWOPI * 1000 / Math.abs(next_speed)) * next_speed / 1000;
+			}
+			// next_dist_travel %= TWOPI;
+			// if (next_dist_travel < 0) next_dist_travel += TWOPI;
+			// if (next_dist_travel > TWOPI/2) next_dist_travel -= TWOPI;
+			
+			rel_speed = next_speed - cur_speed;
+			
+			let next_combined = combined - next_dist_travel;
+			next_combined %= TWOPI;
+			if (next_combined < 0) next_combined += TWOPI;
+			// if (next_combined > TWOPI/2) next_combined -= TWOPI;
+			
 			let cumulative = 0;
-			let time_left = 0;
+			let next_level = rot_data[cdepth+1].n - 1;
 			for (let i=0; i<rot_data[cdepth+1].n; i++) {
-				// figure out which segment the player is looking at
 				let cur_segment = rot_data[cdepth+1].data.lengths[i];
-				if (cumulative + cur_segment > point) {
+				if (cumulative + cur_segment > next_combined) {
 					next_level = i;
-					if (next_speed > 0)
-						time_left = point - cumulative
-					else
-						time_left = cumulative + cur_segment - point;
+					if (next_speed > 0) {
+						time_left = next_combined - cumulative
+					} else {
+						time_left = cumulative + cur_segment - next_combined;
+					}
 					break;
 				}
 				cumulative += cur_segment;
 			}
-			
-			// get the next level in rotation and start the timer
-			let countdown = time_left / Math.abs(next_speed - cur_speed);
+			selected_levels[cdepth + 1] = next_level;
+		} else {
+			selected_levels[cdepth + 1] = -1;
+		}
+		
+		// get the next level in rotation and start the timer
+		if (selected_levels[cdepth+1] != -1 && rot_data[cdepth+1].n > 1) {
+			let countdown = time_left / Math.abs(rel_speed);
 			let mins = Math.floor(countdown / 60) % 60;
 			let secs = Math.floor(countdown) % 60;
 			
@@ -727,7 +727,7 @@ function get_next_level() {
 				gate_refresh_time = Date.now() + countdown * 1000;
 			
 			if (cdepth == current_depth) {
-				next_rotation = next_level + Math.sign(rel_speed)
+				next_rotation = selected_levels[cdepth+1] - Math.sign(rel_speed)
 				if (next_rotation < 0) next_rotation += rot_data[cdepth+1].n
 				next_rotation %= rot_data[cdepth+1].n;
 				
@@ -740,7 +740,6 @@ function get_next_level() {
 				time_str += secs;
 			}
 		}
-		selected_levels[cdepth+1] = next_level;
 	}
 	
 	rotation_timer = setTimeout(function() {
