@@ -437,8 +437,13 @@ a:hover {
 .warning-button {
     width: fit-content;
     padding: 5px 20px;
+	border-radius: 7px;
     background-color: var(--color-white);
     color: var(--color-dark-bg);
     font-size: 120%;
     font-weight: bold;
+	cursor: pointer;
+}
+.warning-button:hover {
+	color: var(--color-highlight-bg)
 }
