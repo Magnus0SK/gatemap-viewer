@@ -3,7 +3,15 @@ var current_gate_index = 0;
 var next_gate_time = 0;
 var lineno = 0;
 var timer = null;
+var rotation_timer = null;
+var next_level_timer = null;
+var next_level_time = 0;
+var gate_refresh_time = Infinity;
 var section_heights = null;
+var rot_data = null;
+var current_depth = 0;
+var selected_levels = [0];
+var params = {};
 
 // 'diamond_queen' -> 'Diamond Queen'
 function to_gatename(s) {
@@ -98,6 +106,26 @@ function populate(text) {
 		gate_data = text_expand(text);
 	}
 	
+	// clear out lines and timer
+	current_depth = 0;
+	selected_levels = [0];
+	if (rotation_timer != null) {
+		clearTimeout(rotation_timer);
+	}
+	if (next_level_timer != null) {
+		clearTimeout(next_level_timer);
+	}
+	if ('rotations' in data_chunk && (gates.length - current_gate_index <= 4 || params['show_old_rotations'])) {
+		rot_data = data_chunk.rotations;
+	} else {
+		rot_data = null;
+		document.getElementById('rotation-timer').innerText = '\u2012\u2012:\u2012\u2012 to';
+		document.getElementById('timer-img').setAttribute('src', 'page-icons/unknown.png');
+		document.getElementById('next-level-name').innerHTML = '<p>---</p>';
+		draw_lines(true);
+	}
+	
+	// fill in the levels
 	let spacer = null;
 	document.getElementById('gate-img').setAttribute('src', `page-icons/${current_gate[1]}.png`);
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
@@ -144,6 +172,14 @@ function populate(text) {
 			}
 			lineno++;
 		}
+		if (rot_data != null && depth > -1) {
+			let imgs = container.querySelectorAll('.icon-wrapper img');
+			for (let i=0; i<imgs.length; i++) {
+				imgs[i].setAttribute('data-depth', depth);
+				imgs[i].setAttribute('data-levelnum', i);
+				imgs[i].addEventListener('click', icon_click_func);
+			}
+		}
 		parent.appendChild(container);
 	}
 	if (current_gate_index > 0) {
@@ -179,10 +215,13 @@ function populate(text) {
 		container.children[i].appendChild(text);
 	}
 	
-	// extra stuff
-    console.log({ 'gate-name': gatename + ' Gate', 'levels': to_canonical(gate_data) });
-	if ('themes' in data_chunk)
-		console.log(data_chunk.themes);
+	// actually draw the lines now
+	if (rot_data != null && params['show_timer']) {
+		let lobby_node = document.querySelector('[data-depth="0"][data-levelnum="0"]').parentElement;
+		lobby_node.classList.add('selected-level');
+		get_next_level();
+		draw_lines();
+	}
 }
 
 // function to jump to a section (cuz i'm too cool for hash links)
@@ -252,6 +291,8 @@ function event_next() {
 
 // function to be bound to gate icons in jump bar
 function gate_jump() {
+	if (current_gate_index == parseInt(this.getAttribute('data-value')))
+		return;
 	remove_style();
 	current_gate_index = parseInt(this.getAttribute('data-value'));
 	add_style();
@@ -282,4 +323,58 @@ function init() {
 		.then(response => response.text())
 		.then(text => populate_gates(text));
 	window.addEventListener('scroll', section_track_func);
+	
+	// get url params
+	let param_string = location.search.slice(1);
+	let param_pairs = param_string.split('&').map(p => p.split('='));
+	params = Object.fromEntries(param_pairs);
+	
+	// show the timer bar if param is set
+	if (params['show_timer'])
+		document.getElementById('timer-container').style.display = '';
+	
+	/* add disclaimer that this stuff isn't accurate... yet.
+	   someone please help me fix it
+	   run this only when param is set */
+	if (params['show_timer']) {
+		// get cookie
+		let cookie_array = document.cookie.split(';');
+		cookie_array = cookie_array.map(s => s.trim());
+		let message_seen = false;
+		let key_name = 'timerWarning';
+		for (let i=0; i<cookie_array.length; i++) {
+			if (cookie_array[i].startsWith(`${key_name}=`)) {
+				message_seen = Boolean(parseInt(cookie_array[i].substring(key_name.length + 1)));
+				break;
+			}
+		}
+		// set cookie
+		let expiry_time = new Date();
+		expiry_time.setTime(expiry_time.getTime() + 365 * 24 * 60 * 60 * 1000);
+		document.cookie = `${key_name}=1; expires=${expiry_time.toUTCString()}; path=/`;
+		// display message depending on cookie value
+		if (!message_seen) {
+			let d1 = document.createElement('div');
+			d1.setAttribute('class', 'warning-cover');
+			let d = document.createElement('div');
+			d.setAttribute('class', 'warning-box');
+			let p = document.createElement('p');
+			p.setAttribute('class', 'warning-head dark-bg');
+			p.innerText = 'Warning';
+			d.appendChild(p);
+			p = document.createElement('p');
+			p.setAttribute('class', 'warning-body');
+			p.innerText = 'While this version of the gatemap viewer features level rotation timings, the predicted timings might be inaccurate under certain conditions.';
+			d.appendChild(p);
+			p = document.createElement('p');
+			p.setAttribute('class', 'warning-button');
+			p.innerText = 'OK';
+			p.addEventListener('click', function() {
+				this.parentElement.parentElement.remove();
+			});
+			d.appendChild(p);
+			d1.appendChild(d);
+			document.body.appendChild(d1);
+		}
+	}
 }

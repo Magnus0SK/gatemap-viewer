@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--     please don't view this page on small windows     -->
-<!--           made by silverhawke (@fluffderg)           -->
-<!-- this might not display right on other browsers, oops -->
+<!--     please don't view this page on small windows
+               made by silverhawke (@fluffderg)
+     this might not display right on other browsers, oops
+	                   ----------------
+               append ?show_timer=1 to display
+                experimental rotation timings             -->
 <html lang="en">
 	<head>
 		<title>Gate Map Viewer</title>
@@ -39,6 +42,7 @@
 			<div class="bgcontainer">
 				<img alt="Background" draggable=false src="background.png">
 			</div>
+			<div class="line-container" id="line-container"></div>
 			<div class="depth-container" id="depth-container"></div>
 			<div class="tick-container" id="tick-container"></div>
 			<div class="tick-container">
@@ -49,6 +53,9 @@
 				<p>20</p>
 				<p>25</p>
 				<p>30</p>
+			</div>
+			<div class="timer-container" id="timer-container" style="display: none;">
+				<p id="rotation-timer">‒‒:‒‒ to</p><img draggable="false" id="timer-img" src="page-icons/unknown.png"><div id="next-level-name"><p>---</p></div>
 			</div>
 		</div>
 		<div id="section-jump" class="section-jump">

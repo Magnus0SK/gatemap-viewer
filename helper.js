@@ -1,5 +1,6 @@
 var specials = ['aurora', 'concrete', 'darkcity', 'jigsaw', 'starlight', 'scarlet', 'pv', 'gww', 'rjp', 'imf', 'fsc', 'terminal'];
 var keywords = ['ai', 'dc_2d', 'dc_3d', 'cj_bb', 'cj_tt', 'jv_ax', 'jv_jt', 'jv_pp', 'sf_sc', 'sf_ch', 'sf_2d', 'sc_mm', 'sc_ss', 's_gww', 's_rjp', 's_imf', 's_fsc'];
+var TWOPI = 6.2831855;
 
 // returns a div DOMElement to be appended to each depth
 // descriptor should be an array of strings
@@ -382,10 +383,13 @@ function get_chunks(t) {
 	output = {};
 	for (let i=1; i<chunks.length; i++) {
 		lines = chunks[i].split('\n');
-		if (lines[0].trim() == 'LEVELS')
+		if (lines[0].trim() == 'LEVELS') {
 			output.levels = lines.slice(1).join('\n');
-		else if (lines[0].trim() == 'THEMES')
+		} else if (lines[0].trim() == 'THEMES') {
 			output.themes = lines[1].split(', ');
+		} else if (lines[0].trim() == 'ROTATIONS') {
+			output.rotations = JSON.parse(lines[1]);
+		}
 	}
 	return output;
 }
@@ -603,4 +607,428 @@ function to_canonical(text_array) {
 	}
 	out_array.push(['m.terminal_core']);
 	return out_array;
+}
+
+function icon_click_func() {
+	if (!params['show_timer'])
+		return;
+	
+	if (selected_levels[current_depth] == parseInt(this.getAttribute('data-levelnum')) && current_depth == parseInt(this.getAttribute('data-depth')))
+		return;
+	
+	let current_node = document.querySelector(`[data-depth="${current_depth}"][data-levelnum="${selected_levels[current_depth]}"]`).parentElement
+	current_node.classList.remove('selected-level');
+	this.parentElement.classList.add('selected-level');
+	
+	let current_level = parseInt(this.getAttribute('data-levelnum'));
+	current_depth = parseInt(this.getAttribute('data-depth'));
+	
+	selected_levels[current_depth] = current_level;
+	if (selected_levels.length > current_depth+1)
+		selected_levels = selected_levels.slice(0, current_depth+1);
+	
+	get_next_level();
+	draw_lines();
+}
+
+function get_next_level() {
+	if (rotation_timer != null) {
+		clearTimeout(rotation_timer);
+	}
+	if (next_level_timer != null) {
+		clearTimeout(next_level_timer);
+	}
+	
+	if (current_depth == 29) {
+		document.getElementById('rotation-timer').innerText = '\u2012\u2012:\u2012\u2012 to';
+		document.getElementById('timer-img').setAttribute('src', 'page-icons/unknown.png');
+		document.getElementById('next-level-name').innerHTML = '<p>---</p>';
+		return;
+	}
+	
+	let next_rotation, time_str;
+	for (let i=current_depth; i<30; i++) {
+		let time_left = 0;
+		let rel_speed = 0;
+		let cdepth = i;
+		
+		if (cdepth == 29)
+			break;
+		
+		// test new method from decompilation
+		if (rot_data[cdepth+1].data != null) {
+			let cur_level = selected_levels[cdepth];
+			let cur_time = Date.now();
+			let cur_speed = rot_data[cdepth].data == null ? 0 : rot_data[cdepth].data.velocity;
+			let dist_travel = 0;
+			if (cur_speed != 0) {
+				dist_travel = (cur_time - rot_data[cdepth].data.start) % Math.floor(TWOPI * 1000 / Math.abs(cur_speed)) * cur_speed / 1000;
+			}
+			// dist_travel %= TWOPI;
+			// if (dist_travel < 0) dist_travel += TWOPI;
+			// if (dist_travel > TWOPI/2) dist_travel -= TWOPI;
+			
+			let offset = 0;
+			if (rot_data[cdepth].data != null) {
+				for (let i=0; i<cur_level; i++) {
+					offset += rot_data[cdepth].data.lengths[i];
+				}
+				offset += rot_data[cdepth].data.lengths[cur_level] / 2;
+			}
+			// offset %= TWOPI;
+			// if (offset < 0) offset += TWOPI;
+			// if (offset > TWOPI/2) offset -= TWOPI;
+			
+			let combined = dist_travel + offset;
+			// combined %= TWOPI;
+			// if (combined < 0) combined += TWOPI;
+			// if (combined > TWOPI/2) combined -= TWOPI;
+			
+			let next_speed = rot_data[cdepth+1].data.velocity;
+			let next_dist_travel = 0;
+			if (next_speed != 0) {
+				next_dist_travel = (cur_time - rot_data[cdepth+1].data.start) % Math.floor(TWOPI * 1000 / Math.abs(next_speed)) * next_speed / 1000;
+			}
+			// next_dist_travel %= TWOPI;
+			// if (next_dist_travel < 0) next_dist_travel += TWOPI;
+			// if (next_dist_travel > TWOPI/2) next_dist_travel -= TWOPI;
+			
+			rel_speed = next_speed - cur_speed;
+			
+			let next_combined = combined - next_dist_travel;
+			next_combined %= TWOPI;
+			if (next_combined < 0) next_combined += TWOPI;
+			// if (next_combined > TWOPI/2) next_combined -= TWOPI;
+			
+			let cumulative = 0;
+			let next_level = rot_data[cdepth+1].n - 1;
+			for (let i=0; i<rot_data[cdepth+1].n; i++) {
+				let cur_segment = rot_data[cdepth+1].data.lengths[i];
+				if (cumulative + cur_segment > next_combined) {
+					next_level = i;
+					if (next_speed > 0) {
+						time_left = next_combined - cumulative
+					} else {
+						time_left = cumulative + cur_segment - next_combined;
+					}
+					break;
+				}
+				cumulative += cur_segment;
+			}
+			selected_levels[cdepth + 1] = next_level;
+		} else {
+			selected_levels[cdepth + 1] = -1;
+		}
+		
+		// get the next level in rotation and start the timer
+		if (selected_levels[cdepth+1] != -1 && rot_data[cdepth+1].n > 1) {
+			let countdown = time_left / Math.abs(rel_speed);
+			let mins = Math.floor(countdown / 60) % 60;
+			let secs = Math.floor(countdown) % 60;
+			
+			if (gate_refresh_time > Date.now() + countdown * 1000)
+				gate_refresh_time = Date.now() + countdown * 1000;
+			
+			if (cdepth == current_depth) {
+				next_rotation = selected_levels[cdepth+1] - Math.sign(rel_speed)
+				if (next_rotation < 0) next_rotation += rot_data[cdepth+1].n
+				next_rotation %= rot_data[cdepth+1].n;
+				
+				next_level_time = Date.now() + countdown * 1000;
+				
+				time_str = '';
+				if (mins < 10) time_str += '0';
+				time_str += mins + ':';
+				if (secs < 10) time_str += '0';
+				time_str += secs;
+			}
+		}
+	}
+	
+	rotation_timer = setTimeout(function() {
+		get_next_level();
+		draw_lines();
+		gate_refresh_time = Infinity;
+	}, gate_refresh_time - Date.now());
+	
+	if (selected_levels[current_depth+1] == -1) {
+		document.getElementById('rotation-timer').innerText = '\u2012\u2012:\u2012\u2012 to';
+		document.getElementById('timer-img').setAttribute('src', 'page-icons/unknown.png');
+		document.getElementById('next-level-name').innerHTML = '<p>---</p>';
+	} else if (rot_data[current_depth+1].n > 1) {
+		// CSS selector magic to get the right level icon
+		document.getElementById('rotation-timer').innerText = `${time_str} to`;
+		let level = document.querySelector(`.depth-entry:nth-of-type(${current_depth+3}) .icon-wrapper:nth-of-type(${next_rotation+1})`);
+		
+		next_level_timer = setInterval(rotation_timer_func, 1000);
+		
+		let img_src = level.querySelector('img').getAttribute('src');
+		let desc = level.querySelector('.title-wrapper>div').innerHTML;
+		desc = desc.split('<br>');
+		document.getElementById('timer-img').setAttribute('src', img_src);
+		document.getElementById('next-level-name').innerHTML = '';
+		desc.map(a => {
+			let p = document.createElement('p');
+			p.innerHTML = a;
+			document.getElementById('next-level-name').appendChild(p);
+		});
+	} else if (rot_data[current_depth+1].n == 1) {
+		document.getElementById('rotation-timer').innerText = '\u2012\u2012:\u2012\u2012 to';
+		let level = document.querySelector(`.depth-entry:nth-of-type(${current_depth+3}) .icon-wrapper`);
+		let img_src = level.querySelector('img').getAttribute('src');
+		let desc = level.querySelector('.title-wrapper>div').innerHTML;
+		desc = desc.split('<br>');
+		document.getElementById('timer-img').setAttribute('src', img_src);
+		document.getElementById('next-level-name').innerHTML = '';
+		desc.map(a => {
+			let p = document.createElement('p');
+			p.innerHTML = a;
+			document.getElementById('next-level-name').appendChild(p);
+		});
+	}
+}
+
+function draw_lines(only_clear_lines=false) {
+	let container = document.getElementById('line-container');
+	container.innerHTML = '';
+	
+	// Allow function to clear lines only and return,
+	// for gates without rotation data.
+	if (only_clear_lines || !params['show_timer'])
+		return;
+	
+	// Segments for Haven
+	add_line_segment(container, 'border', 0);
+	add_line_segment(container, 'vert', 0);
+	add_line_segment(container, 'horiz', [0, 0]);
+	
+	// For each depth: draw leading vertical line,
+	// the selected border, trailing vertical line and horizontal line
+	for (let i=0; i<current_depth+1; i++) {
+		let lv_total = rot_data[i].n;
+		let offset = selected_levels[i] * 2 - lv_total + 1;
+		
+		if (selected_levels[i] != -1 && selected_levels[i+1] != -1) {
+			add_line_segment(container, 'vert', offset);
+			add_line_segment(container, 'border', offset);
+			
+			// Only draw the trailing lines if this is not
+			// the lowermost selected level
+			if (i != current_depth) {
+				let next_lv_total = rot_data[i+1].n;
+				let next_offset = selected_levels[i+1] * 2 - next_lv_total + 1;
+				
+				add_line_segment(container, 'vert', offset);
+				add_line_segment(container, 'horiz', [offset, next_offset]);
+			}
+		} else if (selected_levels[i] != -1) {
+			add_line_segment(container, 'vert', offset);
+			add_line_segment(container, 'border', offset);
+			
+			// Only draw the trailing lines if this is not
+			// the lowermost selected level
+			if (i != current_depth) {
+				let next_lv_total = rot_data[i+1].n;
+				let next_offset = selected_levels[i+1] * 2 - next_lv_total + 1;
+				
+				add_line_segment(container, 'vert', offset);
+				add_line_segment(container, 'random', [offset, next_lv_total], 'horiz');
+			}
+		} else if (selected_levels[i+1] != -1) {
+			add_line_segment(container, 'random', lv_total, 'vert');
+			add_line_segment(container, 'random', lv_total, 'border');
+			
+			// Only draw the trailing lines if this is not
+			// the lowermost selected level
+			if (i != current_depth) {
+				let next_lv_total = rot_data[i+1].n;
+				let next_offset = selected_levels[i+1] * 2 - next_lv_total + 1;
+				
+				add_line_segment(container, 'random', lv_total, 'vert');
+				add_line_segment(container, 'random', [next_offset, lv_total], 'horiz');
+			}
+		} else {
+			// I don't think sequential random depths are possible
+			// But just in case...
+			add_line_segment(container, 'random', lv_total, 'vert');
+			add_line_segment(container, 'random', lv_total, 'border');
+			
+			// Only draw the trailing lines if this is not
+			// the lowermost selected level
+			if (i != current_depth) {
+				let next_lv_total = rot_data[i+1].n;
+				let next_offset = selected_levels[i+1] * 2 - next_lv_total + 1;
+				
+				add_line_segment(container, 'random', lv_total, 'vert');
+				add_line_segment(container, 'random', [0, Math.max(lv_total, next_lv_total)], 'horiz');
+			}
+		}
+	}
+	
+	// For predicted next levels...
+	for (let i=current_depth+1; i<selected_levels.length; i++) {
+		if (i != -1) {
+			let next_lv_total = rot_data[i].n;
+			let next_offset = selected_levels[i] * 2 - next_lv_total + 1;
+			let lv_total = i != 0 ? rot_data[i-1].n : 1;
+			let offset = i != 0 ? selected_levels[i-1] * 2 - lv_total + 1 : 0;
+			
+			if (selected_levels[i-1] != -1) {
+				add_line_segment(container, 'vert', offset, null, true);
+			} else {
+				add_line_segment(container, 'random', lv_total, 'vert', true);
+			}
+			
+			if (selected_levels[i] == -1 && selected_levels[i-1] == -1) {
+				add_line_segment(container, 'random', [0, Math.max(lv_total, next_lv_total)], 'horiz', true)
+			} else if (selected_levels[i-1] == -1) {
+				add_line_segment(container, 'random', [next_offset, lv_total], 'horiz', true)
+			} else if (selected_levels[i] == -1) {
+				add_line_segment(container, 'random', [offset, next_lv_total], 'horiz', true)
+			} else {
+				add_line_segment(container, 'horiz', [offset, next_offset], null, true);
+			}
+			
+			// If next depth isn't a random depth...
+			if (selected_levels[i] != -1) {
+				add_line_segment(container, 'vert', next_offset, null, true);
+				add_line_segment(container, 'border', next_offset, null, true);
+			} else {
+				add_line_segment(container, 'random', next_lv_total, 'vert', true);
+				add_line_segment(container, 'random', next_lv_total, 'border', true);
+			}
+		} else {
+			add_line_segment(container, 'vert', 0, null, true);
+			add_line_segment(container, 'horiz', [0, 0], null, true);
+			add_line_segment(container, 'vert', 0, null, true);
+			add_line_segment(container, 'border', 0, null, true);
+		}
+	}
+}
+
+function add_line_segment(container, type, val, type2, next_level=false){
+	let class_str = '';
+	if (next_level) class_str = 'next-level ';
+	
+	let p = document.createElement('div');
+	if (type == 'random') {
+		if (type2 == 'horiz') {
+			p.setAttribute('class', class_str + `${type2}-line`);
+			let offset, total;
+			[offset, total] = val;
+			
+			let style_text = '';
+			if (Math.abs(offset) > total - 1) {
+				let margin;
+				if (offset < 0) margin = 'margin-right'
+				else margin = 'margin-left';
+				
+				let line_width = 92*(total-1) + 4;
+				line_width += 92*(Math.abs(offset)-total+1)/2;
+				if (offset < 0) line_width += 1;
+				style_text = `border-left-width: ${line_width}px;`;
+				style_text += `${margin}: ${46*(Math.abs(offset)-total+1)}px`;
+			} else {
+				style_text = `border-left-width: ${92*(total-1)+4}px;`;
+			}
+			p.setAttribute('style', style_text);
+		} else {
+			p.setAttribute('class', 'random-line');
+			for (let i=0; i<val; i++) {
+				let d = document.createElement('div');
+				d.setAttribute('class', class_str + `${type2}-line`);
+				p.appendChild(d);
+			}
+		}
+	} else if (type == 'horiz') {
+		let ioffset, foffset;
+		[ioffset, foffset] = val;
+		
+		let line_width, line_margin;
+		[line_width, line_margin] = horizontal_line_hack(ioffset, foffset);
+		
+		let margin;
+		if (ioffset + foffset < 0) margin = 'margin-right'
+		else margin = 'margin-left';
+		
+		let style_text = '';
+		if (ioffset - foffset != 0)
+			style_text += `border-left-width:${line_width}px;`
+		if (ioffset + foffset != 0)
+			style_text += `${margin}:${line_margin}px;`
+		
+		if (style_text) p.setAttribute('style', style_text);
+		p.setAttribute('class', class_str + `${type}-line`);
+	} else if (type == 'vert') {
+		let offset = val;
+		let margin;
+		
+		if (offset < 0) margin = 'margin-right'
+		else margin = 'margin-left';
+		if (offset != 0) p.setAttribute('style', `${margin}: ${93*Math.abs(offset)-2}px`);
+		
+		p.setAttribute('class', class_str + `${type}-line`);
+	} else if (type == 'border') {
+		let offset = val;
+		if (offset < 0) class_str += `pos-l${-offset} `
+		else if (offset > 0) class_str += `pos-r${offset} `;
+		
+		p.setAttribute('class', class_str + `${type}-line`);
+	}
+	container.appendChild(p);
+}
+
+function horizontal_line_hack(offset, next_offset) {
+	let line_width = Math.abs(offset - next_offset) / 2 * 93 + 2;
+	let line_margin = Math.abs(offset + next_offset) / 2 * 93 - 2;
+	
+	if (offset == 0 || next_offset == 0) {
+		line_width += 0.5;
+		line_margin += 0.5;
+		if (offset < 0 || next_offset < 0)
+			line_width += 1;
+		if (next_offset == 2 || next_offset == 4) {					
+			line_width += 0.5;
+			line_margin += 0.5;
+		}
+	} else if (offset == next_offset) {
+	} else if (offset + next_offset != 0) {
+		if (Math.abs(offset - next_offset) < 3)
+			line_width += 2
+		else
+			line_margin += 2;
+	}
+	if (offset == 2 && next_offset == 0) {
+		line_width += 0.5;
+		line_margin += 0.5;
+	} else if (offset == 4 && next_offset == 1) {
+		line_width += 2;
+		line_margin -= 2;
+	} else if (offset == -4 && next_offset == -1) {
+		line_width += 2;
+		line_margin -= 2;
+	}
+	
+	return [line_width, line_margin];
+}
+
+function rotation_timer_func() {
+	let dist = next_level_time - Date.now();
+	if (dist < 0) dist = 0;
+	
+	let mins = Math.floor(dist / 60000) % 60;
+	let secs = Math.floor(dist / 1000) % 60;
+	
+	let time_str = '';
+	if (mins < 10) time_str += '0';
+	time_str += mins + ':';
+	if (secs < 10) time_str += '0';
+	time_str += secs;
+	
+	document.getElementById('rotation-timer').innerText = `${time_str} to`;
+	if (dist <= 0) {
+		clearInterval(next_level_timer);
+		get_next_level();
+		draw_lines();
+	}
 }
