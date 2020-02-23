@@ -147,3 +147,4 @@
 20200217,diamond_phantom
 20200219,onyx_bishop
 20200221,sapphire_falcon
+20200223,silver_pawn
