@@ -152,3 +152,4 @@
 20200227,emerald_skull
 20200229,dark_falcon
 20200302,golden_queen
+20200304,diamond_bishop
