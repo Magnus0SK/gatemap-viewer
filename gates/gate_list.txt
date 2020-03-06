@@ -153,3 +153,4 @@
 20200229,dark_falcon
 20200302,golden_queen
 20200304,diamond_bishop
+20200306,copper_clover
