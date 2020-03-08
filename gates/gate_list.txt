@@ -154,3 +154,4 @@
 20200302,golden_queen
 20200304,diamond_bishop
 20200306,copper_clover
+20200308,ruby_sun
