@@ -155,3 +155,4 @@
 20200304,diamond_bishop
 20200306,copper_clover
 20200308,ruby_sun
+20200310,dark_serpent
