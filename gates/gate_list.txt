@@ -156,3 +156,4 @@
 20200306,copper_clover
 20200308,ruby_sun
 20200310,dark_serpent
+20200312,diamond_pawn
