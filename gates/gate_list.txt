@@ -157,3 +157,4 @@
 20200308,ruby_sun
 20200310,dark_serpent
 20200312,diamond_pawn
+20200314,jade_bishop
