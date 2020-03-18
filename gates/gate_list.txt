@@ -158,3 +158,5 @@
 20200310,dark_serpent
 20200312,diamond_pawn
 20200314,jade_bishop
+20200316,golden_clover
+20200318,emerald_rook
