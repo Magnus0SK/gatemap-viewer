@@ -160,3 +160,4 @@
 20200314,jade_bishop
 20200316,golden_clover
 20200318,emerald_rook
+20200320,ruby_serpent
