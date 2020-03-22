@@ -161,3 +161,4 @@
 20200316,golden_clover
 20200318,emerald_rook
 20200320,ruby_serpent
+20200322,diamond_lion
