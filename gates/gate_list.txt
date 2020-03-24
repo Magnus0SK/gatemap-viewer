@@ -162,3 +162,4 @@
 20200318,emerald_rook
 20200320,ruby_serpent
 20200322,diamond_lion
+20200324,dark_king
