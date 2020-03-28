@@ -164,3 +164,4 @@
 20200322,diamond_lion
 20200324,dark_king
 20200326,silver_titan
+20200328,coral_queen
