@@ -165,3 +165,4 @@
 20200324,dark_king
 20200326,silver_titan
 20200328,coral_queen
+20200330,onyx_knight
