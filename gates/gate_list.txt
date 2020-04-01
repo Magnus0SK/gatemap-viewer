@@ -166,3 +166,4 @@
 20200326,silver_titan
 20200328,coral_queen
 20200330,onyx_knight
+20200401,golden_skull
