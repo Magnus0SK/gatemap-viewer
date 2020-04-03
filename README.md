@@ -13,6 +13,8 @@ The following files were taken from Spiral Knights and is copyright © Grey Have
 * `spacer_right.png`
 
 ## Changelog
+- 2020-02-20
+  - Added gate timer prediction -- currently not 100% accurate. Append `?show_timer=true` to use.
 - 2020-01-16
   - Added support to display strata themes.
 - 2019-06-15
