@@ -1,0 +1,29 @@
+##GATEDATA
+##LEVELS
+r, tunnel slime freeze, lichen x
+tunnel slime x
+scarlet ch, scarlet ch2, scarlet ch3, scarlet gg
+rand, arena construct x, decon x
+l, jigsaw pp, jigsaw pp2
+decon freeze, tunnel construct x
+l, den shock, arena beast x, tunnel beast shock, tunnel beast x
+tunnel beast freeze, compound construct x beast
+rand, compound gremlin freeze beast, compound fiend x beast
+l, aurora jly, aurora jly2, aurora low, aurora sto
+l, tunnel construct fire, decon fire, compound construct fire beast, tunnel construct x
+decon x, compound construct x undead
+jigsaw ax, jigsaw ax2
+jigsaw pp, jigsaw pp2
+r, compound fiend freeze slime, dd freeze
+rand_freeze, den freeze
+l, lichen freeze, tunnel slime freeze
+tunnel undead freeze, arena undead freeze, csk freeze
+r, fsc d1
+fsc d2
+fsc d3
+fsc d4
+vana
+##THEMES
+Slime, Construct, Beast, Construct, Freeze, Fire
+##ROTATIONS
+[{"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 2, "data": {"velocity": 0.0034906587097793818, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 1, "data": {"velocity": -0.0069813174195587635, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 4, "data": {"velocity": 0.008726646192371845, "num_entries": 4, "lengths": [1.5707963705062866, 1.5707963705062866, 1.5707963705062866, 1.5707963705062866], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 4, "data": null}, {"n": 2, "data": {"velocity": -0.01745329238474369, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 2, "data": {"velocity": 0.0034906587097793818, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 4, "data": {"velocity": -0.0017453293548896909, "num_entries": 4, "lengths": [1.5707963705062866, 1.5707963705062866, 1.5707963705062866, 1.5707963705062866], "start": 1586502000000}}, {"n": 2, "data": {"velocity": 0.0034906587097793818, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 4, "data": null}, {"n": 4, "data": {"velocity": -0.008726646192371845, "num_entries": 4, "lengths": [1.5707963705062866, 1.5707963705062866, 1.5707963705062866, 1.5707963705062866], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 4, "data": {"velocity": -0.0017453293548896909, "num_entries": 4, "lengths": [1.5707963705062866, 1.5707963705062866, 1.5707963705062866, 1.5707963705062866], "start": 1586502000000}}, {"n": 2, "data": {"velocity": 0.0034906587097793818, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 2, "data": {"velocity": -0.01745329238474369, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 2, "data": {"velocity": 0.01745329238474369, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 2, "data": {"velocity": 0.0034906587097793818, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 3, "data": null}, {"n": 2, "data": {"velocity": -0.0034906587097793818, "num_entries": 2, "lengths": [3.1415927410125732, 3.1415927410125732], "start": 1586502000000}}, {"n": 3, "data": {"velocity": 0.0023271057289093733, "num_entries": 3, "lengths": [2.094395160675049, 2.094395160675049, 2.094395160675049], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}, {"n": 1, "data": {"velocity": 0.0, "num_entries": 1, "lengths": [6.2831854820251465], "start": 1586502000000}}]

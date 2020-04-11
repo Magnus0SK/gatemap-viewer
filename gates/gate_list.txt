@@ -170,3 +170,5 @@
 20200403,diamond_titan
 20200405,iron_clover
 20200407,coral_serpent
+20200409,sapphire_lion
+20200411,golden_queen
