@@ -173,3 +173,4 @@
 20200409,sapphire_lion
 20200411,golden_queen
 20200413,diamond_pawn
+20200415,coral_falcon
