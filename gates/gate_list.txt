@@ -178,3 +178,4 @@
 20200419,onyx_queen
 20200421,silver_skull
 20200423,sapphire_falcon
+20200425,copper_bishop
