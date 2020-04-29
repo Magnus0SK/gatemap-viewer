@@ -179,3 +179,5 @@
 20200421,silver_skull
 20200423,sapphire_falcon
 20200425,copper_bishop
+20200427,iron_lion
+20200429,emerald_serpent
