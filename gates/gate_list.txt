@@ -182,3 +182,4 @@
 20200427,iron_lion
 20200429,emerald_serpent
 20200501,ruby_titan
+20200503,copper_skull
