@@ -183,3 +183,4 @@
 20200429,emerald_serpent
 20200501,ruby_titan
 20200503,copper_skull
+20200505,amber_bishop
