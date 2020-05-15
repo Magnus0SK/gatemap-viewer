@@ -188,3 +188,4 @@
 20200509,diamond_clover
 20200511,sapphire_falcon
 20200513,golden_skull
+20200515,ruby_bishop
