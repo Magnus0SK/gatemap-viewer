@@ -190,3 +190,4 @@
 20200513,golden_skull
 20200515,ruby_bishop
 20200517,iron_king
+20200519,sapphire_clover
