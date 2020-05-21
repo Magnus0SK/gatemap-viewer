@@ -191,3 +191,4 @@
 20200515,ruby_bishop
 20200517,iron_king
 20200519,sapphire_clover
+20200521,copper_knight
