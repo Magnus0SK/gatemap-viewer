@@ -13,9 +13,9 @@ var current_depth = 0;
 var selected_levels = [0];
 var params = {};
 
-// 'diamond_queen' -> 'Diamond Queen'
+// ["20200122", "diamond", "queen"] -> 'Diamond Queen'
 function to_gatename(s) {
-	return s.split('_').map(e => e[0].toUpperCase() + e.slice(1)).join(' ');
+	return s.slice(1).map(e => e[0].toUpperCase() + e.slice(1)).join(' ');
 }
 
 // '20190616' -> '2019-06-16'
@@ -34,7 +34,7 @@ function fetch_gate_data() {
 
 // callback function to handle all the gate data, also populates the jump bar
 function populate_gates(text) {
-	gates = text.split('\n').map(e => e.split(','));
+	gates = JSON.parse(text);
 	current_gate_index = gates.length - 1;  // set to latest gate
 	fetch_gate_data();
 	// new gates are created at midnight Eastern Time, every two days
@@ -65,6 +65,7 @@ function populate_gates(text) {
 	for (let i=gates.length-1; i>=0; i--) {
 		let e = gates[i];
 		let div = document.createElement('div');
+		let icon = e.slice(1).join('_');
 		div.setAttribute('class', 'entry');
 		div.setAttribute('data-value', i.toString());
 		div.addEventListener('click', gate_jump);
@@ -73,12 +74,12 @@ function populate_gates(text) {
 		}
 		let img = document.createElement('img');
 		img.setAttribute('draggable', 'false');
-		img.setAttribute('src', 'page-icons/' + e[1] + '.png');
+		img.setAttribute('src', 'page-icons/' + icon + '.png');
 		let name_div = document.createElement('div');
 		name_div.setAttribute('class', 'name-date');
 		let p = document.createElement('p');
 		p.setAttribute('class', 'text-title');
-		p.innerHTML = to_gatename(e[1]) + ' Gate';
+		p.innerHTML = to_gatename(e) + ' Gate';
 		name_div.appendChild(p);
 		p = document.createElement('p');
 		p.setAttribute('class', 'text-title no-bold');
@@ -96,15 +97,18 @@ function populate_gates(text) {
 // fills up the gate map with level icons
 function populate(text) {
 	let current_gate = gates[current_gate_index];
-	let gatename = to_gatename(current_gate[1]);
-	let data_chunk, gate_data
-	if (text.startsWith('##')) {
-		data_chunk = get_chunks(text);
-		gate_data = text_expand(data_chunk.levels);
+	let gatename = to_gatename(current_gate);
+	let icon_name = current_gate.slice(1).join('_');
+	let data_chunk, gate_data;
+	// to replace this later with just JSON.parse
+	if (text.startsWith('##JSON')) {
+		json_data = text.split('\n')[1];
+		data_chunk = JSON.parse(json_data);
 	} else {
-		data_chunk = {levels: text};
-		gate_data = text_expand(text);
+		console.log(`gate data ${current_gate.join('_')} is in a wrong format (or data is missing)`)
+		data_chunk = {levels: []};
 	}
+	gate_data = text_expand(data_chunk.levels);
 	
 	// clear out lines and timer
 	current_depth = 0;
@@ -127,7 +131,7 @@ function populate(text) {
 	
 	// fill in the levels
 	let spacer = null;
-	document.getElementById('gate-img').setAttribute('src', `page-icons/${current_gate[1]}.png`);
+	document.getElementById('gate-img').setAttribute('src', `page-icons/${icon_name}.png`);
 	document.getElementById('gate-name').innerHTML = gatename + ' Gate';
 	document.getElementById('gate-date').innerHTML = format_date(current_gate[0]);
 	let parent = document.getElementById('depth-container');

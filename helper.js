@@ -238,8 +238,7 @@ function wrap_icon(descriptor) {
 
 // expands special keywords that describe entire depth(s)
 // returns array of strings
-function text_expand(text) {
-	let data = text.split('\n');
+function text_expand(data) {
 	let expanded_data = [];
 	let ndir = 'r';
 	let rdir = 'l';
@@ -375,23 +374,6 @@ function text_expand(text) {
 	}
 	
 	return expanded_data;
-}
-
-// handle new text format, featuring chunks that include optional data
-function get_chunks(t) {
-	chunks = t.split('##');
-	output = {};
-	for (let i=1; i<chunks.length; i++) {
-		lines = chunks[i].split('\n');
-		if (lines[0].trim() == 'LEVELS') {
-			output.levels = lines.slice(1).join('\n');
-		} else if (lines[0].trim() == 'THEMES') {
-			output.themes = lines[1].split(', ');
-		} else if (lines[0].trim() == 'ROTATIONS') {
-			output.rotations = JSON.parse(lines[1]);
-		}
-	}
-	return output;
 }
 
 // converts expanded keywords to canonical names
