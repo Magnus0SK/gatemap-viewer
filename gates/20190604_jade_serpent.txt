@@ -1,23 +1,2 @@
-r,jigsaw jt,jigsaw jt2
-?,tv,tunnel gremlin x,graveyard
-x,arena gremlin x
-x,gww d1
-x,gww d2
-x,snarb
-l,concrete tt,concrete tt2
-r,arena undead freeze,tunnel undead x,compound gremlin x undead,csk x
-?,tv,tunnel undead fire,graveyard
-l,csk fire,compound fiend x undead,arena undead x
-l,compound fiend poison beast,dd x,tunnel fiend x
-r,darkcity ss,darkcity ss2
-x,darkcity pm
-x,dd poison
-l,concrete bb,concrete bb2
-r,tunnel beast poison,den poison,compound fiend poison beast
-?,tv,tunnel fiend poison,dd poison,graveyard
-l,dd poison,tunnel fiend poison
-r,darkcity rr,darkcity rr2,darkcity rr3
-l,darkcity ss,darkcity ss2
-x,darkcity_boss
-l,compound fiend x undead,tunnel fiend fire,compound fiend x slime
-r,tunnel fiend poison,dd poison,dd x
+##JSON
+{"levels": ["r,jigsaw jt,jigsaw jt2", "?,tv,tunnel gremlin x,graveyard", "x,arena gremlin x", "x,gww d1", "x,gww d2", "x,snarb", "l,concrete tt,concrete tt2", "r,arena undead freeze,tunnel undead x,compound gremlin x undead,csk x", "?,tv,tunnel undead fire,graveyard", "l,csk fire,compound fiend x undead,arena undead x", "l,compound fiend poison beast,dd x,tunnel fiend x", "r,darkcity ss,darkcity ss2", "x,darkcity pm", "x,dd poison", "l,concrete bb,concrete bb2", "r,tunnel beast poison,den poison,compound fiend poison beast", "?,tv,tunnel fiend poison,dd poison,graveyard", "l,dd poison,tunnel fiend poison", "r,darkcity rr,darkcity rr2,darkcity rr3", "l,darkcity ss,darkcity ss2", "x,darkcity_boss", "l,compound fiend x undead,tunnel fiend fire,compound fiend x slime", "r,tunnel fiend poison,dd poison,dd x"]}

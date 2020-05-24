@@ -1,23 +1,2 @@
-l,scarlet sc,scarlet sc2,scarlet gg
-r,lichen fire,lichen x,tunnel slime fire,tunnel slime x
-l,lichen shock,lichen x,tunnel slime shock
-?,tv,decon shock,graveyard
-r,tunnel undead shock,csk shock
-x,arena slime shock
-l,dd fire,tunnel fiend fire
-r,tunnel beast fire,compound gremlin fire beast
-?,tv,den fire,tunnel beast fire,graveyard
-l,compound gremlin fire beast,arena beast fire
-r,compound construct shock beast,arena construct fire
-x,imf d1
-x,imf d2
-x,rt
-r,csk freeze,csk x,compound fiend x undead,compound fiend freeze undead
-?,tv,tunnel undead x,graveyard
-l,scarlet sc,scarlet sc2,scarlet gg
-r,scarlet ch,scarlet ch2,scarlet ch3
-l,dd poison,dd x,tunnel fiend poison,compound fiend poison beast,tunnel fiend x
-r,darkcity ss,darkcity ss2
-x,darkcity pm
-r,tunnel fiend freeze,dd freeze,compound fiend freeze slime
-l,compound fiend poison undead,compound fiend x beast
+##JSON
+{"levels": ["l,scarlet sc,scarlet sc2,scarlet gg", "r,lichen fire,lichen x,tunnel slime fire,tunnel slime x", "l,lichen shock,lichen x,tunnel slime shock", "?,tv,decon shock,graveyard", "r,tunnel undead shock,csk shock", "x,arena slime shock", "l,dd fire,tunnel fiend fire", "r,tunnel beast fire,compound gremlin fire beast", "?,tv,den fire,tunnel beast fire,graveyard", "l,compound gremlin fire beast,arena beast fire", "r,compound construct shock beast,arena construct fire", "x,imf d1", "x,imf d2", "x,rt", "r,csk freeze,csk x,compound fiend x undead,compound fiend freeze undead", "?,tv,tunnel undead x,graveyard", "l,scarlet sc,scarlet sc2,scarlet gg", "r,scarlet ch,scarlet ch2,scarlet ch3", "l,dd poison,dd x,tunnel fiend poison,compound fiend poison beast,tunnel fiend x", "r,darkcity ss,darkcity ss2", "x,darkcity pm", "r,tunnel fiend freeze,dd freeze,compound fiend freeze slime", "l,compound fiend poison undead,compound fiend x beast"]}

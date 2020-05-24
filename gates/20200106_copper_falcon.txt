@@ -1,27 +1,2 @@
-##GATEDATA
-##LEVELS
-l, den x, arena beast x
-rand, tunnel beast shock, den shock
-r, aurora jly, aurora jly2, aurora low, aurora sto
-rand, lichen fire
-r, lichen fire, tunnel slime fire
-tunnel gremlin fire
-l, tunnel undead freeze, csk freeze
-tunnel gremlin freeze, decon freeze
-compound fiend freeze undead, compound fiend freeze beast
-compound gremlin freeze undead, decon freeze
-l, darkcity ss, darkcity ss2
-darkcity pm
-dd x, compound fiend shock undead, dd shock
-dd fire, compound fiend x undead, tunnel fiend x, tunnel fiend fire
-l, tunnel slime shock, lichen shock
-tunnel slime freeze
-starlight ss, starlight ss2
-starlight ss3, starlight ss4
-r, fsc d1
-fsc d2
-fsc d3
-fsc d4
-vana
-##THEMES
-Beast, Fire, Freeze, Fiend, Slime, Fire
+##JSON
+{"levels": ["l, den x, arena beast x", "rand, tunnel beast shock, den shock", "r, aurora jly, aurora jly2, aurora low, aurora sto", "rand, lichen fire", "r, lichen fire, tunnel slime fire", "tunnel gremlin fire", "l, tunnel undead freeze, csk freeze", "tunnel gremlin freeze, decon freeze", "compound fiend freeze undead, compound fiend freeze beast", "compound gremlin freeze undead, decon freeze", "l, darkcity ss, darkcity ss2", "darkcity pm", "dd x, compound fiend shock undead, dd shock", "dd fire, compound fiend x undead, tunnel fiend x, tunnel fiend fire", "l, tunnel slime shock, lichen shock", "tunnel slime freeze", "starlight ss, starlight ss2", "starlight ss3, starlight ss4", "r, fsc d1", "fsc d2", "fsc d3", "fsc d4", "vana"], "themes": ["Beast", "Fire", "Freeze", "Fiend", "Slime", "Fire"]}

@@ -1,21 +1,2 @@
-l,decon shock
-arena slime shock, tunnel slime shock
-arena construct shock, tunnel construct shock
-rand, tunnel fiend x
-l, tunnel fiend freeze, tunnel fiend x, dd freeze, dd x
-tunnel fiend shock, dd shock
-r, compound gremlin x slime, compound gremlin x undead, arena gremlin poison, tunnel gremlin poison, decon poison
-decon x, tunnel gremlin x
-jv_pp
-jv_jt
-r, compound construct freeze beast
-s_imf
-r, tunnel slime fire, compound gremlin fire slime, lichen fire, compound fiend fire slime, compound construct fire slime
-rand_fire, tunnel fiend fire, compound fiend fire beast
-l, lichen fire, compound construct fire slime, tunnel slime fire
-den fire, tunnel beast fire
-rand_shock, csk x, csk shock
-r, tunnel undead fire, tunnel undead x, csk fire
-compound construct freeze undead, csk freeze, tunnel undead freeze
-sf_ch
-csk x, arena undead x, compound construct x undead
+##JSON
+{"levels": ["l,decon shock", "arena slime shock, tunnel slime shock", "arena construct shock, tunnel construct shock", "rand, tunnel fiend x", "l, tunnel fiend freeze, tunnel fiend x, dd freeze, dd x", "tunnel fiend shock, dd shock", "r, compound gremlin x slime, compound gremlin x undead, arena gremlin poison, tunnel gremlin poison, decon poison", "decon x, tunnel gremlin x", "jv_pp", "jv_jt", "r, compound construct freeze beast", "s_imf", "r, tunnel slime fire, compound gremlin fire slime, lichen fire, compound fiend fire slime, compound construct fire slime", "rand_fire, tunnel fiend fire, compound fiend fire beast", "l, lichen fire, compound construct fire slime, tunnel slime fire", "den fire, tunnel beast fire", "rand_shock, csk x, csk shock", "r, tunnel undead fire, tunnel undead x, csk fire", "compound construct freeze undead, csk freeze, tunnel undead freeze", "sf_ch", "csk x, arena undead x, compound construct x undead"]}

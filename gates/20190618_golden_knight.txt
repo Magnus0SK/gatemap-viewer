@@ -1,21 +1,2 @@
-r,tunnel beast fire, den fire
-tunnel gremlin fire, decon fire
-tunnel slime fire, lichen fire
-l,tunnel beast shock, den shock
-rand,tunnel undead shock
-r,csk shock, tunnel undead shock
-r,tunnel gremlin freeze, tunnel gremlin x, decon x
-compound gremlin x slime, tunnel gremlin poison, decon poison, decon x, compound gremlin x beast
-jv_ax
-jv_jt
-r,compound construct freeze beast, compound construct shock slime, tunnel construct freeze
-s_imf
-r,tunnel undead poison, csk poison
-cj_bb
-tunnel fiend poison, compound fiend poison undead
-tunnel beast poison, den poison
-l,ai
-den poison, den x
-arena beast x, tunnel beast shock
-compound fiend x beast, compound gremlin freeze beast
-tunnel beast poison,tunnel beast x
+##JSON
+{"levels": ["r,tunnel beast fire, den fire", "tunnel gremlin fire, decon fire", "tunnel slime fire, lichen fire", "l,tunnel beast shock, den shock", "rand,tunnel undead shock", "r,csk shock, tunnel undead shock", "r,tunnel gremlin freeze, tunnel gremlin x, decon x", "compound gremlin x slime, tunnel gremlin poison, decon poison, decon x, compound gremlin x beast", "jv_ax", "jv_jt", "r,compound construct freeze beast, compound construct shock slime, tunnel construct freeze", "s_imf", "r,tunnel undead poison, csk poison", "cj_bb", "tunnel fiend poison, compound fiend poison undead", "tunnel beast poison, den poison", "l,ai", "den poison, den x", "arena beast x, tunnel beast shock", "compound fiend x beast, compound gremlin freeze beast", "tunnel beast poison,tunnel beast x"]}

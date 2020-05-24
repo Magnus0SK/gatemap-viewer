@@ -1,23 +1,2 @@
-l,lichen freeze,tunnel slime freeze
-r,tunnel beast freeze,arena beast freeze,den freeze
-?,tv,decon freeze,tunnel gremlin freeze,graveyard
-x,gww d1
-x,gww d2
-x,snarb
-l,compound fiend freeze beast,tunnel beast x,den x
-?,tv,tunnel beast fire,graveyard
-r,compound gremlin x beast,compound gremlin freeze beast,tunnel beast freeze,den freeze
-l,den poison,tunnel beast poison
-?,tv,dd fire,dd x,graveyard
-r,darkcity ss,darkcity ss2
-x,darkcity pm
-r,tunnel fiend x,dd freeze,compound fiend x beast
-l,aurora low,aurora sto,aurora jly,aurora jly2
-r,compound fiend x beast,den x,tunnel beast x,compound gremlin x beast
-?,tv,tunnel beast freeze,den freeze,graveyard
-l,den x,compound construct x beast
-l,tunnel undead freeze,csk freeze,compound construct freeze undead
-x,tunnel undead freeze
-l,tunnel fiend freeze,compound fiend freeze slime,dd freeze
-r,tunnel construct freeze,decon freeze
-?,tv,tunnel beast freeze,den freeze,graveyard
+##JSON
+{"levels": ["l,lichen freeze,tunnel slime freeze", "r,tunnel beast freeze,arena beast freeze,den freeze", "?,tv,decon freeze,tunnel gremlin freeze,graveyard", "x,gww d1", "x,gww d2", "x,snarb", "l,compound fiend freeze beast,tunnel beast x,den x", "?,tv,tunnel beast fire,graveyard", "r,compound gremlin x beast,compound gremlin freeze beast,tunnel beast freeze,den freeze", "l,den poison,tunnel beast poison", "?,tv,dd fire,dd x,graveyard", "r,darkcity ss,darkcity ss2", "x,darkcity pm", "r,tunnel fiend x,dd freeze,compound fiend x beast", "l,aurora low,aurora sto,aurora jly,aurora jly2", "r,compound fiend x beast,den x,tunnel beast x,compound gremlin x beast", "?,tv,tunnel beast freeze,den freeze,graveyard", "l,den x,compound construct x beast", "l,tunnel undead freeze,csk freeze,compound construct freeze undead", "x,tunnel undead freeze", "l,tunnel fiend freeze,compound fiend freeze slime,dd freeze", "r,tunnel construct freeze,decon freeze", "?,tv,tunnel beast freeze,den freeze,graveyard"]}
