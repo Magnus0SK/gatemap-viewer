@@ -4,7 +4,7 @@ Go to <https://silverhawke.xyz/gatemap-viewer> to use.
 ## Acknowledgements
 The following files were taken from Spiral Knights and is copyright © Grey Havens, LLC.
 * All images in `page-icons/`, recolored for use
-* All images in 'theme-icons/`
+* All images in `theme-icons/`
 * `background.png`, edited for use
 * `border.png`
 * `hashmarks.png`
