@@ -37,10 +37,12 @@ function populate_gates(text) {
 	gates = JSON.parse(text);
 	current_gate_index = gates.length - 1;  // set to latest gate
 	fetch_gate_data();
-	// new gates are created at midnight Eastern Time, every two days
+	// new gates are created at 10pm Central Time, every two days
 	// i had to include this time zone library solely for this smh
 	let latest_gate = gates[current_gate_index];
-	next_gate_time = moment.tz(format_date(latest_gate[0]) + ' 00:00', 'America/New_York').add(2, 'days').valueOf();
+	// only adding one day because it's actually still yesterday compared to the date written
+	// and i can't be arsed to change the whole folder again
+	next_gate_time = moment.tz(format_date(latest_gate[0]) + ' 22:00', 'America/Chicago').add(1, 'days').valueOf();
 
 	let div = document.createElement('div');
 	div.setAttribute('class', 'entry');
