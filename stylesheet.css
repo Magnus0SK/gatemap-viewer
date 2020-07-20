@@ -353,6 +353,7 @@ a:hover {
     right: 0;
     bottom: 0;
     width: 290px;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
