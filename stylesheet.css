@@ -55,6 +55,7 @@ div {
     border: 0 solid var(--color-white);
     border-left-width: 5px;
     user-select: none;
+    margin-top: 19px;
 }
 .sidebar::-webkit-scrollbar {
     width: 10px;
@@ -154,6 +155,7 @@ div {
 .middle {
     width: 558px;
     position: relative;
+    margin-top: 19px;
 }
 .bgcontainer {
     width: 100%;
@@ -447,4 +449,16 @@ a:hover {
 }
 .warning-button:hover {
     color: var(--color-highlight-bg)
+}
+.fork-notice {
+    background-color: whitesmoke;
+    font-size: medium;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+}
+a:hover {
+    background-color: whitesmoke;
+    text-decoration: underline;
 }
