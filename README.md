@@ -1,5 +1,5 @@
 # gatemap-viewer
-Go to <https://silverhawke.xyz/gatemap-viewer> to use.
+Go to <https://lucasallegri.com/gatemap-viewer/?show_timer=1> to use.
 
 ## Acknowledgements
 The following files were taken from Spiral Knights and is copyright © Grey Havens, LLC.
