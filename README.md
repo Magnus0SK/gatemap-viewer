@@ -1,5 +1,5 @@
 # gatemap-viewer
-Go to <https://kritzmensch.github.io/gatemap-viewer/?show_timer=1> to use.
+Go to <https://magnus0sk.github.io/gatemap-viewer/?show_timer=1> to use.
 
 ## Acknowledgements
 The following files were taken from Spiral Knights and is copyright © Grey Havens, LLC.
